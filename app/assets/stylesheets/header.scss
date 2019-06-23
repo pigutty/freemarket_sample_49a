@@ -1,0 +1,47 @@
+.header{
+  height: 100px;
+  &__top{
+    margin: auto;
+    height: 40px;
+    width: 700px;
+    &__logo{
+      float: left;
+      line-height: 40px;
+    }
+    &__search-box{
+      float: right;
+      display: flex;
+      height: 100%;
+      &__input-box{
+        height: 100%;
+        display: inline;
+      }
+      &__submit-btn{
+        display: inline;
+      }
+    }
+  }
+  &__bottom{
+    &__search-menu{
+      float: left;
+      display: flex;
+      &__category{
+        list-style: none;
+        display: inline;
+      }
+      &__brand{
+        list-style: none;
+        display: inline;
+      }
+    }
+    &__user-menu{
+      list-style: none;
+      float: right;
+      display: flex;
+      %li{
+        display: inline;
+        padding: 0px 7px;
+      }
+    }
+  }
+}
