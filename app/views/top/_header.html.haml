@@ -1,17 +1,99 @@
 .header
-  .header__top
-    .header__top__logo merkari 
-    .header__top__search-box
-      %form
-        %input.header__top__search-box__input-box{type: "text", placeholder: "何かお探しですか？"}
-        %input.header__top__search-box__submit-btn{type: "submit", value: "Send"}
-  .header__bottom
-    %ul.header__bottom__search-menu
-      %li.header__bottom__search-menu__category カテゴリから探す
-      %li.header__bottom__search-menu__brand ブランドから探す
-    %ul.header__bottom__user-menu
-      %li.header__bottom__user-menu__good いいね一覧
-      %li.header__bottom__user-menu__notification お知らせ
-      %li.header__bottom__user-menu__to-do-list やることリスト
-      %li.header__bottom__user-menu__mypage マイページ
+  .header__wrapper
+    .header__wrapper__top
+      %img.header__wrapper__top__logo{src: "assets/Free_Sample_By_Wix.jpeg"} 
+      %form.header__wrapper__top__search-box
+        %input.header__wrapper__top__search-box__input-box{type: "text", placeholder: "何かお探しですか？"}
+        %i.fa.fa-search
+    .header__wrapper__bottom
+      %ul.header__wrapper__bottom__search-menu
+        %li.header__wrapper__bottom__search-menu__category
+          %h2.header__wrapper__bottom__search-menu__category__icon
+            %i.fa.fa-list
+            %span カテゴリから探す
+          %ul.header__wrapper__bottom__search-menu__category__wrapper
+            %li.header__wrapper__bottom__search-menu__category__wrapper__1 レディス
+            %li.header__wrapper__bottom__search-menu__category__wrapper__1 メンズ
+            %li.header__wrapper__bottom__search-menu__category__wrapper__1 ベビーキッズ
+            %ul.header__wrapper__bottom__search-menu__category__wrapper__wrapper
+              %li.header__wrapper__bottom__search-menu__category__wrapper__wrapper__1 トップス
+              %ul.header__wrapper__bottom__search-menu__category__wrapper__wrapper__wrapper
+                %li.header__wrapper__bottom__search-menu__category__wrapper__wrapper__wrapper__1 シャツ
+        %li.header__wrapper__bottom__search-menu__brand
+          %h2.header__wrapper__bottom__search-menu__brand__icon
+            %i.fa.fa-tag
+            %span ブランドから探す
+          %ul.header__wrapper__bottom__search-menu__brand__wrapper
+            %li.header__wrapper__bottom__search-menu__brand__wrapper__1
+              %a シャネル
+            %li.header__wrapper__bottom__search-menu__brand__wrapper__1
+              %a ナイキ
+            %li.header__wrapper__bottom__search-menu__brand__wrapper__1
+              %a ルイヴィトン
+            %li.header__wrapper__bottom__search-menu__brand__wrapper__1
+              %a シュプリーム
+            %li.header__wrapper__bottom__search-menu__brand__wrapper__1
+              %a  アディダス
+            %li.header__wrapper__bottom__search-menu__brand__wrapper__1
+              %a ブランド一覧 
+      %ul.header__wrapper__bottom__user-menu
+        %li.header__wrapper__bottom__user-menu__good
+          .header__wrapper__bottom__user-menu__good__icon
+            %i.fa.fa-heart
+            %span いいね一覧
+        %li.header__wrapper__bottom__user-menu__notification
+          .header__wrapper__bottom__user-menu__notification__icon
+            %i.fa.fa-bell
+            %span お知らせ
+          %ul.header__wrapper__bottom__user-menu__notification__wrapper
+            %li.header__wrapper__bottom__user-menu__notification__wrapper__content
+              %img{src:"//static.mercdn.net/images/mercari_profile.png"}
+              .header__wrapper__bottom__user-menu__notification__wrapper__content__box
+                .header__wrapper__bottom__user-menu__notification__wrapper__content__box__text 安心でかんたんに出品する方法をCHECKしてみよう！
+                .header__wrapper__bottom__user-menu__notification__wrapper__content__box__time
+                  %i.fa.fa-time
+                  %span 11時間前
+        %li.header__wrapper__bottom__user-menu__todolist
+          .header__wrapper__bottom__user-menu__todolist__icon
+            %i.fa.fa-check
+            %span やることリスト
+          %ul.header__wrapper__bottom__user-menu__todolist__content
+            %li.header__wrapper__bottom__user-menu__todolist__content__view  現在やることはありません
+        %li.header__wrapper__bottom__user-menu__mypage
+          .header__wrapper__bottom__user-menu__mypage__icon
+            %img{src: "//static.mercdn.net/images/member_photo_noimage_thumb.png"}
+            %span マイページ
+          .header__wrapper__bottom__user-menu__mypage__box
+            .header__wrapper__bottom__user-menu__mypage__box__status
+              %figure.header__wrapper__bottom__user-menu__mypage__box__status__user-icon
+                %div
+                  %img{src: "//static.mercdn.net/images/member_photo_noimage_thumb.png"}
+                %figucaption ユーザー名
+              %ul.header__wrapper__bottom__user-menu__mypage__box__status__reviewlist
+                %li
+                  %a 評価
+                %li
+                  %a 出品数
+              %ul.header__wrapper__bottom__user-menu__mypage__box__status__salespoint
+                %li
+                  %a
+                    .l-left 売上金
+                    .l-right 0円
+                %li
+                  %a
+                    .l-left ポイント
+                    .l-right 0
+            %ul.header__wrapper__bottom__user-menu__mypage__box__nav
+              %li
+                %a
+                  = "いいね!一覧"
+                  %i.fa.fa-arrow-right
+              %li
+                %a
+                  = "出品した商品-出品中"
+                  %i.fa.fa-arrow-right
+              %li
+                %a
+                  = "出品した商品-取引中"
+                  %i.fa.fa-arrow-right
 
