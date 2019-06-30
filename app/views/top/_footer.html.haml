@@ -1,22 +1,23 @@
     
 %aside.app-banner
-  .app-banner-pc
-    .app-banner-pc-inner
+  .app-banner__pc
+    .app-banner__pc__inner
       %h2 スマホでかんたんフリマアプリ
       %p 今すぐ無料ダウンロード！
 
-      .app-banner-icon.clearfix
-        %figure
+      .app-banner__pc__inner__icon.clearfix
+        %figure.merucari
           %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?1905591235", :width => "68"}/
         %ul.icon
           %li
             %a{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", :target => "_blank"}
-              %img{:alt => "", :height => "40", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?1905591235", :width => "133"}/
+              %img{:alt => "", :height => "40", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?1905591235", :width => "133",class: "appstore"}/
           %li
             %a{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
-              %img{:alt => "", :height => "40", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?1905591235", :width => "133"}/
-        %li.figure
-          %img{:alt => "", :height => "262.63", :src => "//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?1905591235"}/
+              %img{:alt => "", :height => "40", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?1905591235", :width => "133",class: "googleplay"}/
+      %li.figure
+        %img{:alt => "", :height => "262.63", :src => "//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?1905591235"}/
+
 
 %footer.global-footer
   %nav.clearfix
@@ -89,6 +90,7 @@
           日本
         %li
           United States
+
   .footer-bottom
     %a.footer-logo{:href => "https://www.mercari.com/jp/"}
       %img{:alt => "mercari", :height => "33", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?1905591235", :width => "124"}/
