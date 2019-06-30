@@ -37,19 +37,11 @@ Things you may want to cover:
 |family_furigana|string|null:false|
 |first_furigana|string|null:false|
 |birth_day|date|null:false|
-|telephon|string|null:false, unique:true|
-|postal_code|integer|null:false|
-|prefeture|string|null:false|
-|city|string|null:false|
-|block|string|null:false|
-|building|string|null:false|
-|sales_money|integer| |
-|points|integer| |
 
 
 ### Association
 - has_many :products
-- has_many :credit_cards
+- has_one :credit_card
 - has_many :likes
 - has_many :comments
 - has_many :contact_purchases
@@ -57,7 +49,32 @@ Things you may want to cover:
 - has_many :contact_reports
 - has_many :contacts
 - has_many :contact_withdrawals
+- has_one :phone_number_authorizations
+- has_one :delivary_address
 
+## phone_number_authorizationsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false,|
+|telephon|string|null:false, unique:true|
+
+### Association
+- belongs_to :user
+
+## delivary_addressテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null,false|
+|postal_code|integer|null:false|
+|prefeture|string|null:false|
+|city|string|null:false|
+|block|string|null:false|
+|building|string|null:false|
+
+### Association
+- belongs_to :user
 
 ## credit_cardsテーブル
 
