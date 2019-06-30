@@ -1,0 +1,148 @@
+html {
+  height: 100vh;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.app-banner {
+  background-image: url("/download_bg_pc.jpg");
+  background-position: center;
+  background-size: cover;
+  border-style: solid;
+  border-width: 0;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+
+
+
+  
+}
+
+
+
+.app-banner-pc {
+  height: 260px;
+  margin: 0 auto;
+  color: #fff;
+  background-size: cover;
+  display: block;
+  font-size: inherit;
+  line-height: inherit;
+  box-sizing: inherit;
+
+  .app-banner-pc-inner {
+    // background-image: url("/download_bg_pc.jpg");
+    // width: 1440px;
+      ul {
+        list-style: none;
+      }
+      .app-banner-icon.clearfix {
+        display:flex
+      }
+  }
+}
+
+.app-banner-pc {
+  
+  height: 260px;
+  margin: 0 auto;
+  color: #fff;
+  background-size: cover;
+}
+
+// メルカリのアイコン
+.app-banner-icon figure {
+  float: left;
+}
+
+
+
+
+.app-banner-icon a {
+  line-height: 68px;
+  // display:inline-block;
+}
+
+.app-banner-pc>figure img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.app-banner-icon {
+  margin: 20px 0 0;
+}
+
+.figure {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    height: 100%;
+}
+
+  h2 {
+    font-weight: bold;
+  }
+
+  nav {
+    width: 1020px;
+    margin: 0 auto;
+
+  }
+  .footer-head {
+    color: #fff;
+    font-size: 16px;
+  }
+  .download-app {
+    display: none;
+  }
+  .footer-cell{
+    float: left;
+    display: inline-block;
+    width: 23%;
+    margin: 0 2% 0 0;
+    vertical-align: top;
+
+    li {
+      margin: 16px 0 0;
+      &:first-child {
+        margin: 24px 0 0;
+      }
+    }
+  }
+  .footer-nav-lang {
+    a{
+      opacity: .3;
+      &.activate{
+          opacity: 1.0;
+      }
+    }
+  }
+
+  .global-footer {
+    width: 100%;
+    height: 65vh;
+    padding: 0 20px 10px 20px;
+    background: #212121;
+    color: #fff;
+    text-align: center;
+  
+    a {
+      display: block;
+      color: #fff;
+      list-style: none;
+    }
+  
+    ul {
+      list-style: none;
+    }
+  
+  }
