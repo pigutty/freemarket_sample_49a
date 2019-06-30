@@ -73,6 +73,10 @@
             li{
               display: none;
               width: 224px;
+              a{
+                padding: 0 16px;
+                line-height: 44px;
+              }
             }
             &__wrapper{
               position: absolute;
@@ -118,11 +122,11 @@
           }
           &__wrapper{
             position: absolute;
-            top: 44px;
             left: -34px;
             z-index: 1000;
             background: #fff;
             &__1{
+              display: none;
               width: 224px;
               cursor: pointer;
               a{
