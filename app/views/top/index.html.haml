@@ -1,7 +1,35 @@
-.wrapper
-  .header
-    = render 'header'
-  .content
-    = render 'content'
-  .footer
-    = render 'footer'
+.registration__container
+  %header.registration__header
+    %h1
+      %a{ href: "https://www.mercari.com/jp/" }
+        %img{ src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2921618501" , alt: "mercari"}/
+
+  %main.registration-main
+    .login__box
+      .login__box--account-blue
+        %p アカウントをお持ち方でない方はこちら
+        %a{ href: "https://www.mercari.com/jp/signup/" }
+
+      .login__box--social
+        %button#facebook-login.btn-default.btn-sns.btn-sns-facebook
+          %i.class__facebook Facebookでログイン
+        %button#google-login.btn-default.btn-sns.btn-sns-google Googleでログイン
+      %form{action: "https://www.mercari.com/jp/login/", method: "POST", novalidate: "novalidate"}
+
+    %section.registration-container
+      %h2.registration-head
+      .registration-inner
+        .regiration-content
+  %footer.registration-footer
+    %nav
+      %ul.clearfix
+        %li
+          %a{ href: "https://www.mercari.com/jp/" }プライバシーポリシー
+        %li
+          %a{ href: "https://www.mercari.com/jp/" }メルカリ利用規約
+        %li
+          %a{ href: "https://www.mercari.com/jp/" }特定商取引に関する表記
+    %a{ href: "https://www.mercari.com/jp/",class: "registration-logo"}
+      %img{ src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2921618501" , alt: "mercari"}/
+    %p
+      %small
