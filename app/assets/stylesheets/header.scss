@@ -71,6 +71,7 @@
             left: 0px;
             top: 44px;
             z-index: 1000;
+            background: #fff;
             &__1{
               display: none;
               width: 224px;
@@ -158,6 +159,7 @@
         }
       }
       &__user-menu{
+        height: 100%;
         position: absolute;
         display: flex;
         right: 0px;
@@ -220,6 +222,7 @@
             width: 320px;
             box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
             font-size: 14px;
+            background: #fff;
             &__content{
               padding: 16px;
               border-bottom: 1px solid #eee;
@@ -273,6 +276,8 @@
             }
           }
           &__content{
+            z-index: 100;
+            background: #fff;
             display: none;
             position: absolute;
             left: -60%;
