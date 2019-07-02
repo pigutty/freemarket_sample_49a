@@ -1,93 +1,93 @@
-.header
-  .header__wrapper
-    .header__wrapper__top
-      %img.header__wrapper__top__logo{src: "assets/mypage/logo.svg"} 
-      %form.header__wrapper__top__search-box
-        %input.header__wrapper__top__search-box__input-box{type: "text", placeholder: "何かお探しですか？"}
+.top_header
+  .top_header__wrapper
+    .header-top
+      %img.header-top__logo{src: "assets/mypage/logo.svg"} 
+      %form.header-yop__search-box
+        %input.header-top__search-box__input-box{type: "text", placeholder: "何かお探しですか？"}
         %i.fa.fa-search
-    .header__wrapper__bottom
-      %ul.header__wrapper__bottom__search-menu
-        %li.header__wrapper__bottom__search-menu__category
-          .header__wrapper__bottom__search-menu__category__icon
+    .header-bottom
+      %ul.header-bottom__search-menu
+        %li.header-bottom__search-menu__category
+          .header-bottom__search-menu__category__icon
             %i.fa.fa-list
             %span カテゴリーから探す
-          %ul.header__wrapper__bottom__search-menu__category__wrapper
-            %li.header__wrapper__bottom__search-menu__category__wrapper__1
+          %ul.header-bottom__search-menu__category__wrapper
+            %li.header-bottom__search-menu__category__wrapper__1
               %a レディス
-            %li.header__wrapper__bottom__search-menu__category__wrapper__1
+            %li.header-bottom__search-menu__category__wrapper__1
               %a メンズ
-            %li.header__wrapper__bottom__search-menu__category__wrapper__1
+            %li.header-bottom__search-menu__category__wrapper__1
               %a ベビーキッズ
-            %ul.header__wrapper__bottom__search-menu__category__wrapper__wrapper
-              %li.header__wrapper__bottom__search-menu__category__wrapper__wrapper__1
+            %ul.header-bottom__search-menu__category__wrapper__wrapper
+              %li.header-bottom__search-menu__category__wrapper__wrapper__1
                 %a トップス
-              %ul.header__wrapper__bottom__search-menu__category__wrapper__wrapper__wrapper
-                %li.header__wrapper__bottom__search-menu__category__wrapper__wrapper__wrapper__1
+              %ul.header-bottom__search-menu__category__wrapper__wrapper__wrapper
+                %li.header-bottom__search-menu__category__wrapper__wrapper__wrapper__1
                   %a シャツ
-        %li.header__wrapper__bottom__search-menu__brand
-          .header__wrapper__bottom__search-menu__brand__icon
+        %li.header-bottom__search-menu__brand
+          .header-bottom__search-menu__brand__icon
             %i.fa.fa-tag
             %span ブランドから探す
-          %ul.header__wrapper__bottom__search-menu__brand__wrapper
-            %li.header__wrapper__bottom__search-menu__brand__wrapper__1
+          %ul.header-bottom__search-menu__brand__wrapper
+            %li.header-bottom__search-menu__brand__wrapper__1
               %a シャネル
-            %li.header__wrapper__bottom__search-menu__brand__wrapper__1
+            %li.header-bottom__search-menu__brand__wrapper__1
               %a ナイキ
-            %li.header__wrapper__bottom__search-menu__brand__wrapper__1
+            %li.header-bottom__search-menu__brand__wrapper__1
               %a ルイヴィトン
-            %li.header__wrapper__bottom__search-menu__brand__wrapper__1
+            %li.header-bottom__search-menu__brand__wrapper__1
               %a シュプリーム
-            %li.header__wrapper__bottom__search-menu__brand__wrapper__1
+            %li.header-bottom__search-menu__brand__wrapper__1
               %a  アディダス
-            %li.header__wrapper__bottom__search-menu__brand__wrapper__1
+            %li.header-bottom__search-menu__brand__wrapper__1
               %a ブランド一覧 
-      %ul.header__wrapper__bottom__user-menu
-        %li.header__wrapper__bottom__user-menu__good
-          .header__wrapper__bottom__user-menu__good__icon
+      %ul.header-bottom__user-menu
+        %li.header-bottom__user-menu__good
+          .header-bottom__user-menu__good__icon
             = fa_icon 'heart-o', class: 'gray'
             %span いいね！一覧
-        %li.header__wrapper__bottom__user-menu__notification
-          .header__wrapper__bottom__user-menu__notification__icon
+        %li.header-bottom__user-menu__notification
+          .header-bottom__user-menu__notification__icon
             = fa_icon 'bell-o', class:'gray'
             %span お知らせ
-            .header__wrapper__bottom__user-menu__notification__icon__count 10
-          %ul.header__wrapper__bottom__user-menu__notification__wrapper
-            %li.header__wrapper__bottom__user-menu__notification__wrapper__content
+            .header-bottom__user-menu__notification__icon__count 10
+          %ul.header-bottom__user-menu__notification__wrapper
+            %li.header-bottom__user-menu__notification__wrapper__content
               %img{src:"//static.mercdn.net/images/mercari_profile.png"}
-              .header__wrapper__bottom__user-menu__notification__wrapper__content__box
-                .header__wrapper__bottom__user-menu__notification__wrapper__content__box__text 安心でかんたんに出品する方法をCHECKしてみよう！
-                .header__wrapper__bottom__user-menu__notification__wrapper__content__box__time
+              .header-bottom__user-menu__notification__wrapper__content__box
+                .header-bottom__user-menu__notification__wrapper__content__box__text 安心でかんたんに出品する方法をCHECKしてみよう！
+                .header-bottom__user-menu__notification__wrapper__content__box__time
                   = fa_icon 'clock-o', class:'gray'
                   %span 11時間前
-            %li.header__wrapper__bottom__user-menu__notification__wrapper__content
+            %li.header-bottom__user-menu__notification__wrapper__content
               %img{src:"//static.mercdn.net/images/mercari_profile.png"}
-              .header__wrapper__bottom__user-menu__notification__wrapper__content__box
-                .header__wrapper__bottom__user-menu__notification__wrapper__content__box__text 安心でかんたんに出品する方法をCHECKしてみよう！
-                .header__wrapper__bottom__user-menu__notification__wrapper__content__box__time
+              .header-bottom__user-menu__notification__wrapper__content__box
+                .header-bottom__user-menu__notification__wrapper__content__box__text 安心でかんたんに出品する方法をCHECKしてみよう！
+                .header-bottom__user-menu__notification__wrapper__content__box__time
                   = fa_icon 'clock-o', class:'gray'
                   %span 11時間前
-        %li.header__wrapper__bottom__user-menu__todolist
-          .header__wrapper__bottom__user-menu__todolist__icon
+        %li.header-bottom__user-menu__todolist
+          .header-bottom__user-menu__todolist__icon
             %i.fa.fa-check
             %span やることリスト
-          %ul.header__wrapper__bottom__user-menu__todolist__content
-            %li.header__wrapper__bottom__user-menu__todolist__content__view  現在やることはありません
-        %li.header__wrapper__bottom__user-menu__mypage
-          .header__wrapper__bottom__user-menu__mypage__icon
+          %ul.header-bottom__user-menu__todolist__content
+            %li.header-bottom__user-menu__todolist__content__view  現在やることはありません
+        %li.header-bottom__user-menu__mypage
+          .header-bottom__user-menu__mypage__icon
             %img{src: "//static.mercdn.net/images/member_photo_noimage_thumb.png"}
             %span マイページ
-          .header__wrapper__bottom__user-menu__mypage__box
-            .header__wrapper__bottom__user-menu__mypage__box__status
-              %figure.header__wrapper__bottom__user-menu__mypage__box__status__user-icon
+          .header-bottom__user-menu__mypage__box
+            .header-bottom__user-menu__mypage__box__status
+              %figure.header-bottom__user-menu__mypage__box__status__user-icon
                 %div
                   %img{src: "//static.mercdn.net/images/member_photo_noimage_thumb.png"}
                 %figucaption ユーザー名
-              %ul.header__wrapper__bottom__user-menu__mypage__box__status__reviewlist
+              %ul.header-bottom__user-menu__mypage__box__status__reviewlist
                 %li
                   %a.clearfix 評価:0
                 %li
                   %a 出品数:0
-              %ul.header__wrapper__bottom__user-menu__mypage__box__status__salespoint
+              %ul.header-bottom__user-menu__mypage__box__status__salespoint
                 %li
                   %a
                     .l-left 売上金
@@ -100,7 +100,7 @@
                     .l-right 
                       = "0"
                       %i.fa.fa-arrow-right
-            %ul.header__wrapper__bottom__user-menu__mypage__box__nav
+            %ul.header-bottom__user-menu__mypage__box__nav
               %li
                 %a
                   = "いいね!一覧"
