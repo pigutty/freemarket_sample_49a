@@ -1,8 +1,10 @@
 $(function() {
   $(".header-bottom__search-menu__category").hover(function(){
     $(".header-bottom__search-menu__category__wrapper__1").css('display','block');
+    $(".header-bottom__search-menu__category__icon").css('color','#0099e8')
     }, function(){
     $(".header-bottom__search-menu__category__wrapper__1").css('display','none');
+    $(".header-bottom__search-menu__category__icon").css('color','black');
   });
 
 
@@ -35,26 +37,46 @@ $(".header-bottom__search-menu__category__wrapper__wrapper__wrapper").hover(func
 
 $(".header-bottom__search-menu__brand").hover(function(){
   $(".header-bottom__search-menu__brand__wrapper__1").css('display','block');
+  $(".header-bottom__search-menu__brand__icon").css('color','#0099e8');
   }, function(){
   $(".header-bottom__search-menu__brand__wrapper__1").css('display','none');
+  $(".header-bottom__search-menu__brand__icon").css('color','black');
+});
+
+$(".header-bottom__user-menu__good").hover(function(){
+  $(".fa.fa-heart-o").css('color','#0099e8');
+  $(".header-bottom__user-menu__good__icon").css('color','#0099e8');
+  }, function(){
+  $(".header-bottom__user-menu__good__icon").css('color','black');
+  $(".fa.fa-heart-o").css('color','black');
 });
 
 $(".header-bottom__user-menu__notification").hover(function(){
   $(".header-bottom__user-menu__notification__wrapper").css('display','block');
+  $(".header-bottom__user-menu__notification__icon").css('color','#0099e8');
+  $(".fa.fa-bell-o").css('color','#0099e8');
   }, function(){
   $(".header-bottom__user-menu__notification__wrapper").css('display','none');
+  $(".header-bottom__user-menu__notification__icon").css('color','black');
+  $(".fa.fa-bell-o").css('color','#ccc');
 });
 
 $(".header-bottom__user-menu__todolist").hover(function(){
   $(".header-bottom__user-menu__todolist__content").css('display','block');
+  $(".header-bottom__user-menu__todolist__icon").css('color','#0099e8');
+  $(".fa.fa-check").css('color','#0099e8');
   }, function(){
   $(".header-bottom__user-menu__todolist__content").css('display','none');
+  $(".header-bottom__user-menu__todolist__icon").css('color','black');
+  $(".fa.fa-check").css('color','#ccc');
 });
 
 $(".header-bottom__user-menu__mypage").hover(function(){
   $(".header-bottom__user-menu__mypage__box").css('display','block');
+  $(".header-bottom__user-menu__mypage__icon").css('color','#0099e8');
   }, function(){
   $(".header-bottom__user-menu__mypage__box").css('display','none');
+  $(".header-bottom__user-menu__mypage__icon").css('color','black');
 });
 
 })
