@@ -1,7 +1,7 @@
 .top_header
   .top_header__wrapper
     .header-top
-      %img.header-top__logo{src: "assets/mypage/logo.svg"} 
+      = image_tag "logo.svg", class:"header-top__logo"
       %form.header-top__search-box
         %input.header-top__search-box__input-box{type: "text", placeholder: "何かお探しですか？"}
         %i.fa.fa-search
@@ -12,39 +12,28 @@
             %i.fa.fa-list
             %span カテゴリーから探す
           %ul.header-bottom__search-menu__category__wrapper
-            %li.header-bottom__search-menu__category__wrapper__1
-              %a レディス
-            %li.header-bottom__search-menu__category__wrapper__1
-              %a メンズ
-            %li.header-bottom__search-menu__category__wrapper__1
-              %a ベビーキッズ
+            = render partial:'header_category1',locals:{big_category:'レディス'}
+            = render partial:'header_category1',locals:{big_category:'メンズ'}
+            = render partial:'header_category1',locals:{big_category:'ベビーキッズ'}
             %ul.header-bottom__search-menu__category__wrapper__wrapper
-              %li.header-bottom__search-menu__category__wrapper__wrapper__1
-                %a トップス
+              = render partial:'header_category2', locals:{middle_category:'トップス'}
               %ul.header-bottom__search-menu__category__wrapper__wrapper__wrapper
-                %li.header-bottom__search-menu__category__wrapper__wrapper__wrapper__1
-                  %a シャツ
+                =render partial:'header_category3',locals:{small_category:'シャツ'}
         %li.header-bottom__search-menu__brand
           .header-bottom__search-menu__brand__icon
             %i.fa.fa-tag
             %span ブランドから探す
           %ul.header-bottom__search-menu__brand__wrapper
-            %li.header-bottom__search-menu__brand__wrapper__1
-              %a シャネル
-            %li.header-bottom__search-menu__brand__wrapper__1
-              %a ナイキ
-            %li.header-bottom__search-menu__brand__wrapper__1
-              %a ルイヴィトン
-            %li.header-bottom__search-menu__brand__wrapper__1
-              %a シュプリーム
-            %li.header-bottom__search-menu__brand__wrapper__1
-              %a  アディダス
-            %li.header-bottom__search-menu__brand__wrapper__1
-              %a ブランド一覧 
+            = render partial:'header_brand_item', locals:{brand:'シャネル'}
+            = render partial:'header_brand_item', locals:{brand:'ナイキ'}
+            = render partial:'header_brand_item', locals:{brand:'ルイヴィトン'}
+            = render partial:'header_brand_item', locals:{brand:'シュープリーム'}
+            = render partial:'header_brand_item', locals:{brand:'アディダス'}
+            = render partial:'header_brand_item', locals:{brand:'ブランド一覧'}
       %ul.header-bottom__user-menu
         %li.header-bottom__user-menu__good
           .header-bottom__user-menu__good__icon
-            = fa_icon 'heart-o', class: 'gray'
+            = fa_icon 'heart-o'
             %span いいね！一覧
         %li.header-bottom__user-menu__notification
           .header-bottom__user-menu__notification__icon
@@ -52,20 +41,8 @@
             %span お知らせ
             .header-bottom__user-menu__notification__icon__count 10
           %ul.header-bottom__user-menu__notification__wrapper
-            %li.header-bottom__user-menu__notification__wrapper__content
-              %img{src:"//static.mercdn.net/images/mercari_profile.png"}
-              .header-bottom__user-menu__notification__wrapper__content__box
-                .header-bottom__user-menu__notification__wrapper__content__box__text 安心でかんたんに出品する方法をCHECKしてみよう！
-                .header-bottom__user-menu__notification__wrapper__content__box__time
-                  = fa_icon 'clock-o', class:'gray'
-                  %span 11時間前
-            %li.header-bottom__user-menu__notification__wrapper__content
-              %img{src:"//static.mercdn.net/images/mercari_profile.png"}
-              .header-bottom__user-menu__notification__wrapper__content__box
-                .header-bottom__user-menu__notification__wrapper__content__box__text 安心でかんたんに出品する方法をCHECKしてみよう！
-                .header-bottom__user-menu__notification__wrapper__content__box__time
-                  = fa_icon 'clock-o', class:'gray'
-                  %span 11時間前
+            = render partial:'header_notification', locals:{header_notification:"安心でかんたんに出品する方法をCHECKしてみよう！",notification_time:"11時間前"}
+            = render partial:'header_notification', locals:{header_notification:"安心でかんたんに出品する方法をCHECKしてみよう！",notification_time:"11時間前"}
         %li.header-bottom__user-menu__todolist
           .header-bottom__user-menu__todolist__icon
             %i.fa.fa-check
@@ -74,56 +51,36 @@
             %li.header-bottom__user-menu__todolist__content__view  現在やることはありません
         %li.header-bottom__user-menu__mypage
           .header-bottom__user-menu__mypage__icon
-            %img{src: "//static.mercdn.net/images/member_photo_noimage_thumb.png"}
+            =image_tag "member_photo_noimage_thumb.png"
             %span マイページ
           .header-bottom__user-menu__mypage__box
             .header-bottom__user-menu__mypage__box__status
               %figure.header-bottom__user-menu__mypage__box__status__user-icon
                 %div
-                  %img{src: "//static.mercdn.net/images/member_photo_noimage_thumb.png"}
+                  = image_tag "member_photo_noimage_thumb.png"
                 %figucaption ユーザー名
               %ul.header-bottom__user-menu__mypage__box__status__reviewlist
-                %li
-                  %a.clearfix 評価:0
-                %li
-                  %a 出品数:0
+                %li.user_status
+                  = link_to "評価:0", "/"
+                %li.user_status
+                  = link_to "出品数:0", "/" 
               %ul.header-bottom__user-menu__mypage__box__status__salespoint
-                %li
+                %li.user_status
                   %a
                     .l-left 売上金
                     .l-right 
                       = "0"
                       %i.fa.fa-arrow-right
-                %li
+                %li.user_status
                   %a
                     .l-left ポイント
                     .l-right 
                       = "0"
                       %i.fa.fa-arrow-right
             %ul.header-bottom__user-menu__mypage__box__nav
-              %li
-                %a
-                  = "いいね!一覧"
-                  %i.fa.fa-arrow-right
-              %li
-                %a
-                  = "出品した商品-出品中"
-                  %i.fa.fa-arrow-right
-              %li
-                %a
-                  = "出品した商品-取引中"
-                  %i.fa.fa-arrow-right
-              %li
-                %a
-                  = "出品した商品-売却済"
-                  %i.fa.fa-arrow-right
-              %li
-                %a
-                  = "購入した商品-取引中"
-                  %i.fa.fa-arrow-right
-              %li
-                %a
-                  = "購入した商品-過去の取引"
-                  %i.fa.fa-arrow-right
-                
-
+              = render partial:'header_usermenu_card', locals:{card:"いいね一覧"}
+              = render partial:'header_usermenu_card', locals:{card:"出品した商品-出品中"}
+              = render partial:'header_usermenu_card', locals:{card:"出品した商品-取引中"}
+              = render partial:'header_usermenu_card', locals:{card:"出品した商品-売却済"}
+              = render partial:'header_usermenu_card', locals:{card:"購入した商品-取引中"}
+              = render partial:'header_usermenu_card', locals:{card:"出品した商品-過去の取引"}
