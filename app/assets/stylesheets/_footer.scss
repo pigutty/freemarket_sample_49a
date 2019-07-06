@@ -48,10 +48,8 @@ body {
           }
           p {
             font-size: 35px;
-            margin: 0 0 0;
-            
+            margin: 0 0 0;          
           }
-
           &__icon.clearfix {
             float: left;
             line-height: 68px;
@@ -83,13 +81,9 @@ body {
               margin-left: 20px;
             }
           }
-            
-              
-                
-          }
+        }
     }
   }
-
 .figure {
   position: absolute;
   top: 0;
@@ -97,9 +91,70 @@ body {
   bottom: 0;
   width: 300px;
   height: 100%;
-  
 }
 
+
+.global-footer {
+  width: 100%;
+  height: 120vh;
+  background: #212121;
+  color: #fff;
+  text-align: center;
+  line-height: 1.5em;
+  
+  .footer-cell{
+    float: left;
+    display: inline-block;
+    font-size: 12px;
+    width: 20%;
+    margin: 18px 0 0 0;
+    vertical-align: top;
+    padding: 0 20px 0 0;
+    white-space: nowrap;
+    text-align: left;
+
+      
+    .footer-head {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 100;
+    }
+  
+    .footer-social-link {
+      display:block;
+      
+      width:20px;
+      height:20px;
+      font-size: 30px;
+      i {
+        margin: 16px 18px 0 0;
+      }
+    }
+  
+    .footer-cell.full-width {
+      float: left;
+      display: inline-block;
+      font-size: 12px;
+      width: 20%;
+      margin: 18px 0 0 0;
+      vertical-align: top;
+      padding: 0 20px 0 0;
+      white-space: nowrap;
+    }
+  // a {
+  //   display: block;
+  //   color: #fff;
+  //   list-style: none;
+  // }
+
+  ul {
+    list-style: none;
+    font-size: 12px;
+    text-align: left
+  
+  }
+
+}
 
 
   nav {
@@ -107,27 +162,19 @@ body {
     margin: 0 auto;
 
   }
-  .footer-head {
-    color: #fff;
-    font-size: 16px;
-  }
-  .download-app {
-    display: none;
-  }
-  .footer-cell{
-    float: left;
-    display: inline-block;
-    width: 23%;
-    margin: 0 2% 0 0;
-    vertical-align: top;
+
+  
 
     li {
-      margin: 16px 0 0;
+      margin: 14px 0;
       &:first-child {
-        margin: 24px 0 0;
+      margin: 24px 0 0;
+      text-align: left;
       }
     }
   }
+
+
   .footer-nav-lang {
     a{
       opacity: .3;
@@ -135,23 +182,4 @@ body {
           opacity: 1.0;
       }
     }
-  }
-
-  .global-footer {
-    width: 100%;
-    height: 120vh;
-    background: #212121;
-    color: #fff;
-    text-align: center;
-  
-    a {
-      display: block;
-      color: #fff;
-      list-style: none;
-    }
-  
-    ul {
-      list-style: none;
-    }
-  
   }
