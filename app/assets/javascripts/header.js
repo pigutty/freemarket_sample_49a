@@ -7,9 +7,32 @@ $(function() {
     $(".header-bottom__search-menu__category__icon").css('color','black');
   });
 
+  $(".header-bottom__search-menu__category__wrapper__1").hover(function(){
+    $(this).css('background-color','red');
+    $(this.children).css('color','white')
+    }, function(){
+    $(this).css('background-color','white');
+    $(this.children).css('color','black');
+  });
 
+  $(".header-bottom__search-menu__brand__wrapper__1").hover(function(){
+    $(this).css('background-color','red');
+    $(this.children).css('color','white')
+    }, function(){
+    $(this).css('background-color','white');
+    $(this.children).css('color','black');
+  });
 
-
+  $(".header-bottom__search-menu__category__wrapper__wrapper__1").hover(function(){
+    $(this).css('background-color','#ccc');
+    $(".header-bottom__search-menu__category__wrapper__wrapper__wrapper__1").hover(function(){
+      $(this).css('background-color','#ccc');
+      }, function(){
+      $(this).css('background-color','white');
+    });
+    }, function(){
+    $(this).css('background-color','white');
+  });
 
 
   $(".header-bottom__search-menu__category__wrapper").hover(function(){
@@ -48,7 +71,7 @@ $(".header-bottom__user-menu__good").hover(function(){
   $(".header-bottom__user-menu__good__icon").css('color','#0099e8');
   }, function(){
   $(".header-bottom__user-menu__good__icon").css('color','black');
-  $(".fa.fa-heart-o").css('color','black');
+  $(".fa.fa-heart-o").css('color','#ccc');
 });
 
 $(".header-bottom__user-menu__notification").hover(function(){
@@ -59,6 +82,12 @@ $(".header-bottom__user-menu__notification").hover(function(){
   $(".header-bottom__user-menu__notification__wrapper").css('display','none');
   $(".header-bottom__user-menu__notification__icon").css('color','black');
   $(".fa.fa-bell-o").css('color','#ccc');
+});
+
+$(".header-bottom__user-menu__notification__wrapper__content").hover(function(){
+  $(this).css('background-color','#ccc');
+  }, function(){
+  $(this).css('background-color','white');
 });
 
 $(".header-bottom__user-menu__todolist").hover(function(){
@@ -77,6 +106,18 @@ $(".header-bottom__user-menu__mypage").hover(function(){
   }, function(){
   $(".header-bottom__user-menu__mypage__box").css('display','none');
   $(".header-bottom__user-menu__mypage__icon").css('color','black');
+});
+
+$(".user_menu_card").hover(function(){
+  $(this).css('background-color','#ccc');
+  }, function(){
+  $(this).css('background-color','white');
+});
+
+$(".user_status").hover(function(){
+  $(this.children).css('color','gray');
+  }, function(){
+  $(this.children).css('color','black');
 });
 
 })
