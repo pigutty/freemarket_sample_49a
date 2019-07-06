@@ -390,18 +390,21 @@
             }
             &__nav{
               li{
-                height: 48px;
+                height: 50px;
                 border-top: 1px solid #eee;
-                a{
+                .user_menu_card{
+                  cursor: pointer;
+                  display: flex;
                   position: relative;
-                  display: block;
-                  padding: 16px;
-                  color: #333;
+                  a{
+                    padding: 16px;
+                    color: #333;
+                  }
                   i{
-                    position: absolute;
-                    top: auto;
-                    right: 16px;
-                    color: #ccc;
+                      position: absolute;
+                      top: 18px;
+                      right: 16px;
+                      color: #ccc;
                   }
                 }
               }
