@@ -35,12 +35,9 @@ body {
           left: 0;
           top: 50%;
           left: 16px;
-          
           text-shadow: 0 0 5px rgba(0,0,0,0.4);
           padding: 0;
-          // position: absolute;
-          // -webkit-transform: translate(0, -50%);
-          // transform: translate(0, -50%);
+      
           h2 {
             font-size: 24px;
             line-height: 1.4;
@@ -48,34 +45,42 @@ body {
           }
           p {
             font-size: 35px;
-            margin: 0 0 0;          
+            margin: 0 0 0;
           }
           &__icon.clearfix {
-            float: left;
+            width: 420px;
+            height: 68px;
+            text-align: left;
             line-height: 68px;
-            display: flex;
-            display:inline-block;
+            display: inline-block;
             display: flex;
             margin: 20px 0 0;
-            // position: absolute;
-            // top: 110px;
+            overflow: hidden;
+            
             .merucari {
-            float: left;
-            margin: 0;
+              margin: 0;
+              img {
+                // float: left;
+                // text-align: left;
+                margin: 0;
+                width: 67px;
+              }
             }
+
             .icon {
-              margin: 15px 0 0 24px;
-              padding: 0;
+              margin: 0;
+              img {
+                margin: 15px 0 0 24px;
+                padding: 0;
+                // text-align: left;
+              }
+
             }
+
             ul {
               list-style: none;
               display: flex;
-              // position: absolute;
-              // right: 300px;
               margin: 30px;
-            }
-            .appstore {
-              // margin-right: 20px;
             }
             .googleplay {
               margin-left: 20px;
@@ -85,12 +90,13 @@ body {
     }
   }
 .figure {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 300px;
-  height: 100%;
+  img {position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    height: 100%;
+  }
 }
 
 
@@ -100,13 +106,14 @@ body {
   text-align: center;
   line-height: 1.5em;
   padding: 0 20px 10px 20px;
+  // height: 100%;
+
   
 
   .info {
     width: 1020px;
     margin: 0 auto;
     overflow: hidden;
-  
 
     .footer-cell{
       float: left;
@@ -116,8 +123,7 @@ body {
       white-space: nowrap;
       text-align: left;
       margin: 18px 0 0 0;
-      // padding: 0 40px 0 0;
-        
+
       .footer-head {
         color: #fff;
         font-size: 16px;
@@ -126,7 +132,6 @@ body {
     
       .footer-social-link {
         display:block;
-        
         width:20px;
         height:40px;
         font-size: 30px;
@@ -135,7 +140,6 @@ body {
         }
       }
 
-      
         .inner-footer {
           // float: left;
           display: flex;
@@ -162,7 +166,6 @@ body {
           }
         }
     }
-    
 }
 
   .footer-nav-lang {

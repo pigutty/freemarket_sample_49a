@@ -6,16 +6,18 @@
 
       .app-banner__pc__inner__icon.clearfix
         %figure.merucari
-          %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?1905591235", :width => "68"}/
+          = image_tag("custom-banner-icon.png")
+          
         %ul.icon
           %li
-            %a{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", :target => "_blank"}
-              %img{:alt => "", :height => "40", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?1905591235", :width => "133",class: "appstore"}/
+            = image_tag("app-store.svg")
           %li
-            %a{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
+            = image_tag("google-play.svg")
+            -# %a{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
               %img{:alt => "", :height => "40", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?1905591235", :width => "133",class: "googleplay"}/
       %li.figure
-        %img{:alt => "", :height => "262.63", :src => "//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?1905591235"}/
+        = image_tag("download_content_pc.png")
+        -# %img{:alt => "", :height => "262.63", :src => "//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?1905591235"}/
 
 
 %footer.global-footer
