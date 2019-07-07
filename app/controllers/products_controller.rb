@@ -3,6 +3,6 @@ class ProductsController < ApplicationController
   def show
   end
 
-  def post
+  def new
   end
 end
