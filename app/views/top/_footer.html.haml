@@ -6,15 +6,15 @@
 
       .app-banner__pc__inner__icon.clearfix
         %figure.merucari
-          = image_tag("custom-banner-icon.png")
-          
+          = link_to image_tag('custom-banner-icon.png',:alt => "/")
+
         %ul.icon
           %li
-            = image_tag("app-store.svg")
+            = link_to image_tag('app-store.svg',:alt => "/")
           %li
-            = image_tag("google-play.svg")
+            = link_to image_tag('google-play.svg',:alt => "/")
       %li.figure
-        = image_tag("download_content_pc.png")
+        = link_to image_tag('download_content_pc.png',:alt => "/")
 
 %footer.global-footer
   %nav.info
@@ -90,9 +90,7 @@
           United States
 
   .footer-bottom
-    = image_tag("logo-white.svg")
+    = link_to image_tag('logo-white.svg',:alt => "/")
 
-    -# %a.footer-logo{:href => "https://www.mercari.com/jp/"}
-      -# %img{:alt => "mercari", :height => "33", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?1905591235", :width => "124"}/
     %span.footer-copyright
       %small © 2019 Mercari
