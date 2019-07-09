@@ -1,13 +1,63 @@
 .listing
+
   .listing-header
-    %h1.header-logo
+    .listing-header__logo
       =image_tag 'logo.svg'
-  .listing-main
-    .listing-form
+  
+  .listing-content
+    .listing__main
+      %h1.listing__main__header
+        商品の情報を入力
+
+      .listing__main__form
+        .listing__main__form__upload
+          %label.listing__main__form__upload__title
+            出品画像
+          %span.listing__main__form__upload__require
+            必須
+          %p.listing__main__form__upload__comment
+            最大10枚までアップロードできます
+          .listing__main__form__upload__box
+            .listing__main__form__upload__box__comment
+              ドラッグアンドドロップ
+              %br
+              またはクリックしてファイルをアップロード
+
+        .listing__main__form__product
+          .form-group
+            %label.product-name
+              商品名
+            %span.require
+              必須
+            %input.listing-input
+          .form-group  
+            %label.listing-comment
+              商品の説明
+            %span.require
+              必須
+            %input.listing-input
+        
+        .listing__main__form__detail
+          %h2.listing__main__form__detail__title
+            商品の詳細
+          .listing__main__form__detail__box
+            .listing__main__form__detail__box__form-group
+              %label.listing__main__form__detail__box__form-group__product-name
+                カテゴリー
+              %span.listing__main__form__detail__box__form-group__require
+                必須
+              %input.listing__main__form__detail__box__form-group__category-select
+            .listing__main__form__detail__box__form-group
+              %label.listing__main__form__detail__box__form-group__product-name
+                商品の状態
+              %span.listing__main__form__detail__box__form-group__require
+                必須
+              %input.listing__main__form__detail__box__form-group__category-select
+
+
 
 
 
   .listing-footter
-
 
 
