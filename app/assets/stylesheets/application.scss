@@ -1,7 +1,9 @@
+@import "./header";
 @import "footer";
 @import "reset";
 @import "font-awesome";
 @import "./top/_content";
 @import "slick";
+@import "mixin";
 @import "./products/products";
 @import "./users/index"
