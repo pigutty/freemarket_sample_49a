@@ -1,216 +1,96 @@
-+html {
-  height: 100vh;
-}
+%aside.app-banner
+  .app-banner__pc
+    .app-banner__pc__inner
+      %h2 スマホでかんたんフリマアプリ
+      %p 今すぐ無料ダウンロード！
 
-body {
-  height: 100%;
-  margin: 0;
-}
+      .app-banner__pc__inner__icon.clearfix
+        %figure.merucari
+          = link_to image_tag('custom-banner-icon.png',:alt => "/")
 
-.wrapper {
-  height: 100%;
-  width: 100%;
-}
+        %ul.icon
+          %li
+            = link_to image_tag('app-store.svg',:alt => "/")
+          %li
+            = link_to image_tag('google-play.svg',:alt => "/")
+      %li.figure
+        = link_to image_tag('download_content_pc.png',:alt => "/")
 
-.app-banner {
-  background-image: url("/download_bg_pc.jpg");
-  background-position: center;
-  background-size: cover;
-  border-style: solid;
-  border-width: 0;
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-    &__pc {
-      height: 260px;
-      margin: 0 auto;
-      color: #fff;
-      display: flex;
-      font-size: inherit;
-      line-height: inherit;
-      box-sizing: inherit;
-      position: relative;
-      width: 750px;
-      list-style: none;
-      margin: 0 auto;
-        &__inner {
-          left: 0;
-          top: 50%;
-          left: 16px;
-          text-shadow: 0 0 5px rgba(0,0,0,0.4);
-          padding: 0;
-      
-          h2 {
-            font-size: 24px;
-            line-height: 1.4;
-            margin: 50px 0 0 0;
-          }
-          p {
-            font-size: 35px;
-            margin: 0 0 0;
-          }
-          &__icon.clearfix {
-            width: 420px;
-            height: 68px;
-            text-align: left;
-            line-height: 68px;
-            display: inline-block;
-            display: flex;
-            margin: 20px 0 0;
-            overflow: hidden;
-            
-            .merucari {
-              margin: 0;
-              img {
-                // float: left;
-                // text-align: left;
-                margin: 0;
-                width: 67px;
-              }
-            }
+%footer.global-footer
+  %nav.info
+    .footer-cell
+      %h2.footer-head メルカリについて
+      %ul
+        %li
+          会社概要（運営会社）
+        %li
+          採用情報
+        %li
+          プレスリリース
+        %li
+          公式ブログ
+        %li
+          メルカリロゴ利用ガイドライン
+        %li.footer-social-link
+          %i.fab.fa-twitter
+          %i.fab.fa-facebook-square
 
-            .icon {
-              margin: 0;
-              img {
-                margin: 15px 0 0 24px;
-                padding: 0;
-                // text-align: left;
-              }
+    .footer-cell
+      %h2.footer-head ヘルプ＆ガイド
+      %ul
+        %li
+          メルカリガイド
+        %li
+          らくらくメルカリ便
+        %li
+          ゆうゆうメルカリ便
+        %li
+          大型メルカリ便
+        %li
+          車体取引ガイド
+        %li
+          メルカリあんしん・あんぜん宣言！
+        %li
+          偽ブランド品撲滅への取り組み
+        %li
+          メルカリボックス
+    .footer-cell.full-width
+      %h2.footer-head プライバシーと利用規約
+      .inner-footer
+        .inner-footer-cell
+          %ul
+            %li
+              プライバシーポリシー
+            %li
+              メルカリ利用規約
+            %li
+              あんしんスマホサポート制度に関
+              %br する利用特約
+            %li
+              コンプライアンスポリシー
 
-            }
+        .inner-footer-cell
+          %ul
+            %li
+              個人データの安全管理に係る基本方針
+            %li
+              特定商取引に関する表記
+            %li
+              資金決済法に基づく表示
+            %li
+              法令順守と犯罪抑止のために
+            %li
+              返品・返金ポリシー
+    .footer-cell.footer-nav-lang
+      %h2.footer-head 国
+      %ul
+        %li
+          日本
+        %li
+          United States
 
-            ul {
-              list-style: none;
-              display: flex;
-              margin: 30px;
-            }
-            .googleplay {
-              margin-left: 20px;
-            }
-          }
-        }
-    }
-  }
-.figure {
-  img {position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 300px;
-    height: 100%;
-  }
-}
+  .footer-bottom
+    = link_to image_tag('logo-white.svg',:alt => "/")
 
-.global-footer {
-  background: #212121;
-  color: #fff;
-  text-align: center;
-  line-height: 1.5em;
-  padding: 0 20px 10px 20px;
-
-  .info {
-    width: 1020px;
-    margin: 0 auto;
-    overflow: hidden;
-
-    .footer-cell{
-      float: left;
-      display: inline-block;
-      font-size: 12px;
-      vertical-align: top;
-      white-space: nowrap;
-      text-align: left;
-      margin: 18px 0 0 0;
-
-      .footer-head {
-        color: #fff;
-        font-size: 16px;
-        font-weight: 100;
-      }
-    
-      .footer-social-link {
-        display:block;
-        width:20px;
-        height:40px;
-        font-size: 30px;
-        i {
-          margin: 16px 18px 0 0;
-        }
-      }
-
-        .inner-footer {
-          // float: left;
-          display: flex;
-          font-size: 12px;
-          width: 20%;
-          vertical-align: top;
-          padding: 0 20px 0 0;
-          white-space: nowrap;
-        }
-
-      ul {
-        list-style: none;
-        font-size: 12px;
-        text-align: left;
-        overflow: hidden;
-      }
-    }
-
-        li {
-          margin: 14px 0;
-          &:first-child {
-          margin: 24px 0 0;
-          text-align: left;
-          }
-        }
-    }
-}
-
-  .footer-nav-lang {
-    a{
-      opacity: .3;
-      &.activate{
-          opacity: 1.0;
-      }
-    }
-  }
-  .footer-cell.full-width {
-    padding: 0 40px 0 0;
-  }
-
-
-
-  .footer-bottom {
-    margin: 30px auto 20px;
-    width: 1020px;
-    height: 33px;
-    clear: both;
-    text-align: left;
-
-    .footer-copyright {
-      width: 745px;
-      height: 14px;
-      margin: 8px 0 0;
-      display: inline-block;
-      text-align: center;
-      font-size: 11px;
-      vertical-align: sub;
-    }
-  }
-
-
-.footer-cell:nth-child(1) {
-      width: 20%;
-      padding: 0 20px 0 0;
-    }
-
-.footer-cell:nth-child(2) {
-  width: 20%;
-  padding: 0 40px 0 0;
-}
-
-.inner-footer-cell:nth-child(1) {
-  padding: 0 10px 0 0;
-}
-
-.inner-footer-cell:nth-child(2) {
-  padding: 0 0 0 10px;
-}
+    %span.footer-copyright
+      %small © 2019 Mercari
