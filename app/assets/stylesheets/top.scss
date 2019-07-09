@@ -1,3 +1,71 @@
 // Place all the styles related to the top controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the top controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.global-footer {
+  width: 100%;
+  padding: 0 20px 10px 20px;
+  background: #212121;
+  color: #fff;
+  text-align: center;
+
+  a {
+    display: block;
+    color: #fff;
+    list-style: none;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+}
+
+.app-banner-pc-inner {
+  background-image: url("/download_bg_pc.jpg");
+  ul {
+    list-style: none;
+  }
+}
+
+  h2 {
+    font-weight: bold;
+  }
+
+  nav {
+    width: 1020px;
+    margin: 0 auto;
+
+  }
+  .footer-head {
+    color: #fff;
+    font-size: 16px;
+  }
+  .download-app {
+    display: none;
+  }
+  .footer-cell{
+    float: left;
+    display: inline-block;
+    width: 23%;
+    margin: 0 2% 0 0;
+    vertical-align: top;
+
+    li {
+      margin: 16px 0 0;
+      &:first-child {
+        margin: 24px 0 0;
+      }
+    }
+  }
+  .footer-nav-lang {
+    a{
+      opacity: .3;
+      &.activate{
+          opacity: 1.0;
+      }
+    }
+  }
