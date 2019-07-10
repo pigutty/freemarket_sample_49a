@@ -108,7 +108,7 @@
           font-size: 14px;
         }
         &__box{
-          float: right;
+          display: flex;
           width: 400px;
           margin: 0;
           &__form-group{
@@ -145,7 +145,6 @@
   }
 }
 .listing-footer{
-  width: 456px;
   height: 220px;
   margin: 0 auto;
   background-color: #f5f5f5;
