@@ -1,4 +1,36 @@
 .mypage__main
   .mypage__main__usericon
+    %a
+      =image_tag "member_photo_noimage_thumb.png"
+      %h2.mypage__username
+        = "username"
+      %ul.usericon__evaluation
+        %li.usericon__evaluation__value
+          %h3 評価 :0
+        %li.usericon__evaluation__number
+          %h3 出品数 :0
   .mypage__main__information
+    %ul.mypage__main__information__tab
+      %li.mypage__main__information__tab__title
+        = link_to 'お知らせ', "/users"
+      %li.mypage__main__information__tab__title
+        = link_to 'やることリスト', "/users"
+    %ul.mypage__main__information__content
+      = render 'mypage__notification-list'
+      = render 'mypage__notification-list'
+      = render 'mypage__notification-list'
+      %li.notification__link
+        = link_to '一覧を見る', "/"
   .mypage__main__tradehistory
+    .mypage__main__tradehistory__head 購入した商品
+    .mypage__main__tradehistory__bottom
+      %ul.mypage__main__tradehistory__bottom__tab
+        %li.mypage__main__tradehistory__bottom__tab__name
+          =link_to '取引中','/users'
+        %li.mypage__main__tradehistory__bottom__tab__name
+          =link_to '過去の取引', '/users'
+      .mypage__main__tradehistory__bottom__content
+        %ul.mypage__main__tradehistory__bottom__content__now
+          %li.mypage__main__tradehistory__bottom__content__now__list 現在取引中の商品はありません
+
+
