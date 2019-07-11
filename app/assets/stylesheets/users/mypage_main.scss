@@ -39,12 +39,21 @@
       &__title{
         height: 72px; 
         width: 50%;
-        a{
+        a.inactive{
           font-weight: bold;
           font-size: 16px;
           display: block;
           line-height: 72px;
           text-align: center;
+          background-color: #eee;
+        }
+        a.active{
+          font-weight: bold;
+          font-size: 16px;
+          display: block;
+          line-height: 72px;
+          text-align: center;
+          border-top: 2px solid #ea352d;
           background-color: #fff;
         }
       }
@@ -119,7 +128,18 @@
         display: flex;
         &__name{
           width: 50%;
-          a{
+          background-color: #eee;
+          .active{
+            border-top: 2px solid #ea352d;
+            background-color: #fff;
+            text-align: center;
+            display: block;
+            line-height: 72px;
+            font-size: 16px;
+            font-weight: bold;
+          }
+          .inactive{
+            background-color: #eee;
             text-align: center;
             display: block;
             line-height: 72px;
