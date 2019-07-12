@@ -39,26 +39,16 @@
       &__title{
         height: 72px; 
         width: 50%;
-        a.inactive{
-          font-weight: bold;
-          font-size: 16px;
-          display: block;
-          line-height: 72px;
-          text-align: center;
-          background-color: #eee;
-        }
-        a.active{
-          font-weight: bold;
-          font-size: 16px;
-          display: block;
-          line-height: 72px;
-          text-align: center;
-          border-top: 2px solid #ea352d;
-          background-color: #fff;
-        }
+        background-color: #eee;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 72px;
+        text-align: center;
+        cursor: pointer;
       }
     }
     &__content{
+      display: none;
       background: #fff;
       overflow: hidden;
       .notification__list{
@@ -112,6 +102,17 @@
           background: #eee;
         }
       }
+      &__todo{
+        background: url(/assets/mypage/logo-gray-icon.svg?61790013);
+        background-size: 78px 85px;
+        background-repeat: no-repeat;
+        background-position: center 40px;
+        font-size: 16px;
+        padding: 160px 0 60px;
+        text-align: center;
+        color: #ccc;
+        cursor: pointrer;
+      }
     }
   }
   &__tradehistory{
@@ -129,28 +130,17 @@
         &__name{
           width: 50%;
           background-color: #eee;
-          .active{
-            border-top: 2px solid #ea352d;
-            background-color: #fff;
-            text-align: center;
-            display: block;
-            line-height: 72px;
-            font-size: 16px;
-            font-weight: bold;
-          }
-          .inactive{
-            background-color: #eee;
-            text-align: center;
-            display: block;
-            line-height: 72px;
-            font-size: 16px;
-            font-weight: bold;
-          }
+          text-align: center;
+          line-height: 72px;
+          font-size: 16px;
+          font-weight: bold;
+          cursor: pointer;
         }
       }
       &__content{
         &__now{
           &__list{
+            display: none;
             background: url(/assets/mypage/logo-gray-icon.svg?61790013);
             background-size: 78px 85px;
             background-repeat: no-repeat;
@@ -159,9 +149,20 @@
             padding: 160px 0 60px;
             text-align: center;
             color: #ccc;
+            cursor: pointrer;
           }
         }
       }
     }
   }
+}
+
+
+
+.active{
+  border-top: 2px solid #ea352d;
+  background-color: #fff;
+}
+.is-shown{
+  display:block;
 }
