@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'top#index' # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :users, only: [:index]
+  resources :user_identifications, only: [:index]
   resources :products, only:[:show, :new] do
     resources :category
   end
