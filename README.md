@@ -77,7 +77,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-## user_identificationテーブル
+## user_identificationsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
