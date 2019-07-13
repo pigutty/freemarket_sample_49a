@@ -1,6 +1,6 @@
 .mypage__main
   .mypage__main__usericon
-    %a
+    = link_to("/users") do
       =image_tag "member_photo_noimage_thumb.png"
       %h2.mypage__username
         = "username"
