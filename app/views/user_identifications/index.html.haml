@@ -13,10 +13,7 @@
       = render partial:'form-user-text',locals:{index:'お名前',content:'樋口 翔'}
       = render partial:'form-user-text',locals:{index:'お名前カナ',content:'ヒグチ ショウ'}
       = render partial:'form-user-text',locals:{index:'生年月日',content:'1994/07/29'}
-      .mypage-info-form-box
-        %label 郵便番号
-        %span 任意
-        %input{type:"text",placeholder:"例)1234567"}
+      = render partial:'mypage_address_form',locals:{label:"郵便番号",example:"例)1234567"}
       .mypage-info-form-box
         %label 都道府県
         %span 任意
@@ -25,18 +22,10 @@
             %option --
             - Prefecture.all.each do |element|
               %option{value:element.name}= element.name
-      .mypage-info-form-box
-        %label 市区町村
-        %span 任意
-        %input{type:"text",placeholder:"例)横浜市緑区"}
-      .mypage-info-form-box
-        %label 番地
-        %span 任意
-        %input{type:"text",placeholder:"例)青山1-1-1"}
-      .mypage-info-form-box
-        %label 建物名
-        %span 任意
-        %input{type:"text",placeholder:"例)柳ビル103"}
+          %i.fas.fa-chevron-down
+      = render partial:'mypage_address_form',locals:{label:"市区町村",example:"例)横浜市緑区"}
+      = render partial:'mypage_address_form',locals:{label:"番地",example:"例)青山1-1-1"}
+      = render partial:'mypage_address_form',locals:{label:"建物名",example:"例)柳ビル103"}
       .mypage-info-form-box
         %button{type:"submit",class:"btn-red"} 登録する
       .mypage-info-form-box
