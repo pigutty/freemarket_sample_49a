@@ -1,1 +1,19 @@
 .mypage__sidebar
+  .l-side
+    %nav.mypage-nav
+      %ul.mypage-nav-list
+        %li.mypage-nav-list-itemavtive
+          マイページ
+          %i.fas.fa-chevron-right
+        
+        = render partial: 'mypage-sidebar2.html.haml'
+
+        %li.mypage-nav-list-item
+          お知らせ
+          %i.fas.fa-chevron-right
+
+        = render partial: 'mypage-sidebar2.html.haml'
+
+
+
+
