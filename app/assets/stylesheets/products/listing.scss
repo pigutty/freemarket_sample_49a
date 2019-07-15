@@ -253,6 +253,9 @@
       li{
         font-size: 12px;
       }
+      li:hover{
+        @include a-tag-hover;
+      }
     }
     &__logo{
       width: 18%;
