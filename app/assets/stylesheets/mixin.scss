@@ -7,6 +7,7 @@
   font-size: 12px;
   vertical-align: top;
 }
+
 @mixin category-select{
   margin: 8px 0 0;
   width: 100%;
@@ -26,10 +27,12 @@
   font-size: 14px;
   font-weight: 600;
 }
+
 @mixin listing-sub-title{
   font-weight: 600;
   font-size: 14px;
 }
+
 @mixin listing-box{
   margin: 8px 0 0;
   width: 100%;
@@ -44,3 +47,12 @@
   opacity: 0.8;
   text-decoration: underline;
 }
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+}
+

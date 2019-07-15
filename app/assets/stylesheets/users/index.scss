@@ -1,0 +1,12 @@
+.mypage__container{
+  background-color: #f5f5f5;
+  width: 1020px;
+  margin: 40px 68px;
+  display: flex;
+  .mypage__sidebar{
+    background-color: red;
+    width: 280px;
+    margin-right: 40px;
+    float: left;
+  }
+}

@@ -1,3 +1,4 @@
+
 /*
     TODO will need to remove settings on HTML since we can't namespace it.
     TODO with the prefix, should I group by selector or property for weight savings?
@@ -38,6 +39,7 @@ p,
 blockquote,
 th,
 td {
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
     margin:0;
     padding:0;
 }
@@ -110,4 +112,10 @@ select {
 /*because legend doesn't inherit in IE */
 legend {
     color:#000;
+}
+
+a,
+a:after{
+    text-decoration: none;
+    color: black;
 }
