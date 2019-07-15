@@ -2,18 +2,14 @@
   .l-side
     %nav.mypage-nav
       %ul.mypage-nav-list
-        %li.mypage-nav-list-itemavtive
-          マイページ
-          %i.fas.fa-chevron-right
-        
-        = render partial: 'mypage-sidebar2.html.haml'
-
-        %li.mypage-nav-list-item
-          お知らせ
-          %i.fas.fa-chevron-right
-
-        = render partial: 'mypage-sidebar2.html.haml'
+        = render partial: 'mypagesidebar2', collection: @subjects
+        = render partial: 'mypagesidebar3', collection: @articles
+        %nav.mypage-nav-head
+          %h1 メルペイ
+          %ul.mypage-nav-list
+          = render partial: 'mypagesidebar3', collection: @articles2
+          %h1 設定
+          = render partial: 'mypagesidebar3', collection: @articles3
 
 
-
-
+          %a{:href => "https://saruwakakun.com/"} サルワカへジャンプ！

@@ -1,13 +1,12 @@
 .l-side {
   width: 280px;
-    margin-right: 40px;
-    height: 1252px;
-    float: left;
-    color: #333;
-    font-size: 14px;
+  margin-right: 40px;
+  height: 1252px;
+  float: left;
+  color: #333;
+  font-size: 14px;
     
   .mypage-nav-list {
-    
     
     .mypage-nav-list-itemavtive {
       background: #eee;
@@ -15,6 +14,7 @@
       position: relative;
       padding: 16px;
       height: 16px;
+      border-top: 1px solid #eee;
 
       i{
         position: absolute;
@@ -22,12 +22,21 @@
         top: 35%;
       }
     }
+
     .mypage-nav-list-item {
       background: #fff;
       position: relative;
       padding: 16px;
       height: 16px;
+      border-top: 1px solid #eee;
 
+    .mypage-nav-list-item:hover {
+      background: #333;
+      // position: relative;
+      // padding: 16px;
+      // height: 16px;
+      // border-top: 1px solid #eee;
+    }
       i{
         position: absolute;
         right: 8%;
@@ -35,7 +44,14 @@
       }
     }
   }
+
+  h1 {
+    background: #eee;
+    margin: 40px 0 0;
+    font-size: 16px;
+    font-weight: 600;
+    border-bottom: 8px solid #eee;
+  }
+
 }
-
-
 
