@@ -72,7 +72,7 @@
             top: 44px;
             z-index: 1000;
             background: #fff;
-            &__1{
+            .bigcategory-element{
               display: none;
               width: 224px;
               a{
@@ -82,39 +82,37 @@
                 display: block;
                 cursor: pointer;
               }
-            }
-            &__wrapper{
-              position: absolute;
-              top: 0;
-              left: 224px;
-              width: 224px;
-              bottom: 0;
-              box-shadow: 1px 0 0 0 #eee inset;
-              &__1{
-                display: none;
-                font-weight: 400;
-                font-size: 14px;
-                cursor: pointer;
-                line-height: 30px;
-                a{
-                  padding: 8px 16px;
-                }
-              }
-              &__wrapper{
+              .middlecategory-list{
                 position: absolute;
                 top: 0;
                 left: 224px;
-                bottom: 0px;
+                width: 224px;
+                bottom: 0;
                 box-shadow: 1px 0 0 0 #eee inset;
-                &__1{
-                  display: none;
-                  font-weight: 400;
-                  font-size: 14px;
-                  width: 224px;
+                background: #fff;
+                .middlecategory-element{
                   cursor: pointer;
-                  line-height: 30px;
+                  width: 224px;
                   a{
-                    padding: 8px 16px;
+                    line-height: 30px;
+                    font-size: 14px;
+                  }
+                  .smallcategory-list{
+                    position: absolute;
+                    top: 0;
+                    left: 224px;
+                    bottom: 0px;
+                    box-shadow: 1px 0 0 0 #eee inset;
+                    background: #fff;
+                    .smallcategory-element{
+                      width: 320px;
+                      cursor: pointer;
+                      line-height: 30px;
+                      a{
+                        font-size: 14px;
+                        line-height: 30px;
+                      }
+                    }
                   }
                 }
               }
