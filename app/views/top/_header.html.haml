@@ -12,13 +12,8 @@
             %i.fa.fa-list
             %span カテゴリーから探す
           %ul.header-bottom__search-menu__category__wrapper
-            = render partial:'header_category1',locals:{big_category:'レディス'}
-            = render partial:'header_category1',locals:{big_category:'メンズ'}
-            = render partial:'header_category1',locals:{big_category:'ベビーキッズ'}
-            %ul.header-bottom__search-menu__category__wrapper__wrapper
-              = render partial:'header_category2', locals:{middle_category:'トップス'}
-              %ul.header-bottom__search-menu__category__wrapper__wrapper__wrapper
-                =render partial:'header_category3',locals:{small_category:'シャツ'}
+            - @bigcategories.each do |element|
+              = render partial: "header_category1", locals: {big_category: element}
         %li.header-bottom__search-menu__brand
           .header-bottom__search-menu__brand__icon
             %i.fa.fa-tag
