@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index]
+  resources :phone_number_authorization, only:[:index]
   resources :user_identifications, only: [:index]
   resources :products, only:[:show, :new] do
     resources :category
