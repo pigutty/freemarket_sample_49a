@@ -163,10 +163,17 @@
             justify-content: space-between;
             padding: 0 0 24px;
             &__left{
+              @include listing-sub-title;
               line-height: 48px;
+              &__require{
+                @include listing-require
+              }
             }
             &__right{
-
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              
               &__default{
                 display: inline-block;
                 width: 80%;
@@ -182,10 +189,12 @@
             }
           }
           &__fee{
+            @include listing-sub-title;
             padding: 24px 0;
             border-top: 1px solid #ccc;
           }
           &__profit{
+            @include listing-sub-title;
             padding: 24px 0;
             border-top: 1px solid #ccc;
           }
