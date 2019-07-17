@@ -26,14 +26,5 @@
         }
       }
     }
-    .mypage-info-form-box{
-      @include form-default;
-      .btn-red{
-        @include button-red;
-      }
-      .link-right{
-        @include link-right;
-      }
-    }
   }
 }
