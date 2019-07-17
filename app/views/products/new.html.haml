@@ -53,17 +53,9 @@
           %span.listing__form__detail__box__form-group__require
             必須
           %select.listing__form__detail__box__form-group__category-select
-            %option{value: ""} ---
-            %option{value: "153"} XXS以下
-            %option{value: "154"} XS(SS)
-            %option{value: "2"} S
-            %option{value: "3"} M
-            %option{value: "4"} L
-            %option{value: "5"} XL(LL)
-            %option{value: "155"} 2XL(3L)
-            %option{value: "156"} 3XL(4L)
-            %option{value: "157"} 4XL(5L)以上
-            %option{value: "7"} FREE SIZE
+            %option --
+            - Size.all.each do |ele|
+              %option{value:ele.name}= ele.name
 
         .listing__form__detail__box__form-group
           %label
