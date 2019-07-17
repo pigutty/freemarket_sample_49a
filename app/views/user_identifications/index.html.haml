@@ -19,8 +19,6 @@
       = render partial:'render/input-form-optional',locals:{label:"番地",example:"例)青山1-1-1"}
       = render partial:'render/input-form-optional',locals:{label:"建物名",example:"例)柳ビル103"}
       = render partial:'render/input-form-button',locals:{name:"登録する"}
-      -# .input-form-box
-      -#   %button{type:"submit",class:"btn-red"} 登録する
       .input-form-box
         = render partial:"render/link_right",locals:{text:'本人情報の登録について',address:"/"}
 = render 'top/footer'
