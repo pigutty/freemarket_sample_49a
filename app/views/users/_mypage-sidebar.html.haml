@@ -4,12 +4,14 @@
       %ul.mypage-nav-list
         = render partial: 'mypagesidebar2', collection: @subjects
         = render partial: 'mypagesidebar3', collection: @articles
+
         %nav.mypage-nav-head
           %h1 メルペイ
           %ul.mypage-nav-list
           = render partial: 'mypagesidebar3', collection: @articles2
+          
           %h1 設定
           = render partial: 'mypagesidebar3', collection: @articles3
 
 
-          %a{:href => "https://saruwakakun.com/"} サルワカへジャンプ！
+
