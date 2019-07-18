@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   namespace :api do
     resources :top, only: :index, defaults: { format: 'json' }
   end
-
   resources :users, only: [:index]
   resources :phone_number_authorization, only:[:new]
   resources :user_identifications, only: [:index]
@@ -12,3 +11,4 @@ Rails.application.routes.draw do
     resources :category
   end
 end
+
