@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   namespace :api do
     resources :top, only: :index, defaults: { format: 'json' }
   end
-
   resources :users, only: [:index]
   resources :products, only:[:show, :new] do
     resources :category
   end
 end
+
