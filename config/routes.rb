@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :top, only: :index, defaults: { format: 'json' }
   end
   resources :users, only: [:index]
+  resources :user_identifications, only: [:index]
   resources :products, only:[:show, :new] do
     resources :category
   end

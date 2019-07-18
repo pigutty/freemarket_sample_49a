@@ -1,0 +1,35 @@
+.mypage__container
+  .mypage__sidebar
+  .mypage__main
+    .mypage__info__registration__header 本人情報の登録
+    %form.mypage__info__registration__contents
+      %ul.mypage__info__registration__contents__textbox
+        %li.mypage__info__registration__contents__textbox__left
+          %p お客さまの本人情報をご登録ください。
+          %p 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+        %li.mypage__info__registration__contents__textbox__right
+          = link_to("本人確認書類のアップロード",user_identifications_path)
+          %i.fas.fa-chevron-right
+      = render partial:'form-user-text',locals:{index:'お名前',content:'樋口 翔'}
+      = render partial:'form-user-text',locals:{index:'お名前カナ',content:'ヒグチ ショウ'}
+      = render partial:'form-user-text',locals:{index:'生年月日',content:'1994/07/29'}
+      = render partial:'mypage_address_form',locals:{label:"郵便番号",example:"例)1234567"}
+      .mypage-info-form-box
+        %label 都道府県
+        %span 任意
+        .select_wrap
+          %select
+            %option --
+            - Prefecture.all.each do |element|
+              %option{value:element.name}= element.name
+          %i.fas.fa-chevron-down
+      = render partial:'mypage_address_form',locals:{label:"市区町村",example:"例)横浜市緑区"}
+      = render partial:'mypage_address_form',locals:{label:"番地",example:"例)青山1-1-1"}
+      = render partial:'mypage_address_form',locals:{label:"建物名",example:"例)柳ビル103"}
+      .mypage-info-form-box
+        %button{type:"submit",class:"btn-red"} 登録する
+      .mypage-info-form-box
+        .mypage-info-about
+          = link_to('本人情報の登録について',user_identifications_path)
+          %i.fas.fa-chevron-right
+= render 'top/footer'
