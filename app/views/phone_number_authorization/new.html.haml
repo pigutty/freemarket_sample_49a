@@ -1,14 +1,14 @@
 -# 吉田さんのビューを引用
 
-.phone__container
-  .phone__title 電話番号の確認
-  %form.phone__content
-    .phone__content__box
-      .phone__form__group
+.registration__container
+  .registration__title 電話番号の確認
+  %form.registration__content
+    .registration__content__box
+      .input-form-box.first-form
         %label 携帯電話の番号
-        %input.phone__form__group__input{placeholder:"携帯電話の番号を入力"}
+        %input.input__form__group__input{placeholder:"携帯電話の番号を入力"}
       %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-      .btn-red SMSを送信する
+      = render 'render/input-form-button',name:'SMSを送信する'
       %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
       = render "render/link_right",text:"電話番号の確認が必要な理由",address:root_path
 
