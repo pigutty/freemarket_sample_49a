@@ -222,38 +222,13 @@
     &__attention{
       padding: 40px;
       font-size: 14px;
+      @include listing-btn;
       a{
         color: #0099e8;
         text-decoration: none;
       }
       a:hover{
         @include a-tag-hover;
-      }
-    
-      .btn-default{
-        margin: 40px auto;
-        display: block;
-        width: 100%;
-        line-height: 48px;
-        font-size: 14px;
-        border: 1px solid transparent;
-        cursor: pointer;
-        text-align: center;
-      }
-      .btn-red{
-        background: #ea352d;
-        border: 1px solid #ea352d;
-        color: #fff;
-      }
-      .btn-gray{
-        width: 45%;
-        margin: 24px auto 0;
-        background: #aaa;
-        border: 1px solid #aaa;
-        color: #fff;
-      }
-      .btn-gray:hover {
-        opacity: 0.8;
       }
     }
   }
@@ -271,32 +246,8 @@
     margin: 0 auto;
     &__button{
       padding: 40px;
-      font-size: 14px;    
-      .btn-default{
-        margin: 40px auto;
-        display: block;
-        width: 100%;
-        line-height: 48px;
-        font-size: 14px;
-        border: 1px solid transparent;
-        cursor: pointer;
-        text-align: center;
-      }
-      .btn-red{
-        background: #ea352d;
-        border: 1px solid #ea352d;
-        color: #fff;
-      }
-      .btn-gray{
-        width: 45%;
-        margin: 24px auto 0;
-        background: #aaa;
-        border: 1px solid #aaa;
-        color: #fff;
-      }
-      .btn-gray:hover {
-        opacity: 0.8;
-      }
+      font-size: 14px;
+      @include listing-btn;
     } 
   }
 }

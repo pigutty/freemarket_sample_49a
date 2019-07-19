@@ -47,6 +47,34 @@
   text-decoration: underline;
 }
 
+@mixin listing-btn{
+  .btn-default{
+    margin: 40px auto;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-align: center;
+  }
+  .btn-red{
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+  }
+  .btn-gray{
+    width: 45%;
+    margin: 24px auto 0;
+    background: #aaa;
+    border: 1px solid #aaa;
+    color: #fff;
+  }
+  .btn-gray:hover {
+    opacity: 0.8;
+  }
+}
+
 @mixin clearfix {
   &:after {
     content: "";
