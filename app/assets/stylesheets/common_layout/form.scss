@@ -99,6 +99,10 @@
   &__box{
     max-width: 343px;
     margin: 0 auto;
+    img{
+      width: 100%;
+      padding-top: 8px;
+    }
   }
 }
 
