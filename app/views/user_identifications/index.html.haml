@@ -8,7 +8,7 @@
           %p お客さまの本人情報をご登録ください。
           %p 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
         %li.mypage__info__registration__contents__textbox__right
-          = link_to("本人確認書類のアップロード","/user_identifications")
+          = link_to("本人確認書類のアップロード",user_identifications_path)
           %i.fas.fa-chevron-right
       = render partial:'form-user-text',locals:{index:'お名前',content:'樋口 翔'}
       = render partial:'form-user-text',locals:{index:'お名前カナ',content:'ヒグチ ショウ'}
