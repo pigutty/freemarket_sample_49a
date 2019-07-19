@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:index]
   resources :user_identifications, only: [:index]
-  resources :products, only:[:show, :new, :edit] do
+  resources :products, only:[:show, :new] do
     resources :category
   end
 end
