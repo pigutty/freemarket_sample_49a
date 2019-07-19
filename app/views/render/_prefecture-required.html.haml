@@ -1,0 +1,9 @@
+.prefecture-form-box
+  %label 都道府県
+  %span.required 必須
+  .select_wrap
+    %select
+      %option --
+      - Prefecture.all.each do |element|
+        %option{value:element.name}= element.name
+    %i.fas.fa-chevron-down
