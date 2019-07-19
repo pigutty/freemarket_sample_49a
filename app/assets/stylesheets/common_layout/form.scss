@@ -127,8 +127,9 @@
     @include link-right;
   }
 }
-.first-form{
-  margin-top: 0px;
+
+.input-form-box:nth-child(1){
+  margin-top:0 ;
 }
 
 .help-link{
