@@ -1,0 +1,9 @@
+.address__container{
+  .address__title{
+    @include registration-title;
+  }
+  .address__content{
+    @include registration__content;
+  }
+}
+

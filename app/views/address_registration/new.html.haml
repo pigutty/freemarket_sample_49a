@@ -1,0 +1,22 @@
+.address__container
+  .address__title 住所入力
+  %form.address__content
+    .address__content__box
+      .input-form-box.first-form
+        %label お名前
+        %span.required 必須
+        %input.input__form__group__input{placeholder:"例) 山田"}
+        %input.input__form__group__input{placeholder:"例) 彩"}
+      .input-form-box
+        %label お名前カナ
+        %span.required 必須
+        %input.input__form__group__input{placeholder:"例) ヤマダ"}
+        %input.input__form__group__input{placeholder:"例) アヤ"}
+      = render 'render/input-form-required',label:"郵便番号",example:"例)123-4567"
+      = render "render/prefecture-required"
+      = render 'render/input-form-required',label:"市区町村",example:"例)横浜市緑区"
+      = render 'render/input-form-required',label:"番地",example:"例)青山1-1-1"
+      = render 'render/input-form-optional',label:"建物名",example:"例)柳ビル103"
+      = render 'render/input-form-optional',label:"電話",example:"例) 000000000"
+      = render 'render/input-form-button',name:'次へ進む'
+

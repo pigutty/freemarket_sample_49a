@@ -1,3 +1,12 @@
+@mixin registration-title{
+  padding: 32px;
+  font-size: 22px;
+  font-weight: 600;
+  border-bottom: 1px solid #f5f5f5;
+  text-align: center;
+  line-height: 1.4;
+}
+
 @mixin link-right{
   float: right;
   font-size: 14px;
@@ -30,13 +39,22 @@
     margin-top: 8px;
     line-height: 1.5;
   }
-  span{
+  span.optional{
     margin-left: 8px;
     padding: 2px 4px;
     border-radius: 2px;
     vertical-align: text-top;
     font-size: 12px;
     background: #ccc;
+    color: #fff;
+  }
+  span.required{
+    margin-left: 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    vertical-align: text-top;
+    font-size: 12px;
+    background: #ea352d;;
     color: #fff;
   }
   input{
@@ -74,4 +92,29 @@
       color: #888;    
     }
   }
+}
+
+@mixin registration__content {
+  padding: 40px 40px 64px;
+  &__box{
+    max-width: 343px;
+    margin: 0 auto;
+  }
+}
+
+.prefecture-form-box{
+  @include form-default;
+}
+
+.input-form-box{
+  @include form-default;
+  .btn-red{
+    @include button-red;
+  }
+  .link-right{
+    @include link-right;
+  }
+}
+.first-form{
+  margin-top: 0px;
 }
