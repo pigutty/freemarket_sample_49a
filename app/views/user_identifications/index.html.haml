@@ -8,17 +8,17 @@
           %p お客さまの本人情報をご登録ください。
           %p 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
         %li.mypage__info__registration__contents__textbox__right
-          = link_to("本人確認書類のアップロード","/user_identifications")
+          = link_to("本人確認書類のアップロード",user_identifications_path)
           %i.fas.fa-chevron-right
-      = render partial:'form-user-text',locals:{index:'お名前',content:'樋口 翔'}
-      = render partial:'form-user-text',locals:{index:'お名前カナ',content:'ヒグチ ショウ'}
-      = render partial:'form-user-text',locals:{index:'生年月日',content:'1994/07/29'}
-      = render partial:'render/input-form-optional',locals:{label:"郵便番号",example:"例)1234567"}
-      = render partial:'render/prefecture-optional'
-      = render partial:'render/input-form-optional',locals:{label:"市区町村",example:"例)横浜市緑区"}
-      = render partial:'render/input-form-optional',locals:{label:"番地",example:"例)青山1-1-1"}
-      = render partial:'render/input-form-optional',locals:{label:"建物名",example:"例)柳ビル103"}
-      = render partial:'render/input-form-button',locals:{name:"登録する"}
+      = render 'form-user-text',index:'お名前',content:'樋口 翔'
+      = render 'form-user-text',index:'お名前カナ',content:'ヒグチ ショウ'
+      = render 'form-user-text',index:'生年月日',content:'1994/07/29'
+      = render 'render/input-form-optional',label:"郵便番号",example:"例)1234567"
+      = render 'render/prefecture-optional'
+      = render 'render/input-form-optional',label:"市区町村",example:"例)横浜市緑区"
+      = render 'render/input-form-optional',label:"番地",example:"例)青山1-1-1"
+      = render 'render/input-form-optional',label:"建物名",example:"例)柳ビル103"
+      = render 'render/input-form-button',name:"登録する"
       .input-form-box
-        = render partial:"render/link_right",locals:{text:'本人情報の登録について',address:"/"}
+        = render "render/link_right",text:'本人情報の登録について',address:root_path
 = render 'top/footer'
