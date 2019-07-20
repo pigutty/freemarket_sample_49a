@@ -16,21 +16,21 @@ $(function(){
   });
 
   $(".header-bottom__user-menu__good").hover(function(){
-    $(".fa.fa-heart-o").css('color','#0099e8');
+    $(".far.fa-heart").css('color','#0099e8');
     $(".header-bottom__user-menu__good__icon").css('color','#0099e8');
     }, function(){
     $(".header-bottom__user-menu__good__icon").css('color','black');
-    $(".fa.fa-heart-o").css('color','#ccc');
+    $(".far.fa-heart").css('color','#ccc');
   });
 
   $(".header-bottom__user-menu__notification").hover(function(){
     $(".header-bottom__user-menu__notification__wrapper").css('display','block');
     $(".header-bottom__user-menu__notification__icon").css('color','#0099e8');
-    $(".fa.fa-bell-o").css('color','#0099e8');
+    $(".fas.fa-bell").css('color','#0099e8');
     }, function(){
     $(".header-bottom__user-menu__notification__wrapper").css('display','none');
     $(".header-bottom__user-menu__notification__icon").css('color','black');
-    $(".fa.fa-bell-o").css('color','#ccc');
+    $(".fas.fa-bell").css('color','#ccc');
   });
 
   $(".header-bottom__user-menu__notification__wrapper__content").hover(function(){
