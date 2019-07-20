@@ -37,7 +37,6 @@ main.signup-main{
         }
       }
       &__social{
-        
         .btn-sns-facebook{
           margin: 16px auto;
           background: #385185;
@@ -47,7 +46,6 @@ main.signup-main{
             font-size: 30px;
             float: left;
             object-fit: cover;
-
           }
         }
         .btn-sns-google{
@@ -66,22 +64,3 @@ main.signup-main{
   height: 235px !important;
 }
 }
-
-
-
-
-
-
-
-// main.signup-main
-//     .signup-box
-//       %h2.signup-box-head 新規会員登録
-//       .signup
-//         .signup--form
-//           = link_to "メールアドレスで登録する","https://www.mercari.com/jp/signup/", class: "btn-default btn-mail"
-//           %i.icon-mail
-//         .signup__form--social
-//           %button#facebook-login.btn-default.btn-sns-facebook
-//             Facebookでログイン
-//             %i.fab.fa-facebook-square
-//           %button#google-login.btn-default.btn-sns-google Googleでログイン
