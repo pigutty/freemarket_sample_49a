@@ -5,12 +5,12 @@ Rails.application.routes.draw do
     resources :top, only: :index, defaults: { format: 'json' }
   end
   resources :users, only: [:index]
+  resources :signup, only: [:index]
   resources :phone_number_authorization, only:[:new]
   resources :address_registration, only:[:new]
   resources :credit_card, only:[:new]
   resources :user_identifications, only: [:index]
   resources :user_profile, only:[:new]
-
   resources :products, only:[:show, :new, :edit] do
     resources :category
   end
