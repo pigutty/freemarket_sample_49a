@@ -1,0 +1,30 @@
+.mypage__main{
+  background: #fff;
+  .mypage__info__registration__header{
+    font-size: 24px;
+    font-weight: bold;
+    padding: 8px 24px;
+    text-align: center;
+  }
+  .mypage__info__registration__contents{
+    padding: 64px;
+    border-top: 1px solid #f5f5f5;
+    &__textbox{
+      margin-top: 8px;
+      font-size: 14px;
+      &__left{
+        line-height: 1.5;
+      }
+      &__right{
+        text-align:right;
+        cursor: pointer;
+        a{
+          color: #0099e8;
+        }
+        i{
+          color: #0099e8;
+        }
+      }
+    }
+  }
+}

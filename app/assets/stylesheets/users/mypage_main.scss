@@ -1,0 +1,168 @@
+.mypage__main{
+  width: 700px;
+  float: right;
+  &__usericon{
+    background: url(/assets/mypage/user-background.jpeg);
+    height: 200px;
+    a{
+      display: block;
+      padding-top: 50px;
+      text-align: center;
+      img{
+        border-radius: 50%;
+        height: 60px;
+        width: 60px;
+        margin: 0 auto;
+      }
+      .mypage__username{
+        margin-top: 8px;
+        font-weight: bold;
+      }
+      .usericon__evaluation{
+        margin-top: 8px;
+        display: flex;
+        justify-content: center;
+        &__value{
+          margin: 0 8px;
+          font-size: 14px;
+        }
+        &__number{
+          margin: 0 8px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  &__information{
+    &__tab{
+      display: flex;
+      &__title{
+        height: 72px; 
+        width: 50%;
+        background-color: #eee;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 72px;
+        text-align: center;
+        cursor: pointer;
+      }
+    }
+    &__content{
+      display: none;
+      background: #fff;
+      overflow: hidden;
+      .notification__list{
+        border-bottom: 1px solid #eee;
+        overflow: hidden;
+        width: 100%;
+        a{
+          display: block;
+          margin: 16px;
+          display: flex;
+          position: relative;
+          cursor: pointer;
+          img{
+            height: 48px;
+            width: 48px;
+          }
+          .notification__list__body{
+            margin-left: 20px;
+            margin-right: 30px;
+            &__text{  
+              font-size: 14px;
+            }
+            &__time{
+              color: gray;
+              i{
+                font-size: 16px;
+                vertical-align: middle;
+              }
+              span{
+                font-size: 14px;
+              }
+            }
+          }
+          .fas.fa-chevron-right{
+            position: absolute;
+            top: 20px;
+            right: 0;
+            color: gray;
+            font-size: 20px;
+          }
+        }
+      }
+      .notification__link{
+        margin: 16px;
+        a{
+          height: 56px;
+          display: block;
+          margin: 0 auto;
+          text-align: center;
+          line-height: 56px;
+          background: #eee;
+        }
+      }
+      &__todo{
+        background: url(/assets/mypage/logo-gray-icon.svg?61790013);
+        background-size: 78px 85px;
+        background-repeat: no-repeat;
+        background-position: center 40px;
+        font-size: 16px;
+        padding: 160px 0 60px;
+        text-align: center;
+        color: #ccc;
+        cursor: pointrer;
+      }
+    }
+  }
+  &__tradehistory{
+    background: #fff;
+    margin-top: 40px;
+    &__head{
+      padding: 0 16px;
+      line-height: 72px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    &__bottom{
+      &__tab{
+        display: flex;
+        &__name{
+          width: 50%;
+          background-color: #eee;
+          text-align: center;
+          line-height: 72px;
+          font-size: 16px;
+          font-weight: bold;
+          cursor: pointer;
+        }
+      }
+      &__content{
+        &__now{
+          &__list{
+            display: none;
+            background: url(/assets/mypage/logo-gray-icon.svg?61790013);
+            background-size: 78px 85px;
+            background-repeat: no-repeat;
+            background-position: center 40px;
+            font-size: 16px;
+            padding: 160px 0 60px;
+            text-align: center;
+            color: #ccc;
+            cursor: pointrer;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+.active{
+  border-top: 2px solid #ea352d;
+  background-color: #fff;
+}
+.is-shown{
+  display:block;
+}
