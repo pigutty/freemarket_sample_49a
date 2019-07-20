@@ -71,6 +71,7 @@
   .select_wrap{
     margin-top: 8px; 
     position: relative;
+    display: flex;
     select{
       -webkit-appearance: none;
       padding: 0 16px;
@@ -83,7 +84,6 @@
       outline: 0;
     }
     i{
-      height: 100%;
       display: block;
       position: absolute;
       top: 35%;
@@ -99,11 +99,27 @@
   &__box{
     max-width: 343px;
     margin: 0 auto;
+    img{
+      width: 100%;
+      padding-top: 8px;
+    }
   }
 }
 
 .prefecture-form-box{
   @include form-default;
+}
+
+.month-form-box{
+  @include form-default;
+  width: 150px;
+  .select_wrap{
+    width: calc(100% - 32px);
+    display: inline-block;
+  }
+  h2{
+    display: inline-block;
+  }
 }
 
 .input-form-box{
@@ -115,6 +131,13 @@
     @include link-right;
   }
 }
-.first-form{
-  margin-top: 0px;
+
+.input-form-box:nth-child(1){
+  margin-top:0 ;
+}
+
+.help-link{
+  margin-top: 8px;
+  font-weight: bold;
+  @include link-right;
 }

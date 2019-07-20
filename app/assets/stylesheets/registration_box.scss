@@ -1,8 +1,8 @@
-.address__container{
-  .address__title{
+.registration__container{
+  .registration__title{
     @include registration-title;
   }
-  .address__content{
+  .registration__content{
     @include registration__content;
   }
 }
