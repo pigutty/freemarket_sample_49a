@@ -17,8 +17,10 @@ $(function() {
 
   $(".header-bottom__search-menu__category").hover(function(){
     $(".bigcategory-element").css("display","block");
+    $(this).children().css("color","#0099e8");
   },function(){
     $(".bigcategory-element").css("display","none");
+    $(this).children().css("color","black");
   })
 
   $(".bigcategory-element").hover(function(){
