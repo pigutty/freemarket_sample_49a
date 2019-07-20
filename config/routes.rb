@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index]
   resources :phone_number_authorization, only:[:new]
   resources :address_registration, only:[:new]
+  resources :credit_card, only:[:new]
   resources :user_identifications, only: [:index]
 
   resources :products, only:[:show, :new, :edit] do
