@@ -1,0 +1,12 @@
+.mypage__container
+  = render "users/mypage-sidebar"
+  .mypage__main
+    .mypage__main__header プロフィール
+    .mypage__profile__icon-box
+      = image_tag "member_photo_noimage_thumb.png", height: '60px', width: '60px'
+      %input{type:"text",value:"メルカリ"}
+    .mypage__profile__content-box
+      = text_area :page, :name, placeholder:"例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
+      = render 'render/input-form-button', name:'変更する'
+
+
