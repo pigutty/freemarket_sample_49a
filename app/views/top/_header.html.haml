@@ -13,18 +13,18 @@
             %span カテゴリーから探す
           %ul.header-bottom__search-menu__category__wrapper
             - @bigcategories.each do |element|
-              = render partial: "header_category1", locals: {big_category: element}
+              = render partial: "top/header_category1", locals: {big_category: element}
         %li.header-bottom__search-menu__brand
           .header-bottom__search-menu__brand__icon
             %i.fa.fa-tag
             %span ブランドから探す
           %ul.header-bottom__search-menu__brand__wrapper
-            = render partial:'header_brand_item', locals:{brand:'シャネル'}
-            = render partial:'header_brand_item', locals:{brand:'ナイキ'}
-            = render partial:'header_brand_item', locals:{brand:'ルイヴィトン'}
-            = render partial:'header_brand_item', locals:{brand:'シュープリーム'}
-            = render partial:'header_brand_item', locals:{brand:'アディダス'}
-            = render partial:'header_brand_item', locals:{brand:'ブランド一覧'}
+            = render partial:'top/header_brand_item', locals:{brand:'シャネル'}
+            = render partial:'top/header_brand_item', locals:{brand:'ナイキ'}
+            = render partial:'top/header_brand_item', locals:{brand:'ルイヴィトン'}
+            = render partial:'top/header_brand_item', locals:{brand:'シュープリーム'}
+            = render partial:'top/header_brand_item', locals:{brand:'アディダス'}
+            = render partial:'top/header_brand_item', locals:{brand:'ブランド一覧'}
       %ul.header-bottom__user-menu
         %li.header-bottom__user-menu__good
           .header-bottom__user-menu__good__icon
@@ -36,8 +36,8 @@
             %span お知らせ
             .header-bottom__user-menu__notification__icon__count 10
           %ul.header-bottom__user-menu__notification__wrapper
-            = render partial:'header_notification', locals:{header_notification:"安心でかんたんに出品する方法をCHECKしてみよう！",notification_time:"11時間前"}
-            = render partial:'header_notification', locals:{header_notification:"安心でかんたんに出品する方法をCHECKしてみよう！",notification_time:"11時間前"}
+            = render partial:'top/header_notification', locals:{header_notification:"安心でかんたんに出品する方法をCHECKしてみよう！",notification_time:"11時間前"}
+            = render partial:'top/header_notification', locals:{header_notification:"安心でかんたんに出品する方法をCHECKしてみよう！",notification_time:"11時間前"}
         %li.header-bottom__user-menu__todolist
           .header-bottom__user-menu__todolist__icon
             %i.fa.fa-check
@@ -73,9 +73,9 @@
                       = "0"
                       %i.fa.fa-arrow-right
             %ul.header-bottom__user-menu__mypage__box__nav
-              = render partial:'header_usermenu_card', locals:{card:"いいね一覧"}
-              = render partial:'header_usermenu_card', locals:{card:"出品した商品-出品中"}
-              = render partial:'header_usermenu_card', locals:{card:"出品した商品-取引中"}
-              = render partial:'header_usermenu_card', locals:{card:"出品した商品-売却済"}
-              = render partial:'header_usermenu_card', locals:{card:"購入した商品-取引中"}
-              = render partial:'header_usermenu_card', locals:{card:"出品した商品-過去の取引"}
+              = render partial:'top/header_usermenu_card', locals:{card:"いいね一覧"}
+              = render partial:'top/header_usermenu_card', locals:{card:"出品した商品-出品中"}
+              = render partial:'top/header_usermenu_card', locals:{card:"出品した商品-取引中"}
+              = render partial:'top/header_usermenu_card', locals:{card:"出品した商品-売却済"}
+              = render partial:'top/header_usermenu_card', locals:{card:"購入した商品-取引中"}
+              = render partial:'top/header_usermenu_card', locals:{card:"出品した商品-過去の取引"}
