@@ -5,6 +5,5 @@ class UsersController < ApplicationController
     @subjects3=["売上・振込申請", "ポイント"]
     @subjects4=["プロフィール", "発送元・お届け先住所変更", "支払い方法", "メール/パスワード", "本人情報", "電話番号の確認", "ログアウト"]
     @bigcategories = Categoryactive.where(parent_id:"null", child_id:"null")
-    # parent_id = params[:parent_id].to_i
   end
 end
