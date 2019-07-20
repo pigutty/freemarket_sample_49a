@@ -1,0 +1,52 @@
+@mixin mypage-main {
+  .mypage__main{
+    background: #fff;
+    &__header{
+      font-size: 24px;
+      font-weight: bold;
+      padding: 8px 24px;
+      text-align: center;
+    }
+  }  
+}
+
+.mypage__container{
+  @include mypage-main;
+  .mypage__main{
+    .mypage__profile__icon-box{
+      padding: 72px 16px 24px;
+      background: url(/assets/mypage/user-background.jpeg);
+      text-align: center;
+      img{
+        border-radius: 50%;
+        vertical-align: middle;
+        display:inline-block;
+      }
+      input{
+        display: inline-block;
+        width: 220px;
+        margin: 0 0 0 8px;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
+    }
+    .mypage__profile__content-box{
+      padding: 40px 16px;
+      textarea{
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        min-height: 200px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        background: #fff;
+        outline: 0;
+      }
+    }
+  }
+}
