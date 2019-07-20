@@ -1,12 +1,15 @@
+@import "reset";
 @import "./header";
 @import "footer";
-@import "reset";
 @import "font-awesome";
 @import "./top/_content";
 @import "slick";
 @import "mixin";
+@import "./common_layout/form";
 @import "./products/products";
 @import "./users/index";
 @import "./users/mypage_main";
 @import "./users/mypage_info_registration";
 @import "registration_login";
+@import "./registration_box.scss";
+
