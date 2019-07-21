@@ -1,0 +1,91 @@
+.wrapper
+  .item-detail
+    %h1 ルールマラン　ノースリーブ
+    .item-detail__image-text
+      .item-detail__image
+        %ul.item-detail__image__sliders
+          %li.item-detail__image__slider
+            = image_tag 'products-detail_sample1.jpg', alt: '', height: 'auto', width: '270px'
+          %li.item-detail__image__slider
+            = image_tag 'products-detail_sample2.jpg', alt: '', height: 'auto', width: '270px'
+          %li.item-detail__image__slider
+            = image_tag 'products-detail_sample3.jpg', alt: '', height: 'auto', width: '270px'
+        %ul.item-detail__image__thumbnails
+          %li.item-detail__image__thumbnail
+            = image_tag 'products-detail_sample1.jpg', alt: '', height: '60px', width: '60px'
+          %li.item-detail__image__thumbnail
+            = image_tag 'products-detail_sample2.jpg', alt: '', height: '60px', width: '60px'
+          %li.item-detail__image__thumbnail
+            = image_tag 'products-detail_sample3.jpg', alt: '', height: '60px', width: '60px'
+      .item-detail__table
+        %table
+          %tr
+            %th 出品者
+            %td Yomori
+          %tr
+            %th カテゴリー
+            %td
+              .item-detail__table__category
+              レディース
+              .item-detail__table__category
+                = fa_icon 'angle-right', text: 'トップス'
+              .item-detail__table__category
+                = fa_icon 'angle-right', text: 'Tシャツ/カットソー(半袖/袖なし)'
+          %tr
+            %th ブランド
+            %td ルールマラソン
+          %tr
+            %th 商品のサイズ
+            %td FREE SIZE
+          %tr
+            %th 商品の状態
+            %td 目立った傷や汚れなし
+          %tr
+            %th 配送料の負担
+            %td 送料込み(出品者負担)
+          %tr
+            %th 配送の方法
+            %td ゆうゆうメルカリ便
+          %tr
+            %th 配送元地域
+            %td 北海道
+          %tr
+            %th 発送日の目安
+            %td 2~3日で発送
+    .item-detail__price-tax-shipping_cost
+      .item-detail__price
+        %h2 ¥1,300
+      .item-detail__tax
+        (税込)
+      .item-detail__shipping_cost
+        送料込み
+    .item-detail__purchase-button
+      = link_to '購入画面に進む', "/"
+    .item-detail__comment
+      %p
+        ご覧いただきありがとうございます。
+        %br
+        シンプルなデザインですが、色々なコーディネートに合わせやすいと思います。素材は綿100%です。
+  .item-detail__like-bad-other
+    .item-detail__like
+    .item-detail__bad
+    .item-detail__other
+  .item-detail__comment-form-box
+    .item-detail__comment-form-box__precautionary
+      .item-detail__comment-form-box__form
+        textbox
+      .item-detail__comment-form-box__button
+        コメントする
+  .item-detail__prev-next
+    .item-detail__prev
+      .item-detail__prev__arrow
+      <
+      .item-detail__prev__item-name
+      サイクルジャージ　ツインシックス　M
+    .item-detail__next
+      .item-detail__next__arrow
+      >
+      .item-detail__next__item-name
+      新品未開封マキアージュ ドラマティックスキンセンサーベースUV
+  .social_icons
+  .other_items
