@@ -1,1 +1,41 @@
-%a ppp
+.confirm-product
+  .confirm-group
+    %h1 購入内容の確認
+    .confirm-group__form
+      .confirm-group__form__main
+
+        .confirm-group__form__main__pict
+          .confirm-group__form__main__pict__frame
+            = image_tag '商品画像.jpg', width: '100%'
+          %h2 新品☆CLARINS コンフォート リップオイル3本セット
+
+        .confirm-group__form__main__price
+          %p ¥ 5,000 
+          %span 送料込み
+
+        .confirm-group__form__main__point ポイントはありません
+
+        .confirm-group__form__main__buy-price
+          %p 支払い金額
+          %p.buy-price-table ¥ 5,000 
+
+        .confirm-group__form__main__button 購入する
+
+    .user-info
+      .user-info__main
+        %h3 配送先
+        %address.user-info__main__text
+          〒542-0076  
+          %br 大阪府大阪市中央区難波5丁目1−60
+          なんばスカイオ15階
+        %a.user-info__main__fix 変更する
+
+    .user-info
+      .user-info__main
+        %h3 支払い方法
+        %p.user-info__main__text
+          ************7385 
+          %br 12 / 22
+        .user-info__main__card
+          = image_tag 'visa.svg', width: '100%'
+        %a.user-info__main__fix 変更する
