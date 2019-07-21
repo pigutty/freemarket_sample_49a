@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   resources :user_identifications, only: [:index]
   resources :user_profile, only:[:new]
   resources :products, only:[:show, :new, :edit] do
+    collection do
+      get 'buy'
+    end
     resources :category
   end
 end
