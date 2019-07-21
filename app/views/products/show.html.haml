@@ -1,4 +1,4 @@
-.wrapper
+.wrapper--item-detail
   .item-detail
     %h1 ルールマラン　ノースリーブ
     .item-detail__image-text
@@ -91,12 +91,45 @@
         %span 
       .item-detail__other
         %i.fas.fa-lock
-        = link_to 'あんしん・あんぜんへの取り組み'
-    .item-detail__comment-form-box
-      .item-detail__comment-form-box__precautionary
-        .item-detail__comment-form-box__form
-          textbox
-        .item-detail__comment-form-box__button
+        = link_to 'あんしん・あんぜんへの取り組み','/'
+    .item-detail__comment
+      .item-detail__comment__box
+        %ul.item-detail__comment__box__content
+          %li.item-detail__comment__box__content__profile
+            .item-detail__comment__box__content__profile__image
+              = image_tag 'member_photo_noimage_thumb.png'
+            .item-detail__comment__box__content__profile__name
+              ああああ
+          %li.item-detail__comment__box__content__body
+            .item-detail__comment__box__content__body__text
+              初めまして、購入したいのですが、お値下げはお願いできますでしょうか？お返事お待ちしてます。
+            .item-detail__comment__box__content__body__icon
+              .item-detail__comment__box__content__body__icon__time
+                %i.far.fa-clock
+                10日前
+              .item-detail__comment__box__content__body__icon__flag
+                %i.far.fa-flag
+        %ul.item-detail__comment__box__content
+          %li.item-detail__comment__box__content__profile
+            .item-detail__comment__box__content__profile__image
+              = image_tag 'member_photo_noimage_thumb.png'
+            .item-detail__comment__box__content__profile__name
+              いいいいい
+          .item-detail__comment__box__content__seller
+            出品者
+          %li.item-detail__comment__box__content__body
+            .item-detail__comment__box__content__body__text
+              初めまして、購入したいのですが、お値下げはお願いできますでしょうか？お返事お待ちしてます。
+            .item-detail__comment__box__content__body__icon
+              .item-detail__comment__box__content__body__icon__time
+                %i.far.fa-clock
+                10日前
+              .item-detail__comment__box__content__body__icon__flag
+                %i.far.fa-flag
+        .item-detail__comment__caution
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %textarea.item-detail__comment__form
+        .item-detail__comment__form__button
           コメントする
     .item-detail__prev-next
       .item-detail__prev
@@ -105,9 +138,70 @@
         .item-detail__prev__item-name
         サイクルジャージ　ツインシックス　M
       .item-detail__next
-        .item-detail__next__arrow
-        >
         .item-detail__next__item-name
         新品未開封マキアージュ ドラマティックスキンセンサーベースUV
-    .item-detai__social_icons
+        .item-detail__next__arrow
+          >
+    .item-detail__social_icons
+      .item-detail__social_icons__facebook
+        %i.fab.fa-facebook-square
+      .item-detail__social_icons__twitter
+        %i.fab.fa-twitter-square
+      .item-detail__social_icons__pinterest
+        %i.fab.fa-pinterest-square
     .item-detail__other_items
+      %h2 ◯◯さんのその他の出品
+      .contents__items
+        .contents__item__box
+          .contents__item__box__image
+            = image_tag 'item1', alt: '', height: '213', width: '213', class: ''
+          .contents__item__box__item-name
+            ecco crepe tray スニーカーブーツ DANISH 23.5
+          .contents__item__box__price-favorite
+          .contents__item__box__price
+            ¥10,000
+        .contents__item__box
+          .contents__item__box__image
+            = image_tag 'item1', alt: '', height: '213', width: '213', class: ''
+          .contents__item__box__item-name
+            ecco crepe tray スニーカーブーツ DANISH 23.5
+          .contents__item__box__price-favorite
+          .contents__item__box__price
+            ¥10,000
+          .contents__item__box__favorite
+        .contents__item__box
+          .contents__item__box__image
+            = image_tag 'item1', alt: '', height: '213', width: '213', class: ''
+          .contents__item__box__item-name
+            ecco crepe tray スニーカーブーツ DANISH 23.5
+          .contents__item__box__price-favorite
+          .contents__item__box__price
+            ¥10,000
+    .item-detail__other_items
+      %h2 レディースのその他の商品
+      .contents__items
+        .contents__item__box
+          .contents__item__box__image
+            = image_tag 'item1', alt: '', height: '213', width: '213', class: ''
+          .contents__item__box__item-name
+            ecco crepe tray スニーカーブーツ DANISH 23.5
+          .contents__item__box__price-favorite
+          .contents__item__box__price
+            ¥10,000
+        .contents__item__box
+          .contents__item__box__image
+            = image_tag 'item1', alt: '', height: '213', width: '213', class: ''
+          .contents__item__box__item-name
+            ecco crepe tray スニーカーブーツ DANISH 23.5
+          .contents__item__box__price-favorite
+          .contents__item__box__price
+            ¥10,000
+          .contents__item__box__favorite
+        .contents__item__box
+          .contents__item__box__image
+            = image_tag 'item1', alt: '', height: '213', width: '213', class: ''
+          .contents__item__box__item-name
+            ecco crepe tray スニーカーブーツ DANISH 23.5
+          .contents__item__box__price-favorite
+          .contents__item__box__price
+            ¥10,000
