@@ -1,11 +1,12 @@
 .wrapper {
   width: 100%;
-  margin: 0px;
+  margin: 0 auto;
   padding: 0px;
   background-color: #f5f5f5;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   .item-detail {
-    width: 50%;
+    //width: 50%;
+    width:700px;
     margin: 0 auto;
     background-color: #fff;
     h1 {
@@ -17,24 +18,22 @@
       margin: 30px;
     }
     &__image {
-      width: 420px;
-      height: 480px;
-      background-color: #f5f5f5;
-      //min-width: 300px;
-      //max-width: 300px;
-      //min-height: 375px;
-      //margin: 0px 0px 10px 30px; 
-      //padding: 0px 0px 10px 30px;
+      //width: 420px;
+      //height: 480px;
+      //background-color: #f5f5f5;
+      margin: 0px 20px;
       &__sliders {
         margin: 0 auto;
+        background-color: #f5f5f5;
       }
       &__slider {
         margin: 0 auto;
       }
       &__thumbnails {
-        height: 60px;
+        height: 75px;
         display: flex;
         flex-wrap: wrap;
+        background-color: #f5f5f5;
       }
       &__thumbnail {
         width: 60px;
@@ -43,11 +42,12 @@
     }
     &__table {
       width: 100%;
-      //min-width: 300px;
+      font-size: 14px;
       margin: 0px;
-      border-width: 1px;
-      border-style: solid;
-      border-color: rgb(245, 245, 245);
+      border-collapse: collapse;
+      //border-width: 1px;
+      //border-style: solid;
+      //border-color: rgb(245, 245, 245);
       border-image: initial;
       tr {
         height: 50px;
@@ -62,6 +62,7 @@
         width: 61%;
         text-align: left;
         background: #fff;
+        border: 1px;
         border-style: solid;
         border-color: rgb(245, 245, 245);
       }
