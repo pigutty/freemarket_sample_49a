@@ -25,14 +25,14 @@
             %h2 月
           .select_wrap-birth
             %select
-              - @tests = 1...32
-              - @tests.each do |index|
+              - @days = 1...32
+              - @days.each do |index|
                 %option{value:index}= index
             %i.fas.fa-chevron-down
             %h2 日
       %p.text-gray ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-      .input-form-box
-        %iframe{frameborder: "0", height: "78", role: "presentation", sandbox: "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox", scrolling: "no", src: "https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=v1562567553145&size=normal&cb=kjjakmvopm34", width: "304"}
+      -# .input-form-box
+      -# recaptha認証をできたら入れる。
       .input-form-box
         %p.text-center 
           「次へ進む」のボタンを押すことにより、
