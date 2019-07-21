@@ -44,7 +44,7 @@ $(function() {
         $(this).css("background-color","#ccc")
         $(this).append(smallul);
         var sid = $(this).data('id');
-        var url = "api/top";
+        var url = "/api/top";
         $.ajax({
           type: "GET",
           url: url,
