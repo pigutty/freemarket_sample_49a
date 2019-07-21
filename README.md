@@ -51,6 +51,7 @@ Things you may want to cover:
 - has_many :contact_withdrawals
 - has_one :phone_number_authorizations
 - has_one :delivary_address
+- has_many :user_identifications
 
 ## phone_number_authorizationsテーブル
 
@@ -75,6 +76,21 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
+
+## user_identificationsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null,false|
+|post_number|integer||
+|prefecture|string||
+|city|string||
+|block|string||
+|building|string||
+
+### Association
+- belongs_to :user
+
 
 ## credit_cardsテーブル
 
@@ -119,15 +135,27 @@ Things you may want to cover:
 |price|integer|null: false|
 |brand|string|
 |current_status|string|null: false|
-|category_large|string|null: false|
-|category_medium|string|
-|category_small|string|
+
 
 ### Association
+- has_many :categories
 - has_many :likes
 - has_many :comments
 - belongs_to :user
 - belongs_to :purchase
+
+
+## categoryテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|product_id|integer|null: false|
+|name|string|null: false|
+|big_id|integer||
+|middle_id|integer||
+
+### Association
+- belongs_to :product
 
 
 ## purchasesテーブル

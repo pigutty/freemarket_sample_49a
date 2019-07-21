@@ -1,0 +1,9 @@
+.registration__container{
+  .registration__title{
+    @include registration-title;
+  }
+  .registration__content{
+    @include registration__content;
+  }
+}
+

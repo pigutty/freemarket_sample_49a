@@ -1,0 +1,85 @@
+@mixin listing-require{
+  background: #ea352d;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+}
+
+@mixin category-select{
+  margin: 8px 0 0;
+  width: 100%;
+  z-index: 2;
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: lighter;
+  cursor: pointer;
+}
+
+@mixin listing-main-title{
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@mixin listing-sub-title{
+  font-weight: 600;
+  font-size: 14px;
+}
+
+@mixin listing-box{
+  margin: 8px 0 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  font-weight: lighter;
+  line-height: 1.5;
+}
+
+@mixin a-tag-hover{
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+@mixin listing-btn{
+  .btn-default{
+    margin: 40px auto;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-align: center;
+  }
+  .btn-red{
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+  }
+  .btn-gray{
+    width: 45%;
+    margin: 24px auto 0;
+    background: #aaa;
+    border: 1px solid #aaa;
+    color: #fff;
+  }
+  .btn-gray:hover {
+    opacity: 0.8;
+  }
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+}
+
