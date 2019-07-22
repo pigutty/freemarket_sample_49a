@@ -1,1 +1,17 @@
 .mypage__sidebar
+  .l-side
+    %nav.mypage-nav
+      %ul.mypage-nav-list
+        = render partial: 'users/mypagesidebar2', collection: @subjects
+        = render partial: 'users/mypagesidebar3', collection: @subjects2
+
+        %nav.mypage-nav-head
+          %h1 メルペイ
+          %ul.mypage-nav-list
+          = render partial: 'users/mypagesidebar3', collection: @subjects3
+          
+          %h1 設定
+          = render partial: 'users/mypagesidebar3', collection: @subjects4
+
+
+

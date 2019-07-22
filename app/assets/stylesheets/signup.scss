@@ -1,0 +1,66 @@
+body{
+main.signup-main{
+  .btn-default{
+    color: #fff;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    width: 343px;
+    height: 50px;
+    line-height: 48px;
+    font-size: 14px;
+    border-radius: 4px
+  }
+  .signup-box{
+    background: #fff;
+    width: 700px;
+    margin: 0 auto;
+    h2.signup-box-head {
+      font-size: 22px;
+      padding: 32px;
+    }
+    .signup{
+      padding: 24px 16px 40px;
+      border-top: 1px solid #f5f5f5;
+      &__email{
+        display: block;
+        .btn-mail{
+          position: relative;
+          background: #ea352d;
+        }
+        i.far.fa-envelope{
+          margin: 15px 0 0px 15px;
+          font-size: 20px;
+          float: left;
+          object-fit: cover;
+          color: white;
+        }
+      }
+      &__social{
+        .btn-sns-facebook{
+          margin: 16px auto;
+          background: #385185;
+          color: #fff;
+          i.fab.fa-facebook-square{
+            margin: 8px 0 0 8px;
+            font-size: 30px;
+            float: left;
+            object-fit: cover;
+          }
+        }
+        .btn-sns-google{
+          color: black;
+          background: #fffffe;
+          margin-top: 16px;
+          background: #fff url("/assets/google.svg/") ;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+
+  }
+}
+.test{
+  height: 235px !important;
+}
+}

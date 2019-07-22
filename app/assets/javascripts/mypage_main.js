@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   $(".mypage__main__information__tab__title").click(function(){
     $('.mypage__main__information__tab__title.active').removeClass("active");
     $(this).addClass("active");

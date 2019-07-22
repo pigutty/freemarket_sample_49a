@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function(){
   $('.slider').slick({
     dots: true,
     prevArrow:'<img src="/assets/prev.png" class="slick-prev">',

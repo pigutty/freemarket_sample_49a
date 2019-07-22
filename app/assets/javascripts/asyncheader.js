@@ -17,8 +17,10 @@ $(function() {
 
   $(".header-bottom__search-menu__category").hover(function(){
     $(".bigcategory-element").css("display","block");
+    $(this).children().css("color","#0099e8");
   },function(){
     $(".bigcategory-element").css("display","none");
+    $(this).children().css("color","black");
   })
 
   $(".bigcategory-element").hover(function(){
@@ -26,7 +28,7 @@ $(function() {
     $(this).children().css("color","#fff")
     $(this).append(middleul);
     var id = $(this).data('id');
-    var url = window.location.pathname
+    var url = '/';
     $.ajax({
       type: "GET",
       url: url,
@@ -42,7 +44,7 @@ $(function() {
         $(this).css("background-color","#ccc")
         $(this).append(smallul);
         var sid = $(this).data('id');
-        var url = window.location.pathname+"api/top";
+        var url = "/api/top";
         $.ajax({
           type: "GET",
           url: url,
