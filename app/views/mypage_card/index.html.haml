@@ -2,13 +2,14 @@
   = render 'top/header'
 .mypage__container
   = render 'users/mypage-sidebar'
-  .registration__container
-    .registration__title 支払い方法
-    .registration__content
-      .registration__content__box
-        .input-form-box
-          %label クレジットカード 一覧
-          .button-wrap
-            = link_to('クレジットカードを追加する', root_path, class:'btn-red')
-            %i.far.fa-credit-card
-        = render 'render/link_right',text:'支払い方法について',address:root_path
+  .mypage__main
+    .registration__container
+      .registration__title 支払い方法
+      .registration__content
+        .registration__content__box
+          .input-form-box
+            %label クレジットカード 一覧
+            .button-wrap
+              = link_to('クレジットカードを追加する', root_path, class:'btn-red')
+              %i.far.fa-credit-card
+          = render 'render/link_right',text:'支払い方法について',address:root_path

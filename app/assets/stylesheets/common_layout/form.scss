@@ -187,6 +187,23 @@
   .link-right{
     @include link-right;
   }
+  .button-wrap{
+    position: relative;
+    margin-top: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #eee;
+    .btn-red{
+      display: block;
+      @include button-red;
+      height: 48px;
+    }
+    i{
+      position: absolute;
+      color: white;
+      left: 40px;
+      top: 18px;
+    }
+  }
 }
 
 .input-form-box:nth-child(1){
