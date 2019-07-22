@@ -28,7 +28,7 @@ $(function() {
     $(this).children().css("color","#fff")
     $(this).append(middleul);
     var id = $(this).data('id');
-    var url = window.location.pathname
+    var url = '/';
     $.ajax({
       type: "GET",
       url: url,
@@ -44,7 +44,7 @@ $(function() {
         $(this).css("background-color","#ccc")
         $(this).append(smallul);
         var sid = $(this).data('id');
-        var url = window.location.pathname+"api/top";
+        var url = "/api/top";
         $.ajax({
           type: "GET",
           url: url,
