@@ -1,4 +1,5 @@
 class TopController < ApplicationController
+  before_action :big_categories
   def index
     category = Categoryactive.new
     @bigcategories = Categoryactive.where(parent_id:nil, child_id:nil)
@@ -8,5 +9,9 @@ class TopController < ApplicationController
       format.html
       format.json
     end
+  end
+
+  def big_categories
+    @bigcategories = Categoryactive.where(parent_id:nil, child_id:nil)
   end
 end
