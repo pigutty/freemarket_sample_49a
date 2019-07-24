@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :top, only: :index, defaults: { format: 'json' }
   end
   resources :users, only: [:index]
-  resources :signup, only: [:index]
+  resources :signup, only: [:index, :new]
   resources :phone_number_authorization, only:[:new]
   resources :address_registration, only:[:new]
   resources :credit_card, only:[:new]
