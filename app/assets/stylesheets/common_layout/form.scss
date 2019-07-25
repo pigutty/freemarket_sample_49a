@@ -32,13 +32,19 @@
 @mixin form-default{
   margin-top: 40px;
   overflow: hidden;
+  font-size: 14px;
   label{
     font-weight: 600;
   }
   p{
-    margin-top: 8px;
+    margin-top: 4px;
     line-height: 1.5;
+<<<<<<< HEAD
     font-size: 14px;
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> ce5f872... 本人確認のビュー調整
   }
   p.text-center{
     text-align: center;
@@ -48,6 +54,10 @@
     a:hover{
       @include a-tag-hover;
     }
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+>>>>>>> ce5f872... 本人確認のビュー調整
   }
   span.optional{
     margin-left: 8px;
@@ -68,24 +78,36 @@
     color: #fff;
   }
   input{
-    margin-top: 8px; 
+    margin-top: 4px; 
     box-sizing: border-box;
     width: 100%;
-    height: 48px;
+    height: 44px;
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 10px 16px 8px;
     font-size: 16px;
     outline: 0;
   }
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> ce5f872... 本人確認のビュー調整
   .input-text-container{
     width: 100%;
     display: flex;
     input.half{
+<<<<<<< HEAD
       margin-top: 8px; 
       box-sizing: border-box;
       width: 50%;
       height: 48px;
+=======
+      margin-top: 4px; 
+      box-sizing: border-box;
+      width: 50%;
+      height: 44px;
+>>>>>>> ce5f872... 本人確認のビュー調整
       border: 1px solid #ccc;
       border-radius: 4px;
       padding: 10px 16px 8px;
@@ -97,15 +119,19 @@
       margin-right:8px; 
     }
   }
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+>>>>>>> ce5f872... 本人確認のビュー調整
   .select_wrap{
-    margin-top: 8px; 
+    margin-top: 4px; 
     position: relative;
     display: flex;
     select{
       -webkit-appearance: none;
       padding: 0 16px;
       width: 100%;
-      height: 48px;
+      height: 44px;
       border: 1px solid #ccc;
       border-radius: 4px;
       font-size: 16px;
@@ -120,6 +146,11 @@
       z-index: 2;
       color: #888;    
     }
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> ce5f872... 本人確認のビュー調整
     .select_wrap-birth{
       position: relative;
       display: flex;
@@ -127,7 +158,11 @@
         -webkit-appearance: none;
         padding: 0 16px;
         width: 100%;
+<<<<<<< HEAD
         height: 48px;
+=======
+        height: 44px;
+>>>>>>> ce5f872... 本人確認のビュー調整
         border: 1px solid #ccc;
         border-radius: 4px;
         font-size: 16px;
@@ -148,6 +183,10 @@
         line-height: 3;
       }
     }
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+>>>>>>> ce5f872... 本人確認のビュー調整
   }
 }
 
@@ -211,14 +250,26 @@
 }
 
 .help-link{
-  margin-top: 8px;
+  margin-top: 4px;
   font-weight: bold;
   @include link-right;
 }
+<<<<<<< HEAD
 
 p.text-gray{
   margin-top: 8px;
+=======
+<<<<<<< Updated upstream
+=======
+
+p.text-gray{
+  margin-top: 4px;
+>>>>>>> ce5f872... 本人確認のビュー調整
   line-height: 1.5;
   font-size: 14px;
   color: #888;
 }
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+>>>>>>> ce5f872... 本人確認のビュー調整
