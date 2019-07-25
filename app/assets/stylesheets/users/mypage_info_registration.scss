@@ -2,6 +2,7 @@
   @include mypage-main;
   .mypage__main{
     .mypage__info__registration__contents{
+      background: #fff;
       padding: 64px;
       border-top: 1px solid #f5f5f5;
       &__textbox{
