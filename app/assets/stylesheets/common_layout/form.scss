@@ -32,25 +32,12 @@
 @mixin form-default{
   margin-top: 40px;
   overflow: hidden;
-  font-size: 14px;
   label{
     font-weight: 600;
   }
   p{
-    margin-top: 4px;
+    margin-top: 8px;
     line-height: 1.5;
-<<<<<<< Updated upstream
-=======
-  }
-  p.text-center{
-    text-align: center;
-    a{
-      color: #0099e8;
-    }
-    a:hover{
-      @include a-tag-hover;
-    }
->>>>>>> Stashed changes
   }
   span.optional{
     margin-left: 8px;
@@ -71,47 +58,25 @@
     color: #fff;
   }
   input{
-    margin-top: 4px; 
+    margin-top: 8px; 
     box-sizing: border-box;
     width: 100%;
-    height: 44px;
+    height: 48px;
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 10px 16px 8px;
     font-size: 16px;
     outline: 0;
   }
-<<<<<<< Updated upstream
-=======
-  .input-text-container{
-    width: 100%;
-    display: flex;
-    input.half{
-      margin-top: 4px; 
-      box-sizing: border-box;
-      width: 50%;
-      height: 44px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      padding: 10px 16px 8px;
-      font-size: 16px;
-      outline: 0;
-    }
-    input.half:nth-child(1){
-      width: calc(50% - 8px);
-      margin-right:8px; 
-    }
-  }
->>>>>>> Stashed changes
   .select_wrap{
-    margin-top: 4px; 
+    margin-top: 8px; 
     position: relative;
     display: flex;
     select{
       -webkit-appearance: none;
       padding: 0 16px;
       width: 100%;
-      height: 44px;
+      height: 48px;
       border: 1px solid #ccc;
       border-radius: 4px;
       font-size: 16px;
@@ -126,37 +91,6 @@
       z-index: 2;
       color: #888;    
     }
-<<<<<<< Updated upstream
-=======
-    .select_wrap-birth{
-      position: relative;
-      display: flex;
-      select{
-        -webkit-appearance: none;
-        padding: 0 16px;
-        width: 100%;
-        height: 44px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 16px;
-        background: #fff;
-        outline: 0;
-        width: 80px;
-      }
-      i{
-        display: block;
-        position: absolute;
-        top: 35%;
-        right: 28px;
-        z-index: 2;
-        color: #888;    
-      }
-      h2{
-        margin-left: 8px;
-        line-height: 3;
-      }
-    }
->>>>>>> Stashed changes
   }
 }
 
@@ -203,17 +137,7 @@
 }
 
 .help-link{
-  margin-top: 4px;
+  margin-top: 8px;
   font-weight: bold;
   @include link-right;
 }
-<<<<<<< Updated upstream
-=======
-
-p.text-gray{
-  margin-top: 4px;
-  line-height: 1.5;
-  font-size: 14px;
-  color: #888;
-}
->>>>>>> Stashed changes
