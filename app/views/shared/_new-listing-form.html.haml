@@ -19,14 +19,13 @@
           %pre.visible-pc
             ドラッグアンドドロップ
             またはクリックしてファイルをアップロード
-
   
     .listing__form__product
       .listing__form__product__form-group
         商品名
         %span.require
           必須
-        %input.listing-input{placeholder: "商品名（必須 40文字まで)"}
+        = f.text_field :name, class:'listing-input', placeholder: "商品名（必須 40文字まで)"
       .listing__form__product__form-group 
         商品の説明
         %span.require
