@@ -17,4 +17,3 @@
 .byebug_history
 config/secrets.yml
 
-app/controllers/credit_cards_controller.rb
