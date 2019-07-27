@@ -183,6 +183,7 @@
   @include form-default;
   .btn-red{
     @include button-red;
+    line-height: 50%;
   }
   .link-right{
     @include link-right;
