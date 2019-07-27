@@ -25,7 +25,7 @@
         商品名
         %span.require
           必須
-        = f.text_field :name, class:'listing-input', placeholder: "商品名（必須 40文字まで)"
+        = f.text_field :name, class:'listing-input', placeholder: "商品名（必須 40文字まで)", name: "name"
       .listing__form__product__form-group 
         商品の説明
         %span.require
