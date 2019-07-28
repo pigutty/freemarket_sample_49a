@@ -13,7 +13,6 @@ class CreditCardsController < ApplicationController
     @user.customer_id = @customer.id
     @user.save
     CreditCard.create(token_id: @token_id, user_id: 1)
-    binding.pry
   end
 
   private
