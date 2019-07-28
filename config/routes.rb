@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :mypage_card, only:[:index,:new]
   resources :user_identifications, only: [:index]
   resources :user_profile, only:[:new]
-  resources :products, only:[:show, :new, :edit] do
+  resources :products, only:[:show, :new, :edit, :create] do
     collection do
       get 'buy'
     end
