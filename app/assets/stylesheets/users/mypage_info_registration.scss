@@ -1,22 +1,25 @@
-.mypage__main{
+.mypage__container{
   @include mypage-main;
-  .mypage__info__registration__contents{
-    padding: 64px;
-    border-top: 1px solid #f5f5f5;
-    &__textbox{
-      margin-top: 8px;
-      font-size: 14px;
-      &__left{
-        line-height: 1.5;
-      }
-      &__right{
-        text-align:right;
-        cursor: pointer;
-        a{
-          color: #0099e8;
+  .mypage__main{
+    .mypage__info__registration__contents{
+      background: #fff;
+      padding: 64px;
+      border-top: 1px solid #f5f5f5;
+      &__textbox{
+        margin-top: 8px;
+        font-size: 14px;
+        &__left{
+          line-height: 1.5;
         }
-        i{
-          color: #0099e8;
+        &__right{
+          text-align:right;
+          cursor: pointer;
+          a{
+            color: #0099e8;
+          }
+          i{
+            color: #0099e8;
+          }
         }
       }
     }
