@@ -1,6 +1,7 @@
 .wrapper--item-detail
   .item-detail
-    %h1 ルールマラン　ノースリーブ
+    %h1
+      = @product.name
     .item-detail__image-text
       .item-detail__image
         %ul.item-detail__image__sliders
@@ -47,10 +48,11 @@
           %tr
             %th ブランド
             %td
-              = link_to 'ルールマラソン', '/'
+              = link_to @product.brand, '/'
           %tr
             %th 商品のサイズ
-            %td FREE SIZE
+            %td
+              = @product.size
           %tr
             %th 商品の状態
             %td 目立った傷や汚れなし
@@ -59,27 +61,31 @@
             %td 送料込み(出品者負担)
           %tr
             %th 配送の方法
-            %td ゆうゆうメルカリ便
+            %td
+              = @product.shipping_method
           %tr
             %th 配送元地域
-            %td 北海道
+            %td
+              = @product.ship_from
           %tr
             %th 発送日の目安
             %td 2~3日で発送
     .item-detail__price-tax-shipping_cost
       .item-detail__price
-        %h2 ¥1,300
+        %h2
+          ¥#{@product.price}
       .item-detail__tax
         (税込)
       .item-detail__shipping_cost
-        送料込み
+        - if @product.shipping_fee == true
+          送料別
+        -else
+          送料込み
     .item-detail__purchase-button
       = link_to '購入画面に進む', "/"
     .item-detail__comment
       %p
-        ご覧いただきありがとうございます。
-        %br
-        シンプルなデザインですが、色々なコーディネートに合わせやすいと思います。素材は綿100%です。
+        = @product.description
     .item-detail__like-bad-other
       .item-detail__like
         %i.far.fa-heart
