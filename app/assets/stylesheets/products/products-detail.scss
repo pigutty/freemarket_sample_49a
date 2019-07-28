@@ -173,8 +173,6 @@
             border-radius: 20px;
             padding: 10px;
             margin-bottom: 30px;
-            &__text {
-            }
             &__icon {
               display: flex;
               justify-content: space-between;
@@ -255,7 +253,6 @@
     }
   }
 }
-
 /*スライダーに関するスタイル*/
 .item-detail__image__sliders {
   width: 300px;
