@@ -1,5 +1,6 @@
 = form_with model: @product, url: products_path, class: 'listing', method: :post, local: true do |form|
   = render "shared/new-header"
+  -# - binding.pry
   = render "shared/new-listing-form", f: form
   = render "shared/new-button", f: form
   = render "shared/new-footer"

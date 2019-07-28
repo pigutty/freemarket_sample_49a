@@ -3,19 +3,18 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @product = Product.new
   end
 
   def create
-    # binding.pry
-    @product = Product.new(listing_params)
+    Product.create(listing_params)
   end
-
   def buy
   end
 
   private
-
   def listing_params
-    params.require(:product).permit(:name)
+    params.require(:product).permit(:name, :description)
   end
+
 end
