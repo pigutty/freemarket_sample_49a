@@ -14,6 +14,6 @@ $(document).on('turbolinks:load', function(){
 
   $(thumbnailItem).on('click',function(){
     var index = $(this).attr("data-index");
-    $(slider).slick("slickGoTo",index,false);
+    $(slider).slick("slickGoTo",index);
   });
 });
