@@ -1,16 +1,17 @@
 .registration__container
   .registration__title 会員情報入力
-  %form.registration__content
+  = form_with model: @user, url: user_registration_path, class: 'registration__content', local: true do |f|
     .registration__content__box
-      =render 'render/input-form-required',label:'ニックネーム',example:'例）メルカリ太郎'
-      =render 'render/input-form-required',label:'メールアドレス',example:'PC・携帯どちらでも可'
-      =render 'render/input-form-required',label:'パスワード',example:'６文字以上'
-      =render 'render/input-form-required',label:'パスワード（確認）',example:'６文字以上'
+      =render 'render/input-form-required',label:'ニックネーム',example:'例）メルカリ太郎', form: f, name: :nickname
+      =render 'render/input-form-required',label:'メールアドレス',example:'PC・携帯どちらでも可', form: f, name: :email
+      =render 'render/input-form-required',label:'パスワード',example:'６文字以上', form: f, name: :password
+      =render 'render/input-form-required',label:'パスワード（確認）',example:'６文字以上', form: f, name: :password_confirmation
+      [:nickname, :email, , :family_name, :first_name, :family_furigana, :first_furigana, :birth_day])
       .input-form-box
         %label 本人確認
         %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-      = render 'render/input-name-form-required', label:'お名前(全角)',example1:'例)山田',example2:'例)彩'
-      = render 'render/input-name-form-required', label:'お名前カナ(全角)',example1:'例)ヤマダ',example2:'例)アヤ'
+      = render 'render/input-name-form-required', label:'お名前(全角)',example1:'例)山田',example2:'例)彩', form: f, name1: :family_name, name2: :first_name
+      = render 'render/input-name-form-required', label:'お名前カナ(全角)',example1:'例)ヤマダ',example2:'例)アヤ', form: f, name1: :family_furigana, name2: :first_furigana
       .input-form-box
         %label 生年月日
         %span.required 必須
@@ -38,5 +39,5 @@
           「次へ進む」のボタンを押すことにより、
           =link_to '利用規約', root_path
           に同意したものとみなします
-      =render "render/input-form-button",name:'次へ進む'
+      =render "render/input-form-button",name:'次へ進む' ,form: f
 
