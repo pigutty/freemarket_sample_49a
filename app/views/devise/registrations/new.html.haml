@@ -16,18 +16,21 @@
         %span.required 必須
         .select_wrap
           .select_wrap-birth
-            = date_select('birth_year','method',end_year:2019,discard_month:true)
+            = f.collection_select :birth_year, Year.all, :id, :name, {prompt: "---"}
+            -# = date_select('birth_year','method',end_year:2019,discard_month:true)
             %i.fas.fa-chevron-down
             %h2 年
           .select_wrap-birth
-            = date_select('birth_month','method',use_month_numbers:true,discard_year:true,discard_day:true)
+            = f.collection_select :birth_month, Month.all, :id, :name, {prompt: "---"}
+            -# = date_select('birth_month','method',use_month_numbers:true,discard_year:true,discard_day:true)
             %i.fas.fa-chevron-down
             %h2 月
           .select_wrap-birth
-            %select
-              - @days = 1...32
-              - @days.each do |index|
-                %option{value:index}= index
+            = f.collection_select  :birth_day, Day.all, :id, :name, {prompt: "---"}
+            -# %select
+            -#   - @days = 1...32
+            -#   - @days.each do |index|
+            -#     %option{value:index}= index
             %i.fas.fa-chevron-down
             %h2 日
       %p.text-gray ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
