@@ -1,6 +1,4 @@
 class CreditCardsController < ApplicationController
-  require 'payjp'
-  Payjp.api_key = "sk_test_16aaae6844b13bff01d1bd1e"
   # Payjp.api_key = ENV["SECRET_PAYJP_API_KEY"]
   # 環境変数/etc/envに設定してもらう。
   def new
@@ -13,7 +11,6 @@ class CreditCardsController < ApplicationController
     @user.customer_id = @customer.id
     @user.save
     CreditCard.create(token_id: @token_id, user_id: 1)
-    binding.pry
   end
 
   private

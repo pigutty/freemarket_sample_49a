@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :user_identifications, only: [:index]
   resources :user_profile, only:[:new]
   resources :products, only:[:show, :new, :edit, :create] do
-    resources :purchaces, only:[:new,:create]
+    resources :purchases, only:[:new,:create]
   end
 end
 

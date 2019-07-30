@@ -31,16 +31,20 @@ ActiveRecord::Schema.define(version: 2019_07_28_091054) do
     t.string "shipping_from_id", null: false
     t.string "shipping_date_id", null: false
     t.integer "price", null: false
-    t.string "category_id"
-    t.string "user_id"
+    t.integer "category_id"
+    t.integer "user_id"
   end
 
   create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "purchase_user_id"
     t.integer "purchase_id"
     t.integer "evaluation"
+    t.bigint "product_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_purchases_on_product_id"
+    t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
