@@ -50,7 +50,7 @@
             サイズ
           %span.listing__form__detail__box__form-group__require
             必須
-          = f.collection_select :size, Size.all, :id, :name, {prompt: "---"}, {class: 'listing__form__detail__box__form-group__category-select'}
+          = f.collection_select :size_id, Size.all, :id, :name, {prompt: "---"}, {class: 'listing__form__detail__box__form-group__category-select'}
 
 
         .listing__form__detail__box__form-group
@@ -58,7 +58,7 @@
             商品の状態
           %span.listing__form__detail__box__form-group__require
             必須
-          = f.collection_select :stutas, Status.all, :id, :name, {prompt: "---"}, {class: 'listing__form__detail__box__form-group__category-select'}
+          = f.collection_select :status_id, Status.all, :id, :name, {prompt: "---"}, {class: 'listing__form__detail__box__form-group__category-select'}
           -# = f.collection_select :stutas, Stutas.all, :id, :name, {}, {class: 'listing__form__detail__box__form-group__category-select'}
           -# %select.listing__form__detail__box__form-group__category-select
           -#   %option ---
@@ -76,7 +76,7 @@
             配送料の負担
           %span.listing__form__delivery__box__form-group__require
             必須
-          = f.collection_select :shippingmethod, ShippingMethod.all, :id, :name, {prompt: "---"}, {class: 'listing__form__delivery__box__form-group__category-select'}
+          = f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, {prompt: "---"}, {class: 'listing__form__delivery__box__form-group__category-select'}
           -# %select.listing__form__delivery__box__form-group__category-select
           -#   %option{value: ""} ---
           -#   %option{value: "2"} 送料込み(出品者負担)
@@ -97,7 +97,7 @@
             発送までの日数
           %span.listing__form__delivery__box__form-group__require
             必須
-          = f.collection_select :shippingdate, ShippingDate.all, :id, :name, {prompt: "---"}, {class: 'listing__form__delivery__box__form-group__category-select'}
+          = f.collection_select :shipping_date_id, ShippingDate.all, :id, :name, {prompt: "---"}, {class: 'listing__form__delivery__box__form-group__category-select'}
 
           -# %select.listing__form__delivery__box__form-group__category-select
           -#   %option{value: ""} ---
