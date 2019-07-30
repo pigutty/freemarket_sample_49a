@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 2019_07_27_094909) do
     t.string "first_name", null: false
     t.string "family_furigana", null: false
     t.string "first_furigana", null: false
-    t.integer "birth_year", default: 2019, null: false
-    t.integer "birth_month", default: 7, null: false
-    t.integer "birth_day", default: 29, null: false
+    t.integer "birth_year", null: false
+    t.integer "birth_month", null: false
+    t.integer "birth_day", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
