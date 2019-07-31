@@ -23,7 +23,7 @@
           -# %p.buy-price-table ¥ 5,000
           %p.buy-price-table ¥#{price}
 
-        .confirm-group__form__main__button 購入する
+        =link_to "購入する",product_purchases_path,method: :post,class: "confirm-group__form__main__button"
 
     .user-info
       .user-info__main
