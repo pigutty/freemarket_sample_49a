@@ -1,7 +1,9 @@
+.header
+  = render 'top/header'
 .mypage__container
-  .mypage__sidebar
+  = render "users/mypage-sidebar"
   .mypage__main
-    .mypage__info__registration__header 本人情報の登録
+    .mypage__main__header 本人情報の登録
     %form.mypage__info__registration__contents
       %ul.mypage__info__registration__contents__textbox
         %li.mypage__info__registration__contents__textbox__left
@@ -21,4 +23,5 @@
       = render 'render/input-form-button',name:"登録する"
       .input-form-box
         = render "render/link_right",text:'本人情報の登録について',address:root_path
-= render 'top/footer'
+.footer
+  = render 'top/footer'

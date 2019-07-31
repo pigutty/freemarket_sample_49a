@@ -1,5 +1,14 @@
-.mypage__container{
+body {
   background-color: #f5f5f5;
+}
+
+.header {
+  background-color: #fff;
+}
+.mypage__container {
+  display: flex;
+  background-color: f5f5f5;
   width: 1020px;
-  margin: 40px 68px;
+  margin: 40px 210px;
+  overflow: hidden;
 }

@@ -1,11 +1,12 @@
 @mixin mypage-main {
   .mypage__main{
-    background: #fff;
+    width: 700px;
     &__header{
       font-size: 24px;
       font-weight: bold;
       padding: 8px 24px;
       text-align: center;
+      background: #fff
     }
   }  
 }
