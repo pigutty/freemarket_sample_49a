@@ -1,4 +1,68 @@
 body{
+  .progress_bar-container{
+    display: flex;
+    text-align:center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    border: 0;
+    .progress-bar{
+      padding: 40px 0 0 44px;
+    .step-bar {
+      display: flex;
+      position: relative;
+      text-align: center;
+      li {
+        font-size: 12px;
+        color: #888;
+        list-style: none;
+        position: relative;
+        margin: 0 40px 0 0;
+        min-width: 60px;
+        z-index: 1;
+        .progress-status{
+          background: #ccc;
+          height: 12px;
+          margin: 8px auto 0;
+          width: 12px;
+          border-radius: 50%;
+          display: block;
+          z-index: 1;
+        }
+        .progressed{
+          background: #ea352d;
+        }
+        .progress-status:before, .progress-status:after {
+          position: absolute;
+          bottom: 5px;
+          z-index: 1;
+          display: block;
+          content: '';
+          width: 100%;
+          height: 2px;
+          background: #ccc;
+          z-index: -1;
+      }
+      .progress-status:before {
+        right: 50%;
+    }
+    }
+    li.visited{
+      color: #ea352d;
+    }
+    
+    li:first-child {
+      .progress-status:before{
+            content: none;
+        }
+      }
+      li:last-child {
+        .progress-status:after{
+              content: none;
+          }
+        }
+    }
+  }
+}
 main.signup-main{
   .btn-default{
     color: #fff;
