@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2019_07_28_091054) do
 
   create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "token_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_credit_cards_on_user_id"
@@ -36,14 +36,13 @@ ActiveRecord::Schema.define(version: 2019_07_28_091054) do
   end
 
   create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "purchase_user_id"
-    t.integer "purchase_id"
+    t.string "purchase_id"
     t.integer "evaluation"
-    t.bigint "product_id"
+    t.integer "product_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_purchases_on_product_id"
+    t.index ["product_id"], name: "fk_rails_0d630f0bc7"
     t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
@@ -60,4 +59,7 @@ ActiveRecord::Schema.define(version: 2019_07_28_091054) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "credit_cards", "users"
+  add_foreign_key "purchases", "products"
+  add_foreign_key "purchases", "users"
 end

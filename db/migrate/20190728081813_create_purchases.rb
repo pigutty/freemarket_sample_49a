@@ -2,12 +2,12 @@ class CreatePurchases < ActiveRecord::Migration[5.2]
   def change
     create_table :purchases do |t|
 
-      t.integer :purchase_user_id
-      t.integer :purchase_id
+      t.string :purchase_id
       t.integer :evaluation
-      t.references :product
-      t.references :user
+      t.integer :product_id
+      t.references :user, foreign_key: true
       t.timestamps
     end
+    add_foreign_key :purchases, :products
   end
 end
