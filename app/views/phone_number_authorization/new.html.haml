@@ -1,5 +1,4 @@
--# 吉田さんのビューを引用
-
+= render 'signup/registration-header'
 .registration__container
   .registration__title 電話番号の確認
   %form.registration__content
@@ -11,4 +10,5 @@
       = render 'render/input-form-button',name:'SMSを送信する'
       %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
       = render "render/link_right",text:"電話番号の確認が必要な理由",address:root_path
-
+%footer.registration_login-footer.test
+  =render 'signup/registration_login_footer'

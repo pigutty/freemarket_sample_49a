@@ -1,3 +1,4 @@
+= render 'signup/registration-header'
 .registration__container
   .registration__title 会員情報入力
   = form_with model: @user, url: user_registration_path, class: 'registration__content', local: true do |f|
@@ -42,3 +43,5 @@
           =link_to '利用規約', root_path
           に同意したものとみなします
       =render "render/input-form-button",name:'次へ進む' ,form: f
+%footer.registration_login-footer.test
+  =render 'signup/registration_login_footer'
