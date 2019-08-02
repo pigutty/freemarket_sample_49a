@@ -3,14 +3,15 @@ class CreateProducts < ActiveRecord::Migration[5.0]
     create_table :products do |t|
       t.string          :name, null: false  
       t.text            :description
-      t.string          :size, null: false
+      t.integer         :size_id, null: false
       t.string          :brand
-      t.integer         :status, null: false
-      t.boolean         :shipping_fee, null: false
-      t.string          :shipping_method, null: false
-      t.string          :ship_from, null: false
-      t.string          :shipping_date, null: false
+      t.integer         :status_id, null: false
+      t.boolean         :shipping_fee_id, null: false
+      t.integer         :shipping_date_id, null: false
       t.integer         :price, null: false 
+      t.integer         :category_id
+      t.integer         :user_id
+      t.integer         :prefecture_id, null: false
     end
   end
 end
