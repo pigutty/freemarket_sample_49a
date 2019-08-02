@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :top, only: :index, defaults: { format: 'json' }
   end
+
   resources :users, only: [:index] do
     resources :credit_cards, only:[:new,:create]
   end
