@@ -1,0 +1,6 @@
+.product-buy-confirm
+  =render "shared/new-header"
+  =render "shared/confirm-product", name: @product.name,price:@product.price
+  -# =render "shared/confirm-product", name: @product.name,price:@product.price,image_url:@product.image
+  -# 商品に画像が保存できた場合、こういうコードでいく予定
+  =render "shared/new-footer"
