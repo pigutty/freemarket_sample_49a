@@ -14,8 +14,8 @@
     &__items {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       margin: 0 auto;
+      width: 940px;
     }
     &__item__box {
       width: 212px;
@@ -63,7 +63,7 @@
         margin: 0 auto;
       }
     .gray {
-       color: #ccc;
+      color: #ccc;
     }
     }
 }
