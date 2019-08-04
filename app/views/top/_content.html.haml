@@ -12,45 +12,45 @@
         .contents__item__box__image
           = image_tag 'item1.jpg', alt: '', height: '213', width: '213', class: ''
         .contents__item__box__item-name
-          ecco crepe tray スニーカーブーツ DANISH 23.5
+          = @products[0].name
         .contents__item__box__price-favorite
           .contents__item__box__price
-            ¥10,000
+            = "¥#{@products[0].price.to_s(:delimited)}"
           .contents__item__box__favorite
             %i.far.fa-heart.gray
             %span 6
-      .contents__item__box
-        .contents__item__box__image
-          = image_tag 'item1.jpg', alt: '', height: '213', width: '213', class: ''
-        .contents__item__box__item-name
-          ecco crepe tray スニーカーブーツ DANISH 23.5
-        .contents__item__box__price-favorite
-          .contents__item__box__price
-            ¥10,000
-          .contents__item__box__favorite
-            %i.far.fa-heart.gray
-            %span 6
-      .contents__item__box
-        .contents__item__box__image
-          = image_tag 'item1.jpg', alt: '', height: '213', width: '213', class: ''
-        .contents__item__box__item-name
-          ecco crepe tray スニーカーブーツ DANISH 23.5
-        .contents__item__box__price-favorite
-          .contents__item__box__price
-            ¥10,000
-          .contents__item__box__favorite
-            %i.far.fa-heart.gray
-            %span 6
-      .contents__item__box
-        .contents__item__box__image
-          = image_tag 'item1.jpg', alt: '', height: '213', width: '213', class: ''
-        .contents__item__box__item-name
-          ecco crepe tray スニーカーブーツ DANISH 23.5555555555555555555555555557777777777777777777777777777777777
-        .contents__item__box__price-favorite
-          .contents__item__box__price
-            ¥10,000
-          .contents__item__box__favorite
-            %i.far.fa-heart.gray
-            %span 6
+      -# .contents__item__box
+      -#   .contents__item__box__image
+      -#     = image_tag 'item1.jpg', alt: '', height: '213', width: '213', class: ''
+      -#   .contents__item__box__item-name
+      -#     = @products[1].name
+      -#   .contents__item__box__price-favorite
+      -#     .contents__item__box__price
+      -#       ¥10,000
+      -#     .contents__item__box__favorite
+      -#       %i.far.fa-heart.gray
+      -#       %span 6
+      -# .contents__item__box
+      -#   .contents__item__box__image
+      -#     = image_tag 'item1.jpg', alt: '', height: '213', width: '213', class: ''
+      -#   .contents__item__box__item-name
+      -#     ecco crepe tray スニーカーブーツ DANISH 23.5
+      -#   .contents__item__box__price-favorite
+      -#     .contents__item__box__price
+      -#       ¥10,000
+      -#     .contents__item__box__favorite
+      -#       %i.far.fa-heart.gray
+      -#       %span 6
+      -# .contents__item__box
+      -#   .contents__item__box__image
+      -#     = image_tag 'item1.jpg', alt: '', height: '213', width: '213', class: ''
+      -#   .contents__item__box__item-name
+      -#     ecco crepe tray スニーカーブーツ DANISH 23.5555555555555555555555555557777777777777777777777777777777777
+      -#   .contents__item__box__price-favorite
+      -#     .contents__item__box__price
+      -#       ¥10,000
+      -#     .contents__item__box__favorite
+      -#       %i.far.fa-heart.gray
+      -#       %span 6
     .contents__item__box__all-items-view
       全ての商品を見る
