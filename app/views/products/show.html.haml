@@ -5,19 +5,13 @@
     .item-detail__image-text
       .item-detail__image
         %ul.item-detail__image__sliders
-          %li.item-detail__image__slider
-            = image_tag 'products-detail_sample1.jpg', alt: '', height: 'auto', width: '270px'
-          %li.item-detail__image__slider
-            = image_tag 'products-detail_sample2.jpg', alt: '', height: 'auto', width: '270px'
-          %li.item-detail__image__slider
-            = image_tag 'products-detail_sample3.jpg', alt: '', height: 'auto', width: '270px'
+          - @products_images.each do |products_image|
+            %li.item-detail__image__slider
+              = image_tag products_image.image_url, alt: '', height: 'auto', width: '270px'
         %ul.item-detail__image__thumbnails
-          %li.item-detail__image__thumbnail
-            = image_tag 'products-detail_sample1.jpg', alt: '', height: '60px', width: '60px'
-          %li.item-detail__image__thumbnail
-            = image_tag 'products-detail_sample2.jpg', alt: '', height: '60px', width: '60px'
-          %li.item-detail__image__thumbnail
-            = image_tag 'products-detail_sample3.jpg', alt: '', height: '60px', width: '60px'
+          - @products_images.each do |products_image|
+            %li.item-detail__image__thumbnail
+              = image_tag products_image.image_url, alt: '', height: '60px', width: '60px'
       .item-detail__table
         %table
           %tr

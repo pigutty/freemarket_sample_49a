@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   has_one :purchase
+  has_many :products_images
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :size
   belongs_to_active_hash :status
