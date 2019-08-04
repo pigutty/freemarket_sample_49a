@@ -5,12 +5,12 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    
   end
 
   def create
     Product.create(listing_params)
   end
+  
   def buy
   end
 
