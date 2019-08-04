@@ -5,7 +5,5 @@ class UserProfileController < TopController
     @subjects3=["売上・振込申請", "ポイント"]
     @subjects4=["プロフィール", "発送元・お届け先住所変更", "支払い方法", "メール/パスワード", "本人情報", "電話番号の確認", "ログアウト"]
     @bigcategories = Category.where(parent_id:nil, child_id:nil)
-    # parent_id = params[:parent_id].to_i
-    # @middlecategories = Category.where(parent_id: parent_id).take(14)
   end
 end
