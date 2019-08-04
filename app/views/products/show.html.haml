@@ -1,7 +1,7 @@
 .wrapper--item-detail
   .item-detail
     %h1
-      @product.name
+      = @product.name
     .item-detail__image-text
       .item-detail__image
         %ul.item-detail__image__sliders
@@ -23,7 +23,7 @@
           %tr
             %th 出品者
             %td
-              Yomori
+              = @product.user_id
               .item-detail__table__assesments
                 .item-detail__table__assesment-good
                   %i.fas.fa-grin
@@ -38,7 +38,7 @@
             %th カテゴリー
             %td
               .item-detail__table__category
-                = link_to 'レディース', '/'
+                = link_to @product.category.name, '/'
               .item-detail__table__category
                 %i.fas.fa-angle-right
                 = link_to 'トップス', '/'
@@ -48,28 +48,34 @@
           %tr
             %th ブランド
             %td
-              = link_to 'ルールマラソン', '/'
+              = link_to @product.brand, '/'
           %tr
             %th 商品のサイズ
-            %td FREE SIZE
+            %td
+              = @product.size.name
           %tr
             %th 商品の状態
-            %td 目立った傷や汚れなし
+            %td
+              = @product.status.name
           %tr
             %th 配送料の負担
-            %td 送料込み(出品者負担)
+            %td
+              = @product.shipping_fee_id
           %tr
             %th 配送の方法
             %td ゆうゆうメルカリ便
           %tr
             %th 配送元地域
-            %td 北海道
+            %td
+              = @product.prefecture.name
           %tr
             %th 発送日の目安
-            %td 2~3日で発送
+            %td
+              = @product.shipping_date.name
     .item-detail__price-tax-shipping_cost
       .item-detail__price
-        %h2 ¥1,300
+        %h2
+          = "¥#{@product.price.to_s(:delimited)}"
       .item-detail__tax
         (税込)
       .item-detail__shipping_cost
@@ -78,9 +84,7 @@
       = link_to '購入画面に進む', "/"
     .item-detail__comment
       %p
-        ご覧いただきありがとうございます。
-        %br
-        シンプルなデザインですが、色々なコーディネートに合わせやすいと思います。素材は綿100%です。
+        = @product.description
     .item-detail__like-bad-other
       .item-detail__like
         %i.far.fa-heart
@@ -89,7 +93,7 @@
       .item-detail__bad
         %i.far.fa-flag
         %span 不適切な商品の報告
-        %span 
+        %span
       .item-detail__other
         %i.fas.fa-lock
         = link_to 'あんしん・あんぜんへの取り組み','/'
