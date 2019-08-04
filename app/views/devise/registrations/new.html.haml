@@ -16,15 +16,15 @@
         %span.required 必須
         .select_wrap
           .select_wrap-birth
-            = f.collection_select :birth_year, Year.all, :id, :name, {prompt: "---"}
+            = f.collection_select :birth_year, Year.all, :name, :name, {prompt: "---"}
             %i.fas.fa-chevron-down
             %h2 年
           .select_wrap-birth
-            = f.collection_select :birth_month, Month.all, :id, :name, {prompt: "---"}
+            = f.collection_select :birth_month, Month.all, :name, :name, {prompt: "---"}
             %i.fas.fa-chevron-down
             %h2 月
           .select_wrap-birth
-            = f.collection_select  :birth_day, Day.all, :id, :name, {prompt: "---"}
+            = f.collection_select  :birth_day, Day.all, :name, :name, {prompt: "---"}
             %i.fas.fa-chevron-down
             %h2 日
       %p.text-gray ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
