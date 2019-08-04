@@ -2,7 +2,6 @@
   .listing__title
     %h1
       商品の情報を入力
-    -#DB作成時にform_withで実装
 
   .listing__form
     .listing__form__upload
@@ -19,19 +18,18 @@
           %pre.visible-pc
             ドラッグアンドドロップ
             またはクリックしてファイルをアップロード
-
   
     .listing__form__product
       .listing__form__product__form-group
         商品名
         %span.require
           必須
-        %input.listing-input{placeholder: "商品名（必須 40文字まで)"}
+        = f.text_field :name, class:'listing-input', placeholder: "商品名（必須 40文字まで)"
       .listing__form__product__form-group 
         商品の説明
         %span.require
           必須
-        %textarea.listing-textarea{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
+        = f.text_area :description, class:'listing-textarea', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
     
     .listing__form__detail
       %label.listing__form__detail__title
@@ -42,30 +40,22 @@
             カテゴリー
           %span.listing__form__detail__box__form-group__require
             必須
-          %select.listing__form__detail__box__form-group__category-select
-            %option{value: ""} ---　　
-            -# 別ブランチでactive_hash作成のため、マージ後実装。
+          = f.collection_select :category_id, Category.all.take(13), :id, :name, {prompt: "---"}, {class: 'listing__form__detail__box__form-group__category-select'}
             
         .listing__form__detail__box__form-group
           %label
             サイズ
           %span.listing__form__detail__box__form-group__require
             必須
-          %select.listing__form__detail__box__form-group__category-select
-            %option ---
-            - Size.all.each do |ele|
-              %option{value:ele.name}= ele.name
+          = f.collection_select :size_id, Size.all, :id, :name, {prompt: "---"}, {class: 'listing__form__detail__box__form-group__category-select'}
+
 
         .listing__form__detail__box__form-group
           %label
             商品の状態
           %span.listing__form__detail__box__form-group__require
             必須
-          %select.listing__form__detail__box__form-group__category-select
-            %option ---
-            - Status.all.each do |ele|
-              %option{value: ele.name}= ele.name
-
+          = f.collection_select :status_id, Status.all, :id, :name, {prompt: "---"}, {class: 'listing__form__detail__box__form-group__category-select'}
   
     .listing__form__delivery
       %label.listing__form__delivery__title
@@ -77,29 +67,22 @@
             配送料の負担
           %span.listing__form__delivery__box__form-group__require
             必須
-          %select.listing__form__delivery__box__form-group__category-select
-            %option{value: ""} ---
-            %option{value: "2"} 送料込み(出品者負担)
-            %option{value: "1"} 着払い(購入者負担)
+          = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {prompt: "---"}, {class: 'listing__form__delivery__box__form-group__category-select'}
+
         .listing__form__delivery__box__form-group
           %label.listing__form__delivery__box__form-group__product-name
             発送元の地域
           %span.listing__form__delivery__box__form-group__require
             必須
-          %select.listing__form__delivery__box__form-group__category-select
-            %option{value: ""} ---
-            -# 別ブランチでactive_hash作成済みのため、マージ後実装。
+          
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, {class: 'listing__form__delivery__box__form-group__category-select'}
 
         .listing__form__delivery__box__form-group
           %label.listing__form__delivery__box__form-group__product-name
             発送までの日数
           %span.listing__form__delivery__box__form-group__require
             必須
-          %select.listing__form__delivery__box__form-group__category-select
-            %option{value: ""} ---
-            %option{value: "1"} 1~2日で発送
-            %option{value: "2"} 2~3日で発送
-            %option{value: "3"} 4~7日で発送
+          = f.collection_select :shipping_date_id, ShippingDate.all, :id, :name, {prompt: "---"}, {class: 'listing__form__delivery__box__form-group__category-select'}
 
     .listing__form__price
       %label.listing__form__price__title
@@ -112,7 +95,7 @@
               必須
           .listing__form__price__box__price__right
             ¥
-            %input.listing__form__price__box__price__right__default{placeholder: "例）300", value: ""}
+            = f.text_field :price, class:'listing__form__price__box__price__right__default', placeholder: "例）300"
 
         .listing__form__price__box__fee
           %p 販売手数料(10%)

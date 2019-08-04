@@ -7,19 +7,19 @@
         .confirm-group__form__main__pict
           .confirm-group__form__main__pict__frame
             = image_tag '商品画像.jpg', width: '100%'
-          %h2 新品☆CLARINS コンフォート リップオイル3本セット
+          %h2=name
 
         .confirm-group__form__main__price
-          %p ¥ 5,000 
+          %p¥#{price}
           %span 送料込み
 
         .confirm-group__form__main__point ポイントはありません
 
         .confirm-group__form__main__buy-price
           %p 支払い金額
-          %p.buy-price-table ¥ 5,000 
+          %p.buy-price-table ¥#{price}
 
-        .confirm-group__form__main__button 購入する
+        =link_to "購入する",product_purchases_path,method: :post,class: "confirm-group__form__main__button"
 
     .user-info
       .user-info__main
@@ -34,8 +34,8 @@
       .user-info__main
         %h3 支払い方法
         %p.user-info__main__text
-          ************7385 
-          %br 12 / 22
+          ************#{@last4} 
+          %br #{@month} / #{@year}
         .user-info__main__card
-          = image_tag 'visa.svg', width: '100%'
+          = image_tag '#{@brand}.svg', width: '100%'
         %a.user-info__main__fix 変更する
