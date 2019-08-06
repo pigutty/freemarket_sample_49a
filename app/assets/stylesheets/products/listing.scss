@@ -52,7 +52,23 @@
         align-items: center;
         cursor: pointer;
         padding: 40px;
-        min-height: 162px;
+        background: #f5f5f5;
+        border: 1px dashed #ccc;
+        &__comment{
+          text-align: center;
+          left: 16px;
+          right: 16px;
+          font-size: 14px;
+          line-height: 1.5;
+        }
+      }
+      &__box2{
+        margin-top: 10px; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        padding: 40px;
         background: #f5f5f5;
         border: 1px dashed #ccc;
         &__comment{

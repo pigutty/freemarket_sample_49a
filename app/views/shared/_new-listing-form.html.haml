@@ -12,13 +12,22 @@
 
       %p.listing__form__upload__comment
         最大10枚までアップロードできます
-      %label.listing__form__upload__box
+      %ul.listing__form__upload__box
         .listing__form__upload__box__comment
-          = f.file_field :image, class:'listing-upload-drop-file',multiple:true
+          = f.file_field :images, class:'listing-upload-drop-file',multiple:true
           -# %input.listing-upload-drop-file{multiple: "multiple", style: "display: none;", type: "file"}
           %pre.visible-pc
             ドラッグアンドドロップ
             またはクリックしてファイルをアップロード
+      
+      %ul.listing__form__upload__box2
+        .listing__form__upload__box__comment
+          = f.file_field :images, class:'listing-upload-drop-file',multiple:true
+          -# %input.listing-upload-drop-file{multiple: "multiple", style: "display: none;", type: "file"}
+          %pre.visible-pc
+            ドラッグアンドドロップ
+            またはクリックしてファイルをアップロード
+      
   
     .listing__form__product
       .listing__form__product__form-group
