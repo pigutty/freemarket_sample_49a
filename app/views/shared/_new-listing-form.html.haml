@@ -14,7 +14,8 @@
         最大10枚までアップロードできます
       %label.listing__form__upload__box
         .listing__form__upload__box__comment
-          %input.listing-upload-drop-file{multiple: "multiple", style: "display: none;", type: "file"}
+          = f.file_field :image, class:'listing-upload-drop-file',multiple:true
+          -# %input.listing-upload-drop-file{multiple: "multiple", style: "display: none;", type: "file"}
           %pre.visible-pc
             ドラッグアンドドロップ
             またはクリックしてファイルをアップロード
