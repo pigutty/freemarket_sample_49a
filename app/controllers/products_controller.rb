@@ -9,7 +9,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.create(listing_params)
-    @product.images.attach(params[:product][:image])
   end
 
   def buy

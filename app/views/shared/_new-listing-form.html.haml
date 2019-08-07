@@ -9,21 +9,39 @@
         出品画像
         %span.listing__form__upload__require
           必須
+      %p.listing__form__upload__comment 最大10枚までアップロードできます
 
-      %p.listing__form__upload__comment
-        最大10枚までアップロードできます
-      %ul.listing__form__upload__box
+
+
+
+      %label.listing__form__upload__box
+        = f.file_field :images, class:'listing-upload-drop-file',multiple:true, style: "display:none;"
+        //jsに変更
+        %li.listing__form__upload__box__space
+          %figure.listing__form__upload__box__space__pict
+            =image_tag '商品画像.jpg', class: 'listing__form__upload__box__space__pict__mini'
+          .listing__form__upload__box__space__button
+            %a.listing__form__upload__box__button__edit 編集
+            %a.listing__form__upload__box__button__delete 削除
+
+        %li.listing__form__upload__box__space
+          %figure.listing__form__upload__box__space__pict
+            =image_tag '商品画像.jpg', class: 'listing__form__upload__box__space__pict__mini'
+          .listing__form__upload__box__space__button
+            %a.listing__form__upload__box__button__edit 編集
+            %a.listing__form__upload__box__button__delete 削除
+        
         .listing__form__upload__box__comment
-          = f.file_field :images, class:'listing-upload-drop-file',multiple:true
-          -# %input.listing-upload-drop-file{multiple: "multiple", style: "display: none;", type: "file"}
+          = f.file_field :images, class:'listing-upload-drop-file',multiple:true, style: "display:none;"
           %pre.visible-pc
             ドラッグアンドドロップ
             またはクリックしてファイルをアップロード
-      
-      %ul.listing__form__upload__box2
+
+
+      %label.listing__form__upload__box2
         .listing__form__upload__box__comment
-          = f.file_field :images, class:'listing-upload-drop-file',multiple:true
-          -# %input.listing-upload-drop-file{multiple: "multiple", style: "display: none;", type: "file"}
+          = f.file_field :images, class:'listing-upload-drop-file',multiple:true, style: "display:none;"
+
           %pre.visible-pc
             ドラッグアンドドロップ
             またはクリックしてファイルをアップロード

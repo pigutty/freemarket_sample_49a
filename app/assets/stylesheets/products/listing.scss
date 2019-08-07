@@ -47,13 +47,40 @@
         line-height: 1.5;
       }
       &__box{
+        display: block;
+        width: 620px;
+        height: 172px;
         display: flex;
-        justify-content: center;
-        align-items: center;
         cursor: pointer;
-        padding: 40px;
         background: #f5f5f5;
         border: 1px dashed #ccc;
+
+        &__space{
+          list-style: none;
+          width: 116px;
+          margin: 0 0 10px 0;
+          border: 1px solid black;
+          &__pict{
+            height: 116px;
+            margin: 0;
+            &__mini{
+              line-height: 116px;
+              width: 116px;
+            }
+          }
+          &__button{
+            display: flex;
+            justify-content: space-around;
+            a{
+              display: inline-block;
+              width: 50%;
+              background: #f5f5f5;
+              line-height: 44px;
+              text-align: center;
+              color: #0099e8;
+            }
+          }
+        }
         &__comment{
           text-align: center;
           left: 16px;
@@ -63,12 +90,12 @@
         }
       }
       &__box2{
-        margin-top: 10px; 
+        margin-top: 10px;
+        display: block;
+        width: 620px;
+        height: 172px;
         display: flex;
-        justify-content: center;
-        align-items: center;
         cursor: pointer;
-        padding: 40px;
         background: #f5f5f5;
         border: 1px dashed #ccc;
         &__comment{
