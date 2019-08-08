@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :credit_cards
   has_many :purchases
+  has_many :comments
 end

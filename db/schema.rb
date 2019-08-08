@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_28_081813) do
+ActiveRecord::Schema.define(version: 2019_08_04_102449) do
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "product_id", null: false
+    t.string "text", null: false
+  end
 
   create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "token_id", null: false
@@ -20,18 +26,31 @@ ActiveRecord::Schema.define(version: 2019_07_28_081813) do
     t.index ["user_id"], name: "index_credit_cards_on_user_id"
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "product_id", null: false
+    t.integer "like", null: false
+    t.integer "bad", null: false
+  end
+
   create_table "products", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description"
     t.integer "size_id", null: false
     t.string "brand"
     t.integer "status_id", null: false
-    t.boolean "shipping_fee_id", null: false
+    t.integer "shipping_method_id", null: false
+    t.integer "shipping_fee_id", null: false
     t.integer "shipping_date_id", null: false
     t.integer "price", null: false
     t.integer "category_id"
     t.integer "user_id"
     t.integer "prefecture_id", null: false
+  end
+
+  create_table "products_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.string "image_url"
   end
 
   create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

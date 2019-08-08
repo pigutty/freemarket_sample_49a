@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
-    @products_images = @product.products_images
   end
 
   def new
