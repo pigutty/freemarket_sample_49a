@@ -2,18 +2,18 @@
   = render "signup/registration_login_header"
   %nav.progress-bar
     %ol.step-bar
-      %li.visited
+      %li{class:@member_information_title}
         会員情報
-        .progress-status.progressed
-      %li
+        .progress-status{class:@member_information}
+      %li{class:@phone_information_title}
         電話番号認証
-        .progress-status
-      %li
+        .progress-status{class:@phone_information}
+      %li{class:@address_information_title}
         お届け先住所入力
-        .progress-status
-      %li
+        .progress-status{class:@address_information}
+      %li{class:@credit_information_title}
         支払い方法
-        .progress-status
+        .progress-status{class:@credit_information}
       %li
         完了
         .progress-status

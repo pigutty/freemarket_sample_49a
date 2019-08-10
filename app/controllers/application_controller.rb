@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :basic_auth
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
+  before_action :registration_view_params
 
   private
   
@@ -17,6 +18,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :email, :family_name, :first_name, :family_furigana, :first_furigana, :birth_year, :birth_month, :birth_day])
   end
 
+  def registration_view_params
+    @member_information_title = "visited"
+    @member_information = "progressed"
+  end
 
 end
 

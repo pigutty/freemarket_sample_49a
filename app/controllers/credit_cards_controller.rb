@@ -3,6 +3,12 @@ class CreditCardsController < ApplicationController
   Payjp.api_key = ENV["SECRET_PAYJP_API_KEY"]
   # 環境変数/etc/envに設定してもらう。
   def new
+    @member_information_title = nil
+    @member_information = "completed"
+    @phone_information = 'completed'
+    @address_information = 'completed'
+    @credit_information_title = "visited"
+    @credit_information = 'progressed'
   end
 
   def create
