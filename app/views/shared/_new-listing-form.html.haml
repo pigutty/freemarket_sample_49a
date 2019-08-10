@@ -12,39 +12,26 @@
       %p.listing__form__upload__comment 最大10枚までアップロードできます
 
 
-
-
-      %label.listing__form__upload__box
-        = f.file_field :images, class:'listing-upload-drop-file',multiple:true, style: "display:none;"
-        //jsに変更
-        %li.listing__form__upload__box__space
-          %figure.listing__form__upload__box__space__pict
-            =image_tag '商品画像.jpg', class: 'listing__form__upload__box__space__pict__mini'
-          .listing__form__upload__box__space__button
-            %a.listing__form__upload__box__button__edit 編集
-            %a.listing__form__upload__box__button__delete 削除
-
-        %li.listing__form__upload__box__space
-          %figure.listing__form__upload__box__space__pict
-            =image_tag '商品画像.jpg', class: 'listing__form__upload__box__space__pict__mini'
-          .listing__form__upload__box__space__button
-            %a.listing__form__upload__box__button__edit 編集
-            %a.listing__form__upload__box__button__delete 削除
+      .listing__form__upload__box
+        #preview
+        %label.listing__form__upload__box__preview
+          = f.file_field :images, class:'listing-upload-drop-file', style: "display:none;"
         
-        .listing__form__upload__box__comment
-          = f.file_field :images, class:'listing-upload-drop-file',multiple:true, style: "display:none;"
-          %pre.visible-pc
-            ドラッグアンドドロップ
-            またはクリックしてファイルをアップロード
+          -# .listing__form__upload__box__comment
+          -#   = f.file_field :images, class:'listing-upload-drop-file',multiple:true, style: "display:none;"
+          -#   %pre.visible-pc
+          -#     ドラッグアンドドロップ
+          -#     またはクリックしてファイルをアップロード
 
 
-      %label.listing__form__upload__box2
-        .listing__form__upload__box__comment
-          = f.file_field :images, class:'listing-upload-drop-file',multiple:true, style: "display:none;"
+        #preview2
 
-          %pre.visible-pc
-            ドラッグアンドドロップ
-            またはクリックしてファイルをアップロード
+      -#   .listing__form__upload__box__comment
+      -#     = f.file_field :images, class:'listing-upload-drop-file',multiple:true, style: "display:none;"
+
+      -#     %pre.visible-pc
+            -# ドラッグアンドドロップ
+            -# またはクリックしてファイルをアップロード
       
   
     .listing__form__product
