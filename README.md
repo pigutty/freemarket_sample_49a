@@ -36,8 +36,8 @@ Things you may want to cover:
 |first_name|string|null: false|
 |family_furigana|string|null:false|
 |first_furigana|string|null:false|
-|birth_day|date|null:false|
-
+|birth_year|date|null:false|
+|customer_id|string||
 
 ### Association
 - has_many :products
@@ -101,10 +101,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null:false|
-|mouth_period|integer|null:false|
-|year_period|integer|null:false|
-|sevurity_code|integer|null:false|
+|token_id|string|null:false|
+|user_id|bigint|null:false,foreign_key:true|
 
 ### Association
 - belongs_to :user
