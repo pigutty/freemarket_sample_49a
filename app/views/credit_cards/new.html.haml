@@ -1,3 +1,4 @@
+= render 'signup/registration-header'
 .registration__container
   .registration__title 支払い方法
   = form_with  url:user_credit_cards_path,class:'registration__content',id:'new_credit_card' do |f|
@@ -17,5 +18,6 @@
         %h2 年 
       =render 'render/input-form-required',label:'セキュリティコード',example:'カード背面４桁もしくは３桁の番号',form: f, name: :cvc
       =render 'render/help-link',text:'カード裏面の番号とは？',address:root_path
-      .input-form-box
-        = f.submit '次へ進む', class:"btn-red"
+      = render 'render/input-form-button',name:'次へ進む',form:f
+%footer.registration_login-footer.test
+  =render 'signup/registration_login_footer'
