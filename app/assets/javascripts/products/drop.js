@@ -50,7 +50,7 @@ $(document).on('turbolinks:load',function(){
     if (totalImagesLength <= 5){
       $('#preview').prepend(html);
       $('.listing__form__upload__box__preview').append(input);
-      $('.listing__form__upload__box__preview').css('width', `calc(100% - ${20 * imagesLength }%`);
+      $('.listing__form__upload__box__preview').css('width', `calc(100% - ${128 * imagesLength }px`);
       reader.onload = function(){
         $('#preview-zone').attr('src', reader.result);
       }
@@ -58,7 +58,7 @@ $(document).on('turbolinks:load',function(){
     }else if(totalImagesLength == 6){
       $('#preview').prepend(html);
       $('.listing__form__upload__box__preview').append(input);
-      $('.listing__form__upload__box__preview').css('width', `calc(100% - ${20 * imagesLength }%`);
+      $('.listing__form__upload__box__preview').css('width', 'calc(0%)');
       $('.listing__form__upload__box__preview2').css('display','block');
       reader.onload = function(){
         $('#preview-zone').attr('src', reader.result);
@@ -67,7 +67,7 @@ $(document).on('turbolinks:load',function(){
     }else if(totalImagesLength >= 7){
       $('#preview2').prepend(html2);
       $('.listing__form__upload__box__preview2').append(input2);
-      $('.listing__form__upload__box__preview2').css('width', `calc(100% - ${20 * imagesLength2 }%`);
+      $('.listing__form__upload__box__preview2').css('width', `calc(100% - ${128 * imagesLength2 }px`);
       reader.onload = function(){
         $('#preview-zone2').attr('src', reader.result);
       }
