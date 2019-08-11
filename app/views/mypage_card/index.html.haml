@@ -10,7 +10,7 @@
           .input-form-box
             %label クレジットカード 一覧
             .button-wrap
-              = link_to('クレジットカードを追加する', root_path, class:'btn-red')
+              = link_to('クレジットカードを追加する', new_user_mypage_card_path, class:'btn-red')
               %i.far.fa-credit-card
           = render 'render/link_right',text:'支払い方法について',address:root_path
 .footer
