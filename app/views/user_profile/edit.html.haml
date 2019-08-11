@@ -8,6 +8,6 @@
         .registration__content__box
           .input-form-box
             .button-wrap
-              = link_to('ログアウト', '/users', method: :delete, class:'btn-red')
+              = link_to('ログアウト',user_registration_path, method: :delete, class:'btn-red')
 .footer
   = render 'top/footer'
