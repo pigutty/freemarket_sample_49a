@@ -37,7 +37,6 @@ $(document).on('turbolinks:load',function(){
   }
   //fileを選択時に発火するイベントを登録
   $('.listing-upload-drop-file,.listing-upload-drop-file2').change(function(e){
-    console.log(e);
     var file = e.target.files[0];
     var html = buildpreview();
     var html2 = buildpreview2();
@@ -47,11 +46,8 @@ $(document).on('turbolinks:load',function(){
     var imagesLength = $('.listing-upload-drop-file').length;
     var imagesLength2= $('.listing-upload-drop-file2').length;
     var totalImagesLength = imagesLength + imagesLength2;
-    console.log(imagesLength);
-    console.log(imagesLength2);
+
     if (totalImagesLength <= 5){
-      console.log('case1');
-      console.log(html);
       $('#preview').prepend(html);
       $('.listing__form__upload__box__preview').append(input);
       $('.listing__form__upload__box__preview').css('width', `calc(100% - ${20 * imagesLength }%`);
@@ -60,8 +56,6 @@ $(document).on('turbolinks:load',function(){
       }
       reader.readAsDataURL(file);
     }else if(totalImagesLength == 6){
-      console.log('case2');
-      console.log(html);
       $('#preview').prepend(html);
       $('.listing__form__upload__box__preview').append(input);
       $('.listing__form__upload__box__preview').css('width', `calc(100% - ${20 * imagesLength }%`);
@@ -71,7 +65,6 @@ $(document).on('turbolinks:load',function(){
       }
       reader.readAsDataURL(file);
     }else if(totalImagesLength >= 7){
-      console.log('case3');
       $('#preview2').prepend(html2);
       $('.listing__form__upload__box__preview2').append(input2);
       $('.listing__form__upload__box__preview2').css('width', `calc(100% - ${20 * imagesLength2 }%`);
@@ -80,7 +73,6 @@ $(document).on('turbolinks:load',function(){
       }
       reader.readAsDataURL(file);
     }
-    console.log(reader);
   });
 });
 
