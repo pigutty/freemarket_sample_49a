@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :user_profile, only:[:new]
   resources :products, only:[:show, :new, :edit, :create] do
     resources :purchases, only:[:new,:create]
+    resources :comments, only: [:create]
   end
 end
 

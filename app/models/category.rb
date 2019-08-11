@@ -1,4 +1,9 @@
 class Category < ActiveHash::Base
+  extend ActiveHash::Associations::ActiveRecordExtensions
+    has_many :products
+    belongs_to :parent, class_name: :'Category'
+    has_many :children, class_name: :'Category', foreign_key: :parent_id
+    
   self.data= [
     {id:1, name:"レディース"},
     {id:2, name:"メンズ"},

@@ -13,6 +13,7 @@
             %li.item-detail__image__thumbnail
               = image_tag products_image.image_url, alt: '', height: '60px', width: '60px'
       .item-detail__table
+       
         %table
           %tr
             %th 出品者
@@ -35,10 +36,10 @@
                 = link_to @product.category.name, '/'
               .item-detail__table__category
                 %i.fas.fa-angle-right
-                = link_to 'トップス', '/'
+                  = link_to @product.category.name, '/'
               .item-detail__table__category
                 %i.fas.fa-angle-right
-                = link_to 'Tシャツ/カットソー(半袖/袖なし)','/'
+                  = link_to @product.category.name, '/'
           %tr
             %th ブランド
             %td
@@ -85,55 +86,60 @@
         %i.far.fa-heart
         %span いいね！
         %span
-          = @product.like.like
+        - if @product.like.present?
+          @product.like.like
       .item-detail__bad
         %i.far.fa-flag
         %span 不適切な商品の報告
         %span
-          = @product.like.bad
+        - if @product.like.present?
+          @product.like.bad
       .item-detail__other
         %i.fas.fa-lock
         = link_to 'あんしん・あんぜんへの取り組み','/'
     .item-detail__comment
       .item-detail__comment__box
-        %ul.item-detail__comment__box__content
-          %li.item-detail__comment__box__content__profile
-            .item-detail__comment__box__content__profile__image
-              = image_tag 'member_photo_noimage_thumb.png'
-            .item-detail__comment__box__content__profile__name
-              ああああ
-          %li.item-detail__comment__box__content__body
-            .item-detail__comment__box__content__body__text
-              初めまして、購入したいのですが、お値下げはお願いできますでしょうか？お返事お待ちしてます。
-            .item-detail__comment__box__content__body__icon
-              .item-detail__comment__box__content__body__icon__time
-                %i.far.fa-clock
-                10日前
-              .item-detail__comment__box__content__body__icon__flag
-                %i.far.fa-flag
-        %ul.item-detail__comment__box__content
-          %li.item-detail__comment__box__content__profile
-            .item-detail__comment__box__content__profile__image
-              = image_tag 'member_photo_noimage_thumb.png'
-            .item-detail__comment__box__content__profile__name
-              いいいいい
-          .item-detail__comment__box__content__seller
-            出品者
-          %li.item-detail__comment__box__content__body
-            .item-detail__comment__box__content__body__text
-              初めまして、購入したいのですが、お値下げはお願いできますでしょうか？お返事お待ちしてます。
-            .item-detail__comment__box__content__body__icon
-              .item-detail__comment__box__content__body__icon__time
-                %i.far.fa-clock
-                10日前
-              .item-detail__comment__box__content__body__icon__flag
-                %i.far.fa-flag
-        .item-detail__comment__caution
+        - @comments.each do |comment|
+          %ul.item-detail__comment__box__content
+            %li.item-detail__comment__box__content__profile
+              .item-detail__comment__box__content__profile__image
+                = image_tag 'member_photo_noimage_thumb.png'
+              .item-detail__comment__box__content__profile__name
+                = comment.user_id
+            %li.item-detail__comment__box__content__body
+              .item-detail__comment__box__content__body__text
+                = comment.text
+              .item-detail__comment__box__content__body__icon
+                .item-detail__comment__box__content__body__icon__time
+                  %i.far.fa-clock
+                  = "#{time_ago_in_words(comment.created_at)}前"
+                .item-detail__comment__box__content__body__icon__flag
+                  %i.far.fa-flag
+        -# %ul.item-detail__comment__box__content
+        -#   %li.item-detail__comment__box__content__profile
+        -#     .item-detail__comment__box__content__profile__image
+        -#       = image_tag 'member_photo_noimage_thumb.png'
+        -#     .item-detail__comment__box__content__profile__name
+        -#       いいいいい
+        -#   .item-detail__comment__box__content__seller
+        -#     出品者
+        -#   %li.item-detail__comment__box__content__body
+        -#     .item-detail__comment__box__content__body__text
+        -#       初めまして、購入したいのですが、お値下げはお願いできますでしょうか？お返事お待ちしてます。
+        -#     .item-detail__comment__box__content__body__icon
+        -#       .item-detail__comment__box__content__body__icon__time
+        -#         %i.far.fa-clock
+        -#         10日前
+        -#       .item-detail__comment__box__content__body__icon__flag
+        -#         %i.far.fa-flag
+        -# .item-detail__comment__caution
           相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        
-        %textarea.item-detail__comment__form
-        .item-detail__comment__form__button
-          コメントする
+        -# %textarea.item-detail__comment__form
+        -# .item-detail__comment__form__button
+        -#   コメントする
+        = form_with(model: [ @product, Comment.new ]) do |form|
+          = form.text_area :text, class: :'item-detail__comment__form'
+          = form.submit value: "コメントする", class: :"item-detail__comment__form__button"
     .item-detail__prev-next
       .item-detail__prev
         .item-detail__prev__arrow
