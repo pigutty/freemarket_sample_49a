@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
   protect_from_forgery with: :exception
+  before_action :registration_view_params
   require 'payjp'
   Payjp.api_key=Rails.application.credentials.payjp_secret_key
 
@@ -20,6 +21,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :email, :family_name, :first_name, :family_furigana, :first_furigana, :birth_year, :birth_month, :birth_day])
   end
 
+  def registration_view_params
+    @member_information_title = "visited"
+    @member_information = "progressed"
+  end
 
 end
 
