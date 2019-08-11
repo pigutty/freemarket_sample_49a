@@ -7,12 +7,13 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index,:edit] do
     resources :credit_cards, only:[:new,:create]
+    resources :mypage_card, only:[:index,:new]
   end
+  resources :user_identifications, only: [:new,:create]
   resources :signup, only: [:index]
   resources :phone_number_authorization, only:[:new,:create]
   resources :address_registration, only:[:new,:create]
   resources :mypage_card, only:[:index,:new]
-  resources :user_identifications, only: [:index]
   resources :user_profile, only:[:new,:edit]
   resources :products, only:[:show, :new, :edit, :create] do
     resources :purchases, only:[:new,:create]
