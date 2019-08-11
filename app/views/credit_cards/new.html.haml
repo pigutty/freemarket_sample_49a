@@ -9,7 +9,7 @@
         %label 有効期限
         %span.required 必須
         .select_wrap
-          = date_select(:select, :exp_month,use_month_numbers:true, discard_year:true,discard_day:true)
+          = date_select :select, :exp_month,use_month_numbers:true, discard_year:true,discard_day:true
           %i.fas.fa-chevron-down
         %h2 月
         .select_wrap
