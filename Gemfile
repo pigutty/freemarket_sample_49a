@@ -71,4 +71,5 @@ gem 'pry-rails'
 gem 'pry-byebug'
 gem 'rubocop'
 gem 'payjp'
+gem "aws-sdk-s3", require: false
 gem 'rubocop'
