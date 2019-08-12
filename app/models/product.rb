@@ -7,6 +7,6 @@ class Product < ApplicationRecord
   belongs_to_active_hash :shipping_fee
   belongs_to_active_hash :shipping_date
   belongs_to_active_hash :category
-  # belongs_to_active_hash :user
   belongs_to_active_hash :prefecture
+  belongs_to_active_hash :purchase_status
 end
