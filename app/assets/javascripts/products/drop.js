@@ -32,7 +32,6 @@ $(document).on('turbolinks:load',function(){
     var html = buildpreview();
     var html2 = buildpreview2();
     var reader = new FileReader();
-    console.log(imagesLength);
 
     if (totalImagesLength <= 3){
       $('#preview').prepend(html);
@@ -45,11 +44,9 @@ $(document).on('turbolinks:load',function(){
       $('.listing__form__upload__box__preview').css('width', `calc(620px - ${128 * imagesLength }px`);
       $('.listing__form__upload__box__preview').eq(imagesLength).css('display','block');
       reader.readAsDataURL(file);
-      console.log($('.listing-upload-drop-file'));
     }else if(totalImagesLength == 4){
       $('#preview').prepend(html);
       $('.listing__form__upload__box__preview').eq(imagesLength).css('display', 'none');
-      console.log(imagesLength2);
       $('.listing__form__upload__box__preview2').eq(imagesLength2).css('display','block');
       totalImagesLength += 1
       reader.onload = function(){

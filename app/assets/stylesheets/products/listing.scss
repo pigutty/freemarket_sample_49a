@@ -61,7 +61,7 @@
           height: 172px;
           cursor: pointer;
           background: #f5f5f5;
-          border: 1px dashed #ccc;
+          border: 1px dashed #ccc
         }
         #preview2{
           display: flex;
@@ -350,31 +350,12 @@
   }
 }
 
-
-.listing-image-container{
-  
-  .image-box{
-    width:116px;
-    height:162px;
-    background-color:#f5f5f5;
-    border: 1px solid #eee;
-    img{
-      width:100%;
-    }
-    .button{
-      height:44px;
-      display:flex;
-      a{
-        width:50%;
-        height:100%;
-        display:inline-block;
-        line-height:44px;
-        color:#0099E8;
-        font-size:14px;
-      }
-      .destroy{
-        border-left: 1px solid #eee;
-      }
-    }
-  }
-};
+.listing-upload-drop-file{
+  display: none;
+}
+.listing-upload-drop-file2{
+  display: none;
+}
+.listing__form__upload__box__preview2{
+  display: none;
+}
