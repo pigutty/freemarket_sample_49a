@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @comments = @product.comments.includes(:user)
-    binding.pry
+    # binding.pry
   end
 
   def new
@@ -12,7 +12,15 @@ class ProductsController < ApplicationController
   def create
     Product.create(listing_params)
   end
+
   def buy
+  end
+
+  def destroy
+    product = Product.find(params[:id])
+      if product.user_id == current_user.id
+        product.delete
+      end
   end
 
   private

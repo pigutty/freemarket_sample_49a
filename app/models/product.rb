@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   has_one :like
   has_many :products_images
   has_many :comments
+  belongs_to :user
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :size
   belongs_to_active_hash :status

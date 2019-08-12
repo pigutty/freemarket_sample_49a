@@ -39,16 +39,25 @@ body{
           content: '';
           width: 100%;
           height: 2px;
-          background: #ccc;
           z-index: -1;
+          background: #ccc;
+        }
+        .progress-status:before {
+          right: 50%;
+        }
+        .completed{
+          background: #ea352d;
+        }
+        .completed:after,.completed:before{
+          background: #ea352d;
+        }
+        .progressed:before{
+          background: #ea352d;
+        }
       }
-      .progress-status:before {
-        right: 50%;
-    }
-    }
-    li.visited{
-      color: #ea352d;
-    }
+      .visited{
+        color: #ea352d;
+      }
     
     li:first-child {
       .progress-status:before{
@@ -121,7 +130,6 @@ main.signup-main{
         }
       }
     }
-
   }
 }
 .test{

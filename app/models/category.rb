@@ -1,10 +1,9 @@
 class Category < ActiveHash::Base
-  extend ActiveHash::Associations::ActiveRecordExtensions
-    has_many :products
-    belongs_to :parent, class_name: :'Category'
-    has_many :children, class_name: :'Category', foreign_key: :parent_id
-    
-  self.data= [
+  include ActiveHash::Associations
+    belongs_to :grandparent, class_name: "Category",foreign_key: "parent_id"
+    belongs_to :parent, class_name: "Category",foreign_key: "child_id"
+
+    self.data= [
     {id:1, name:"レディース"},
     {id:2, name:"メンズ"},
     {id:3, name:"ベビー・キッズ"},

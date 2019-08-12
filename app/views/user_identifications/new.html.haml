@@ -4,7 +4,7 @@
   = render "users/mypage-sidebar"
   .mypage__main
     .mypage__main__header 本人情報の登録
-    %form.mypage__info__registration__contents
+    = form_with model: @user_information, class:'mypage__info__registration__contents' do |f|
       %ul.mypage__info__registration__contents__textbox
         %li.mypage__info__registration__contents__textbox__left
           %p お客さまの本人情報をご登録ください。
@@ -15,12 +15,12 @@
       = render 'form-user-text',index:'お名前',content:'樋口 翔'
       = render 'form-user-text',index:'お名前カナ',content:'ヒグチ ショウ'
       = render 'form-user-text',index:'生年月日',content:'1994/07/29'
-      = render 'render/input-form-optional',label:"郵便番号",example:"例)1234567"
-      = render 'render/prefecture-optional'
-      = render 'render/input-form-optional',label:"市区町村",example:"例)横浜市緑区"
-      = render 'render/input-form-optional',label:"番地",example:"例)青山1-1-1"
-      = render 'render/input-form-optional',label:"建物名",example:"例)柳ビル103"
-      = render 'render/input-form-button',name:"登録する"
+      = render 'render/input-form-optional',label:"郵便番号",example:"例)1234567", form:f, name: :post_number
+      = render 'render/prefecture-optional',form:f
+      = render 'render/input-form-optional',label:"市区町村",example:"例)横浜市緑区",form:f, name: :city
+      = render 'render/input-form-optional',label:"番地",example:"例)青山1-1-1",form:f, name: :block
+      = render 'render/input-form-optional',label:"建物名",example:"例)柳ビル103",form:f, name: :building
+      = render 'render/input-form-button',name:"登録する",form:f
       .input-form-box
         = render "render/link_right",text:'本人情報の登録について',address:root_path
 .footer

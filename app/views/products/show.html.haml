@@ -18,7 +18,7 @@
           %tr
             %th 出品者
             %td
-              = @product.user_id
+              = link_to @product.user.nickname, '/'
               .item-detail__table__assesments
                 .item-detail__table__assesment-good
                   %i.fas.fa-grin
@@ -33,13 +33,13 @@
             %th カテゴリー
             %td
               .item-detail__table__category
+                = link_to @product.category.parent.grandparent.name, '/'
+              .item-detail__table__category
+                %i.fas.fa-angle-right
+                = link_to @product.category.parent.name, '/'
+              .item-detail__table__category
+                %i.fas.fa-angle-right
                 = link_to @product.category.name, '/'
-              .item-detail__table__category
-                %i.fas.fa-angle-right
-                  = link_to @product.category.name, '/'
-              .item-detail__table__category
-                %i.fas.fa-angle-right
-                  = link_to @product.category.name, '/'
           %tr
             %th ブランド
             %td
@@ -79,8 +79,7 @@
     .item-detail__purchase-button
       = link_to '購入画面に進む', "/"
     .item-detail__comment
-      %p
-        = @product.description
+      = @product.description
     .item-detail__like-bad-other
       .item-detail__like
         %i.far.fa-heart
@@ -105,7 +104,7 @@
               .item-detail__comment__box__content__profile__image
                 = image_tag 'member_photo_noimage_thumb.png'
               .item-detail__comment__box__content__profile__name
-                = comment.user_id
+                = comment.user.nickname
             %li.item-detail__comment__box__content__body
               .item-detail__comment__box__content__body__text
                 = comment.text
@@ -115,31 +114,11 @@
                   = "#{time_ago_in_words(comment.created_at)}前"
                 .item-detail__comment__box__content__body__icon__flag
                   %i.far.fa-flag
-        -# %ul.item-detail__comment__box__content
-        -#   %li.item-detail__comment__box__content__profile
-        -#     .item-detail__comment__box__content__profile__image
-        -#       = image_tag 'member_photo_noimage_thumb.png'
-        -#     .item-detail__comment__box__content__profile__name
-        -#       いいいいい
-        -#   .item-detail__comment__box__content__seller
-        -#     出品者
-        -#   %li.item-detail__comment__box__content__body
-        -#     .item-detail__comment__box__content__body__text
-        -#       初めまして、購入したいのですが、お値下げはお願いできますでしょうか？お返事お待ちしてます。
-        -#     .item-detail__comment__box__content__body__icon
-        -#       .item-detail__comment__box__content__body__icon__time
-        -#         %i.far.fa-clock
-        -#         10日前
-        -#       .item-detail__comment__box__content__body__icon__flag
-        -#         %i.far.fa-flag
-        -# .item-detail__comment__caution
+        .item-detail__comment__caution
           相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        -# %textarea.item-detail__comment__form
-        -# .item-detail__comment__form__button
-        -#   コメントする
         = form_with(model: [ @product, Comment.new ]) do |form|
           = form.text_area :text, class: :'item-detail__comment__form'
-          = form.submit value: "コメントする", class: :"item-detail__comment__form__button"
+          = form.submit value: "コメントする", class: :'item-detail__comment__form__button'
     .item-detail__prev-next
       .item-detail__prev
         .item-detail__prev__arrow
@@ -187,7 +166,8 @@
           .contents__item__box__price
             ¥10,000
     .item-detail__other_items.background-gray
-      %h2 レディースのその他の商品
+      %h2
+        = "#{@product.category.parent.grandparent.name}のその他の商品"
       .contents__items
         .contents__item__box
           .contents__item__box__image
