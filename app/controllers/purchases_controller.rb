@@ -18,6 +18,7 @@ class PurchasesController < ApplicationController
       currency: 'jpy',
     )
     Purchase.create(purchase_id:charge.id,product_id: params[:product_id],user_id:current_user.id)
+    @product.update(purchase_status_id: 2)
     redirect_to root_path
   end
 
