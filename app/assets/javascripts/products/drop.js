@@ -23,54 +23,49 @@ $(document).on('turbolinks:load',function(){
                 </ul>`
     return html2;
   }
-  function appendinput(){
-    var input = `<label class="listing__form__upload__box">
-                  <input class="listing-upload-drop-file", type="file", style="display:none;", multiple>
-                </label>`
-    return input;
-  }
-  function formBox(){
-    var box = `<label class="listing__form__upload__box">
-                <input class="listing-upload-drop-file2", type="file", id="preview2", style="display:none;", multiple>
-              </label>`
-    return box;
-  }
-  //fileを選択時に発火するイベントを登録
+
+  var imagesLength =0;
+  var imagesLength2 =0;
+  var totalImagesLength = 0;
   $('.listing-upload-drop-file,.listing-upload-drop-file2').change(function(e){
     var file = e.target.files[0];
     var html = buildpreview();
     var html2 = buildpreview2();
-    var input = appendinput();
-    var input2 = formBox();
     var reader = new FileReader();
-    var imagesLength = $('.listing-upload-drop-file').length;
-    var imagesLength2= $('.listing-upload-drop-file2').length;
-    var totalImagesLength = imagesLength + imagesLength2;
+    console.log(imagesLength);
 
-    if (totalImagesLength <= 5){
+    if (totalImagesLength <= 3){
       $('#preview').prepend(html);
-      $('.listing__form__upload__box__preview').append(input);
-      $('.listing__form__upload__box__preview').css('width', `calc(100% - ${128 * imagesLength }px`);
+      $('.listing__form__upload__box__preview').eq(imagesLength).css('display','none');
+      imagesLength += 1;
+      totalImagesLength += 1;
+      reader.onload = function(){
+        $('#preview-zone').attr('src', reader.result);
+      }
+      $('.listing__form__upload__box__preview').css('width', `calc(620px - ${128 * imagesLength }px`);
+      $('.listing__form__upload__box__preview').eq(imagesLength).css('display','block');
+      reader.readAsDataURL(file);
+      console.log($('.listing-upload-drop-file'));
+    }else if(totalImagesLength == 4){
+      $('#preview').prepend(html);
+      $('.listing__form__upload__box__preview').eq(imagesLength).css('display', 'none');
+      console.log(imagesLength2);
+      $('.listing__form__upload__box__preview2').eq(imagesLength2).css('display','block');
+      totalImagesLength += 1
       reader.onload = function(){
         $('#preview-zone').attr('src', reader.result);
       }
       reader.readAsDataURL(file);
-    }else if(totalImagesLength == 6){
-      $('#preview').prepend(html);
-      $('.listing__form__upload__box__preview').append(input);
-      $('.listing__form__upload__box__preview').css('width', 'calc(0%)');
-      $('.listing__form__upload__box__preview2').css('display','block');
-      reader.onload = function(){
-        $('#preview-zone').attr('src', reader.result);
-      }
-      reader.readAsDataURL(file);
-    }else if(totalImagesLength >= 7){
+    }else if(totalImagesLength >= 5){
       $('#preview2').prepend(html2);
-      $('.listing__form__upload__box__preview2').append(input2);
-      $('.listing__form__upload__box__preview2').css('width', `calc(100% - ${128 * imagesLength2 }px`);
+      $('.listing__form__upload__box__preview2').eq(imagesLength2).css('display','none');
       reader.onload = function(){
         $('#preview-zone2').attr('src', reader.result);
       }
+      imagesLength2 += 1;
+      totalImagesLength += 1;
+      $('.listing__form__upload__box__preview2').css('width', `calc(570px - ${114 * imagesLength2 }px`);
+      $('.listing__form__upload__box__preview2').eq(imagesLength2).css('display','block');
       reader.readAsDataURL(file);
     }
   });

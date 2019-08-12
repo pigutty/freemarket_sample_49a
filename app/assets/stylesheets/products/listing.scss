@@ -52,6 +52,7 @@
         flex-wrap: wrap;
         #preview{
           display: flex;
+          flex-direction: row;
           box-sizing: border-box;
           padding: 0 10px 10px 0;
         }
