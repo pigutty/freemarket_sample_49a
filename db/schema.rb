@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2019_08_10_082214) do
+ActiveRecord::Schema.define(version: 2019_08_12_092026) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,12 +32,21 @@ ActiveRecord::Schema.define(version: 2019_08_10_082214) do
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
+
   create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "token_id", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_credit_cards_on_user_id"
+  end
+
+  create_table "phone_number_authorizations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "telephone", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_phone_number_authorizations_on_user_id"
   end
 
   create_table "products", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -53,7 +61,7 @@ ActiveRecord::Schema.define(version: 2019_08_10_082214) do
     t.integer "category_id"
     t.integer "user_id"
     t.integer "prefecture_id", null: false
-    t.integer "purchase_status_id"
+    t.integer "purchase_status_id", null: false
   end
 
   create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -102,9 +110,7 @@ ActiveRecord::Schema.define(version: 2019_08_10_082214) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "credit_cards", "users"
-  add_foreign_key "purchases", "products"
-  add_foreign_key "purchases", "users"
-  add_foreign_key "credit_cards", "users"
+  add_foreign_key "phone_number_authorizations", "users"
   add_foreign_key "purchases", "products"
   add_foreign_key "purchases", "users"
   add_foreign_key "user_identifications", "users"
