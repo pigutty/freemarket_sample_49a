@@ -9,12 +9,11 @@ class CreditCardsController < ApplicationController
   end
 
   def create
-    # @user = User.find(params[id:current_user.id]) ユーザー登録後に追記する
-    @user = User.find(1)
     create_token(credit_card_params)
-    @user.customer_id = @customer.id
-    @user.save
-    CreditCard.create(token_id: @token_id, user_id: 1)
+    current_user.customer_id = @customer.id
+    current_user.save
+    CreditCard.create(token_id: @token_id, user_id: current_user.id)
+    redirect_to root_path 
   end
 
   private
@@ -35,7 +34,8 @@ class CreditCardsController < ApplicationController
     })
     @token_id = @token.id
     @customer = Payjp::Customer.create()
-    # @customer = Payjp::Customer.retrieve(@user.customer_id)
+    # @customer = Payjp::Customer.retrieve(current_user.customer_id)
+    # 顧客IDを事前に作成して、それを取得する場合はこちらのコードを使用する
     @customer.cards.create(card:@token_id)
   end
 
