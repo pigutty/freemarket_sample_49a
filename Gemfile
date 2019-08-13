@@ -73,3 +73,4 @@ gem 'rubocop'
 gem 'payjp'
 gem "aws-sdk-s3", require: false
 gem 'rubocop'
+gem 'capistrano-rails-console'
