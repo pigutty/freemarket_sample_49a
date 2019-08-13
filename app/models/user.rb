@@ -8,7 +8,8 @@ class User < ApplicationRecord
   has_many :purchases
   has_many :user_identifications
   has_many :phone_number_authorizations
- 
+  has_many :address_registrations
+
   validates :nickname, :family_name, :first_name, :family_furigana, :first_furigana, :birth_year, :birth_month, :birth_day,presence: true
 
 end
