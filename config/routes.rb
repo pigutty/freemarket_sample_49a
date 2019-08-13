@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   resources :products, only:[:show, :new, :edit, :create] do
     resources :purchases, only:[:new,:create]
   end
+  resources :registration_check, only: [:index]
 end
 
