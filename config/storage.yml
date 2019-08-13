@@ -8,8 +8,8 @@ local:
 
 amazon:
   service: S3
-  AWS_ACCESS_KEY_ID: <%= Rails.application.credentials.dig(:aws, :access_key_id) %>
-  AWS_SECRET_ACCESS_KEY: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
+  AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
+  AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
   region: "ap-northeast-1a"
   bucket: "freemarket-sample-49a"
 
