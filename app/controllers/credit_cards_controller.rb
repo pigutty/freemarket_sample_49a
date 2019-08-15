@@ -13,7 +13,7 @@ class CreditCardsController < ApplicationController
     current_user.customer_id = @customer.id
     current_user.save
     CreditCard.create(token_id: @token_id, user_id: current_user.id)
-    redirect_to root_path 
+    redirect_to registration_check_index_path
   end
 
   private
