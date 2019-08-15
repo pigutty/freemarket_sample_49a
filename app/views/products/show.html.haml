@@ -5,13 +5,15 @@
     .item-detail__image-text
       .item-detail__image
         %ul.item-detail__image__sliders
-          - @product.products_images.each do |products_image|
+          -if @product.images.attached?
+            @product.images.each do |image|
             %li.item-detail__image__slider
-              = image_tag products_image.image_url, alt: '', height: 'auto', width: '270px'
+              = image_tag image, alt: '', height: 'auto', width: '270px'
         %ul.item-detail__image__thumbnails
-          - @product.products_images.each do |products_image|
+          -if @product.images.attached?
+            @product.images.each do |image|
             %li.item-detail__image__thumbnail
-              = image_tag products_image.image_url, alt: '', height: '60px', width: '60px'
+              = image_tag image, alt: '', height: '60px', width: '60px'
       .item-detail__table
        
         %table
