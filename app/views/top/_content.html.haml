@@ -8,10 +8,11 @@
     %h2.contents__all-items__head
       すべての商品
     .contents__items
+      -# ここから下はeach do で
       - @products.each do |product|
         .contents__item__box
           .contents__item__box__image
-            = image_tag 'item1.jpg', alt: '', height: '213', width: '213', class: ''
+            = image_tag "#{product.product_images[0].image_url}"
           .contents__item__box__item-name
             = product.name
           .contents__item__box__price-favorite
@@ -20,38 +21,7 @@
             .contents__item__box__favorite
               %i.far.fa-heart.gray
               %span 6
-      -# .contents__item__box
-      -#   .contents__item__box__image
-      -#     = image_tag 'item1.jpg', alt: '', height: '213', width: '213', class: ''
-      -#   .contents__item__box__item-name
-      -#     = @products[1].name
-      -#   .contents__item__box__price-favorite
-      -#     .contents__item__box__price
-      -#       ¥10,000
-      -#     .contents__item__box__favorite
-      -#       %i.far.fa-heart.gray
-      -#       %span 6
-      -# .contents__item__box
-      -#   .contents__item__box__image
-      -#     = image_tag 'item1.jpg', alt: '', height: '213', width: '213', class: ''
-      -#   .contents__item__box__item-name
-      -#     ecco crepe tray スニーカーブーツ DANISH 23.5
-      -#   .contents__item__box__price-favorite
-      -#     .contents__item__box__price
-      -#       ¥10,000
-      -#     .contents__item__box__favorite
-      -#       %i.far.fa-heart.gray
-      -#       %span 6
-      -# .contents__item__box
-      -#   .contents__item__box__image
-      -#     = image_tag 'item1.jpg', alt: '', height: '213', width: '213', class: ''
-      -#   .contents__item__box__item-name
-      -#     ecco crepe tray スニーカーブーツ DANISH 23.5555555555555555555555555557777777777777777777777777777777777
-      -#   .contents__item__box__price-favorite
-      -#     .contents__item__box__price
-      -#       ¥10,000
-      -#     .contents__item__box__favorite
-      -#       %i.far.fa-heart.gray
-      -#       %span 6
+
+
     .contents__item__box__all-items-view
       全ての商品を見る

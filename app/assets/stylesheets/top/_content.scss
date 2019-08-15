@@ -23,8 +23,10 @@
       margin: 10px 10px;
       background-color: #fff;
       &__image {
-        width: 213px;
-        height: 213px;
+        img {
+          width: 213px;
+          height: 213px;
+        }
       }
       &__item-name {
         position: relative;
@@ -123,20 +125,21 @@
           opacity: 1;
         }
       }
-      &:before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        content:"";
-        width: 20px;
-        height: 20px;
-        font-size: 6px;
-        line-height: 20px;
-        text-align: center;
-        color: white;
-        opacity: 0.25;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+      // これ、どこを修飾してるの？
+      // &:before {
+      //   position: absolute;
+      //   top: 0;
+      //   left: 0;
+      //   content:"";
+      //   width: 20px;
+      //   height: 20px;
+      //   font-size: 6px;
+      //   line-height: 20px;
+      //   text-align: center;
+      //   color: white;
+      //   opacity: 0.25;
+      //   -webkit-font-smoothing: antialiased;
+      //   -moz-osx-font-smoothing: grayscale;
       }
     }
     &.slick-active button:before {
@@ -144,4 +147,4 @@
         opacity: 1;
     }
   }
-}
+// }
