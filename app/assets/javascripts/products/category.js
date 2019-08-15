@@ -1,20 +1,16 @@
-$(document).on('turbolinks:load', function(){
+$(document).on('turbolinks:load', function(){ 
+  $('#big-category').eq(0).change(function(){
+    var bigvalue = document.getElementById('big-category').value;
+    var middlecategory = $('.listing__form__detail__box__form-group').eq(bigvalue);
+    $('.middle-category').css('display', 'none');
+    middlecategory.css('display','block');
+    middlecategory.children('select').attr("id", "middle-category");
 
-
-
-
-  $('.listing__form__detail__box__form-group__category-select').eq(0).change(function(){
-    var bigcategoryid = $(this).val();
-    console.log(bigcategoryid);
-    $('.listing__form__detail__box__form-group').eq(1).css('display','block');
+    middlecategory.change(function(){
+      var middlevalue = document.getElementById('middle-category').value;
+      var smallcategory = $('.listing__form__detail__box__form-group').eq(middlevalue)
+      $('.small-category').css('block', 'none');
+      smallcategory.css('display','block');
+    });
   });
-
-
-
-  $('.listing__form__detail__box__form-group__category-select').eq(1).change(function(){
-    console.log('test');
-    $('.listing__form__detail__box__form-group').eq(2).css('display','block');
-  });
-
-
 });
