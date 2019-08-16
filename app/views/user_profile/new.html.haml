@@ -8,7 +8,6 @@
     .mypage__profile__icon-box
       = image_tag "member_photo_noimage_thumb.png", height: '60px', width: '60px'
       = f.text_field :nickname, value:current_user.nickname
-      -# %input{type:"text",value:"メルカリ"}
     .mypage__profile__content-box
       = f.text_area :profile, placeholder:"例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
       = render 'render/input-form-button', name:'変更する',form:f
