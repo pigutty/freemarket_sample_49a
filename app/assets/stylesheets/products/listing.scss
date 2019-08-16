@@ -254,6 +254,7 @@
               background: #fff;
               line-height: 1.5;
               font-size: 16px;
+              text-align: right;
             }
           }
         }
@@ -270,6 +271,9 @@
           justify-content: space-between;
           padding: 24px 0;
           border-top: 1px solid #ccc;
+          #salesprofit{
+            font-size: 34px;
+          }
         }
       }
     }
