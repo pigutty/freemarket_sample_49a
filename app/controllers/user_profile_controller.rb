@@ -8,6 +8,14 @@ class UserProfileController < UsersController
     end
   end
 
+  def edit
+    if user_signed_in?
+      @subject_active = @allsubjects.index("ログアウト")
+    else
+      redirect_to root_path
+    end
+  end
+
   def update
     current_user.update(profile_params)
     redirect_to root_path
