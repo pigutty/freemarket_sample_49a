@@ -2,6 +2,7 @@ class UserProfileController < UsersController
   def new
     if user_signed_in?
       @user_profile = current_user
+      @subject_active = @allsubjects.index("プロフィール")
     else
       redirect_to root_path
     end

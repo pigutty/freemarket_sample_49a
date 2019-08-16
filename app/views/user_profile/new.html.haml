@@ -4,7 +4,7 @@
 .mypage__container
   = render "users/mypage-sidebar"
   = form_with model:@user_profile, url:user_profile_path(current_user.id), class:'mypage__main' do |f|
-    .mypage__main__header プロフィール
+    .mypage__main__header{ 'data-id':@subject_active} プロフィール
     .mypage__profile__icon-box
       = image_tag "member_photo_noimage_thumb.png", height: '60px', width: '60px'
       = f.text_field :nickname, value:current_user.nickname
