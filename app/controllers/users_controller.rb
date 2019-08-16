@@ -3,7 +3,7 @@ class UsersController < TopController
   def index
     if user_signed_in?
       @user_profile = current_user
-      @subject_active = @allsubjects.index("マイページ")
+      @subject_active = @allsubjects.find_index{|e| e[:name]=='マイページ' }
     else
       redirect_to root_path
     end
@@ -34,9 +34,9 @@ class UsersController < TopController
       @subjects4=
         [{name:"プロフィール",link:new_user_profile_path},
         {name:"発送元・お届け先住所変更",link:users_path},
-        {name:"支払い方法",link:users_path},
+        {name:"支払い方法",link:mypage_card_index_path},
         {name:"メール/パスワード",link:users_path},
-        {name:"本人情報",link:users_path},
+        {name:"本人情報",link:new_user_identification_path},
         {name:"電話番号の確認",link:users_path},
         {name:"ログアウト",link:edit_user_profile_path(current_user.id)}]
       @allsubjects= @subjects2 + @subjects3 + @subjects4

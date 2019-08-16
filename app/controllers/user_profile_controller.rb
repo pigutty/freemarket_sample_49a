@@ -2,7 +2,7 @@ class UserProfileController < UsersController
   def new
     if user_signed_in?
       @user_profile = current_user
-      @subject_active = @allsubjects.index("プロフィール")
+      @subject_active = @allsubjects.find_index{|e| e[:name]=='プロフィール' }
     else
       redirect_to root_path
     end
@@ -10,7 +10,7 @@ class UserProfileController < UsersController
 
   def edit
     if user_signed_in?
-      @subject_active = @allsubjects.index("ログアウト")
+      @subject_active = @allsubjects.find_index{|e| e[:name]=='ログアウト' }
     else
       redirect_to root_path
     end
