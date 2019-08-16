@@ -9,7 +9,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.create(listing_params)
-    
   end
 
   def buy
