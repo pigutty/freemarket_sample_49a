@@ -35,10 +35,10 @@
             %th カテゴリー
             %td
               .item-detail__table__category
-                = link_to @product.category.parent.grandparent.name, '/'
+                = link_to @grand_child_category.name, '/'
               .item-detail__table__category
                 %i.fas.fa-angle-right
-                = link_to @product.category.parent.name, '/'
+                = link_to @child_category.name, '/'
               .item-detail__table__category
                 %i.fas.fa-angle-right
                 = link_to @product.category.name, '/'
@@ -169,7 +169,7 @@
             ¥10,000
     .item-detail__other_items.background-gray
       %h2
-        = "#{@product.category.parent.grandparent.name}のその他の商品"
+        = "#{@grand_child_category.name}のその他の商品"
       .contents__items
         .contents__item__box
           .contents__item__box__image

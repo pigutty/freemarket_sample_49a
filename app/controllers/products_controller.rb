@@ -2,7 +2,8 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @comments = @product.comments.includes(:user)
-    # binding.pry
+    @child_category = Category.find(@product.category.child_id)
+    @grand_child_category = Category.find(@child_category.parent_id)
   end
 
   def new
@@ -11,7 +12,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.create(listing_params)
-    
   end
 
   def buy
@@ -28,4 +28,5 @@ class ProductsController < ApplicationController
   def listing_params
     params.require(:product).permit(:name, :description, :category_id, :size_id, :status_id, :shipping_fee_id, :prefecture_id, :shipping_date_id, :price, images: [])
   end
+
 end
