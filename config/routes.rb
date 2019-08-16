@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :address_registration, only:[:new,:create]
   resources :credit_cards, only:[:new,:create]
   resources :mypage_card, only:[:index,:new]
-  resources :user_profile, only:[:new,:edit]
+  resources :user_profile, only:[:new,:edit,:update]
   resources :products, only:[:show, :new, :edit, :create] do
     resources :purchases, only:[:new,:create]
   end

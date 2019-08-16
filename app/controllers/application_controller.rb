@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   before_action :registration_check  
   before_action :registration_view_params
   require 'payjp'
-  Payjp.api_key=Rails.application.credentials.payjp_secret_key
-  # Payjp.api_key=Rails.application.secrets.payjp_secret_key
+  # Payjp.api_key=Rails.application.credentials.payjp_secret_key
+  Payjp.api_key=Rails.application.secrets.payjp_secret_key
   # ローカル環境でのテスト
 
   private
