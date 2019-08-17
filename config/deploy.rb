@@ -21,7 +21,7 @@ set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 
-set :linked_files, %w{ config/secrets.yml }
+set :linked_files, %w{ config/master.key }
 
 # デプロイ処理が終わった後、Unicornを再起動するための記述
 after 'deploy:publishing', 'deploy:restart'
@@ -31,24 +31,13 @@ namespace :deploy do
     invoke 'unicorn:start'
   end
 
-  desc 'upload secrets.yml'
-  task :upload do
-    on roles(:app) do |host|
-      if test "[ ! -d #{shared_path}/config ]"
-        execute "mkdir -p #{shared_path}/config"
-      end
-      upload!('config/secrets.yml', "#{shared_path}/config/secrets.yml")
-    end
-  end
-  before :starting, 'deploy:upload'
+  # before :starting, 'deploy:upload'
   after :finishing, 'deploy:cleanup'
 end
 
 set :default_env, {
   rbenv_root: "/usr/local/rbenv",
-  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
-  AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
-  AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
+  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH"
 }
 # secrets.yml用のシンボリックリンクを追加
 
@@ -58,7 +47,7 @@ set :default_env, {
 
 
 # Default branch is :master
-# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
 # set deploy_to, "/var/www/my_app_name"

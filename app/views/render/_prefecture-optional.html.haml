@@ -2,8 +2,5 @@
   %label 都道府県
   %span.optional 任意
   .select_wrap
-    %select
-      %option --
-      - Prefecture.all.each do |element|
-        %option{value:element.name}= element.name
+    =form.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}
     %i.fas.fa-chevron-down

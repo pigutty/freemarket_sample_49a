@@ -1,0 +1,13 @@
+.header
+  = render 'top/header'
+.mypage__container
+  = render 'users/mypage-sidebar'
+  .mypage__main
+    .registration__container
+      .registration__content
+        .registration__content__box
+          .input-form-box
+            .button-wrap
+              = link_to('ログアウト',destroy_user_session_path, method: :delete, class:'btn-red')
+.footer
+  = render 'top/footer'
