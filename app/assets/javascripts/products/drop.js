@@ -24,6 +24,10 @@ $(document).on('turbolinks:load',function(){
     return html2;
   }
 
+  function deletepict(){
+
+  }
+
   var imagesLength =0;
   var imagesLength2 =0;
   var totalImagesLength = 0;
@@ -65,6 +69,10 @@ $(document).on('turbolinks:load',function(){
       $('.listing__form__upload__box__preview2').eq(imagesLength2).css('display','block');
       reader.readAsDataURL(file);
     }
+  });
+
+  $(document).on('mouseenter', '.delete', function(){
+    $(this).css('opacity', '0.8');
   });
 });
 
