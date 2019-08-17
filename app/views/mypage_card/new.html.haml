@@ -2,10 +2,10 @@
   =render 'top/header'
 .mypage__container
   =render 'users/mypage-sidebar'
-  .mypage__main
+  .mypage__main{"data":@subject_active}
     .registration__container
       .registration__title.mypage__title クレジットカード情報入力
-      = form_with url:user_credit_cards_path,class:'registration__content mypage__content' do |f|
+      = form_with url:credit_cards_path,class:'registration__content mypage__content' do |f|
         .registration__content__box
           =render 'render/input-form-required',label:'カード番号',example:'半角数字のみ',form:f,name: :number
           = image_tag 'credit_card.jpg'
