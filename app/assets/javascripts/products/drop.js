@@ -71,8 +71,18 @@ $(document).on('turbolinks:load',function(){
     }
   });
 
+
   $(document).on('mouseenter', '.delete', function(){
-    $(this).css('opacity', '0.8');
+    $(this).css(
+      'opacity', '0.8',
+      // 'cursor', 'pointer'
+      );
   });
+  $(document).on('mouseleave', '.delete', function(){
+    $(this).css(
+      'opacity', '1'
+      );
+  });
+  
 });
 
