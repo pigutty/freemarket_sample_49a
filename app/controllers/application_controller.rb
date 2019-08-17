@@ -23,16 +23,26 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :email, :family_name, :first_name, :family_furigana, :first_furigana, :birth_year, :birth_month, :birth_day])
   end
 
+  # ユーザー登録画面であればtrue, そうでなければfalse
+  def registration_view_check
+    (controller_name == "phone_number_authorization" && action_name == ("new"||'create'))||(controller_name == "address_registration" && action_name == ("new"||'create'))||(controller_name == "credit_cards" && action_name == ("new"||'create'))
+  end
+
+  # ユーザーのデータに空白があるかどうかをチェック
+  def registration_data_check
+    current_user.phone_number_authorizations.length == 0 || current_user.address_registrations.length == 0 || current_user.credit_cards.length == 0
+  end
+
 
   def registration_check
-    # ユーザーがログインしている　かつ　登録の画面でない場合　→　中途半端な登録データを削除しroot_pathに移動
+    # ユーザーがログインしている　かつ　登録の途中でない場合　かつ　データに欠損がある→　中途半端な登録データを削除しroot_pathに移動
     if user_signed_in?
-      unless ((controller_name == "phone_number_authorization" && action_name == "new"||'create')||(controller_name == "address_registration" && action_name == "new"||'create')||(controller_name == "credit_cards" && action_name == "new"||'create'))
-        if (current_user.phone_number_authorizations.length == 0 || current_user.address_registrations.length == 0 || current_user.credit_cards.length == 0)
-          unless (current_user.phone_number_authorizations.length != 0 && current_user.address_registrations.lenght != 0 && current_user.credit_cards.length != 0)
+      binding.pry
+      unless (registration_view_check)
+        if (registration_data_check)
+          binding.pry
             current_user.destroy
             redirect_to root_path
-          end
         end
       end
     end
