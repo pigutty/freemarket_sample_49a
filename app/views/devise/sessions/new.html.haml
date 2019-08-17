@@ -11,7 +11,6 @@
           %i.fab.fa-facebook-square
         %button#google-login.btn-default.btn-sns-google Googleでログイン
       = form_with model: @user, url:user_session_path, local: true do |f|
-        - binding.pry
         .login__box--form
           .form-email
             = f.email_field :email, placeholder: "メールアドレス", class: "email_field input-default form-email-input"
