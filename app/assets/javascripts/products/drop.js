@@ -38,9 +38,6 @@ $(document).on('turbolinks:load',function(){
       $('#preview').prepend(html);
       $('.listing__form__upload__box__preview').eq(imagesLength).css('display','none');
       imagesLength += 1;
-      console.log(imagesLength);
-      // console.log(totalImagesLength);
-      // totalImagesLength += 1;
       reader.onload = function(){
         $('#preview-zone').attr('src', reader.result);
       }
@@ -49,27 +46,20 @@ $(document).on('turbolinks:load',function(){
       reader.readAsDataURL(file);
     }else if(totalImagesLength == 4){
       imagesLength += 1;
-      console.log('4以上')
       $('#preview').prepend(html);
-      console.log(imagesLength2);
       $('.listing__form__upload__box__preview').css('width', '0px');
       $('.listing__form__upload__box__preview2').eq(imagesLength2).css('display','block');
-      // totalImagesLength += 1
       reader.onload = function(){
         $('#preview-zone').attr('src', reader.result);
       }
       reader.readAsDataURL(file);
     }else if(totalImagesLength >= 5){
-      console.log('5以上')
-      console.log(imagesLength2);
       $('#preview2').prepend(html2);
-      // $('.listing__form__upload__box__preview2').eq(imagesLength2).css('display','block');
       $('.listing__form__upload__box__preview2').eq(imagesLength2).css('display','none');
       reader.onload = function(){
         $('#preview-zone2').attr('src', reader.result);
       }
       imagesLength2 += 1;
-      // totalImagesLength += 1;
       $('.listing__form__upload__box__preview2').css('width', `calc(570px - ${114 * imagesLength2 }px`);
       $('.listing__form__upload__box__preview2').eq(imagesLength2).css('display','block');
       reader.readAsDataURL(file);
@@ -80,7 +70,6 @@ $(document).on('turbolinks:load',function(){
   $(document).on('mouseenter', '.edit,.delete', function(){
     $(this).css(
       'opacity', '0.7',
-      // 'cursor', 'pointer'
       );
   });
   $(document).on('mouseleave', '.edit,.delete', function(){
@@ -91,23 +80,17 @@ $(document).on('turbolinks:load',function(){
 
   $(document).on('click', '.delete', function(){
     $(this).parents('.listing-image-container').remove();
-    console.log(imagesLength);
     $('.listing__form__upload__box__preview').css('display','none');
     imagesLength -= 1;
     $('.listing__form__upload__box__preview').css('width', `calc(620px - ${128 * imagesLength }px`);
     $('.listing__form__upload__box__preview').eq(imagesLength).css('display','block');
-    // $('.listing__form__upload__box__preview').css('width', `calc(620px + 128px`);
-    // console.log(imagesLength);
   });
   $(document).on('click', '.delete2', function(){
     $(this).parents('.listing-image-container').remove();
-    console.log(imagesLength2);
     $('.listing__form__upload__box__preview2').css('display','none');
     imagesLength2 -= 1;
     $('.listing__form__upload__box__preview2').css('width', `calc(620px - ${128 * imagesLength2 }px`);
     $('.listing__form__upload__box__preview2').eq(imagesLength2).css('display','block');
-    // $('.listing__form__upload__box__preview').css('width', `calc(620px + 128px`);
-    // console.log(imagesLength);
   });
 });
 
