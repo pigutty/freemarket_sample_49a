@@ -18,7 +18,7 @@ $(document).on('turbolinks:load',function(){
                   </li>
                   <div class="button">
                     <a class="edit">編集</a>
-                    <a class="delete">削除</a>
+                    <a class="delete2">削除</a>
                   </div>
                 </ul>`
     return html2;
@@ -27,8 +27,8 @@ $(document).on('turbolinks:load',function(){
 
   var imagesLength =0;
   var imagesLength2 =0;
-  var totalImagesLength = imagesLength + imagesLength2;
   $('.listing-upload-drop-file,.listing-upload-drop-file2').change(function(e){
+    var totalImagesLength = imagesLength + imagesLength2;
     var file = e.target.files[0];
     var html = buildpreview();
     var html2 = buildpreview2();
@@ -39,7 +39,7 @@ $(document).on('turbolinks:load',function(){
       $('.listing__form__upload__box__preview').eq(imagesLength).css('display','none');
       imagesLength += 1;
       console.log(imagesLength);
-      console.log(totalImagesLength);
+      // console.log(totalImagesLength);
       // totalImagesLength += 1;
       reader.onload = function(){
         $('#preview-zone').attr('src', reader.result);
@@ -48,10 +48,11 @@ $(document).on('turbolinks:load',function(){
       $('.listing__form__upload__box__preview').eq(imagesLength).css('display','block');
       reader.readAsDataURL(file);
     }else if(totalImagesLength == 4){
+      imagesLength += 1;
       console.log('4以上')
       $('#preview').prepend(html);
       console.log(imagesLength2);
-      // $('.listing__form__upload__box__preview').eq(imagesLength).css('display', 'none');
+      $('.listing__form__upload__box__preview').css('width', '0px');
       $('.listing__form__upload__box__preview2').eq(imagesLength2).css('display','block');
       // totalImagesLength += 1
       reader.onload = function(){
@@ -60,10 +61,10 @@ $(document).on('turbolinks:load',function(){
       reader.readAsDataURL(file);
     }else if(totalImagesLength >= 5){
       console.log('5以上')
-      console.log(totalImagesLength);
+      console.log(imagesLength2);
       $('#preview2').prepend(html2);
-      $('.listing__form__upload__box__preview2').eq(imagesLength2).css('display','block');
-      // $('.listing__form__upload__box__preview2').eq(imagesLength2).css('display','none');
+      // $('.listing__form__upload__box__preview2').eq(imagesLength2).css('display','block');
+      $('.listing__form__upload__box__preview2').eq(imagesLength2).css('display','none');
       reader.onload = function(){
         $('#preview-zone2').attr('src', reader.result);
       }
@@ -91,12 +92,22 @@ $(document).on('turbolinks:load',function(){
   $(document).on('click', '.delete', function(){
     $(this).parents('.listing-image-container').remove();
     console.log(imagesLength);
-    $('.listing__form__upload__box__preview').eq(imagesLength).css('display','none');
+    $('.listing__form__upload__box__preview').css('display','none');
     imagesLength -= 1;
     $('.listing__form__upload__box__preview').css('width', `calc(620px - ${128 * imagesLength }px`);
     $('.listing__form__upload__box__preview').eq(imagesLength).css('display','block');
     // $('.listing__form__upload__box__preview').css('width', `calc(620px + 128px`);
-    console.log(imagesLength);
+    // console.log(imagesLength);
+  });
+  $(document).on('click', '.delete2', function(){
+    $(this).parents('.listing-image-container').remove();
+    console.log(imagesLength2);
+    $('.listing__form__upload__box__preview2').css('display','none');
+    imagesLength2 -= 1;
+    $('.listing__form__upload__box__preview2').css('width', `calc(620px - ${128 * imagesLength2 }px`);
+    $('.listing__form__upload__box__preview2').eq(imagesLength2).css('display','block');
+    // $('.listing__form__upload__box__preview').css('width', `calc(620px + 128px`);
+    // console.log(imagesLength);
   });
 });
 
