@@ -40,7 +40,6 @@ class ApplicationController < ActionController::Base
       binding.pry
       unless (registration_view_check)
         if (registration_data_check)
-          binding.pry
             current_user.destroy
             redirect_to root_path
         end
