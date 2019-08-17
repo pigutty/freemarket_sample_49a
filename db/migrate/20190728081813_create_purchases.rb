@@ -5,7 +5,7 @@ class CreatePurchases < ActiveRecord::Migration[5.2]
       t.string :purchase_id
       t.integer :evaluation
       t.integer :product_id
-      t.references :user, foreign_key: true
+      t.references :user
       t.timestamps
     end
     add_foreign_key :purchases, :products
