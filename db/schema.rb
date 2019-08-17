@@ -129,7 +129,6 @@ ActiveRecord::Schema.define(version: 2019_08_13_055807) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "address_registrations", "users"
   add_foreign_key "credit_cards", "users"
-  add_foreign_key "phone_number_authorizations", "users"
   add_foreign_key "purchases", "products"
   add_foreign_key "purchases", "users"
   add_foreign_key "user_identifications", "users"
