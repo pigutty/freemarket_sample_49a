@@ -38,6 +38,8 @@ $(document).on('turbolinks:load',function(){
       $('#preview').prepend(html);
       $('.listing__form__upload__box__preview').eq(imagesLength).css('display','none');
       imagesLength += 1;
+      console.log(imagesLength);
+      console.log(totalImagesLength);
       // totalImagesLength += 1;
       reader.onload = function(){
         $('#preview-zone').attr('src', reader.result);
@@ -46,7 +48,9 @@ $(document).on('turbolinks:load',function(){
       $('.listing__form__upload__box__preview').eq(imagesLength).css('display','block');
       reader.readAsDataURL(file);
     }else if(totalImagesLength == 4){
+      console.log('4以上')
       $('#preview').prepend(html);
+      console.log(imagesLength2);
       // $('.listing__form__upload__box__preview').eq(imagesLength).css('display', 'none');
       $('.listing__form__upload__box__preview2').eq(imagesLength2).css('display','block');
       // totalImagesLength += 1
@@ -55,8 +59,11 @@ $(document).on('turbolinks:load',function(){
       }
       reader.readAsDataURL(file);
     }else if(totalImagesLength >= 5){
+      console.log('5以上')
+      console.log(totalImagesLength);
       $('#preview2').prepend(html2);
-      $('.listing__form__upload__box__preview2').eq(imagesLength2).css('display','none');
+      $('.listing__form__upload__box__preview2').eq(imagesLength2).css('display','block');
+      // $('.listing__form__upload__box__preview2').eq(imagesLength2).css('display','none');
       reader.onload = function(){
         $('#preview-zone2').attr('src', reader.result);
       }
