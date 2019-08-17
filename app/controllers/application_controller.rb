@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
 
   # ユーザー登録画面であればtrue, そうでなければfalse
   def registration_view_check
-    ((controller_name == "phone_number_authorization" && action_name == "new"||'create'))||((controller_name == "address_registration" && action_name == "new"||'create'))||((controller_name == "credit_cards" && action_name == "new"||'create'))
+    (controller_name == "phone_number_authorization" && (action_name == "new"||'create'))||(controller_name == "address_registration" && (action_name == "new"||'create'))||(controller_name == "credit_cards" && (action_name == "new"||'create'))
   end
 
   # ユーザーのデータに空白があるかどうかをチェック
