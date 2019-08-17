@@ -16,7 +16,7 @@
   .mypage__main{
     .mypage__profile__icon-box{
       padding: 72px 16px 24px;
-      background: url(/assets/mypage/user-background.jpeg);
+      background-image: image-url("mypage/user-background.jpeg");
       text-align: center;
       img{
         border-radius: 50%;
@@ -37,6 +37,7 @@
     }
     .mypage__profile__content-box{
       padding: 40px 16px;
+      background: #fff;
       textarea{
         box-sizing: border-box;
         display: block;

@@ -1,7 +1,8 @@
 .top_header
   .top_header__wrapper
     .header-top
-      = image_tag "logo.svg", class:"header-top__logo"
+      = link_to root_path do
+        = image_tag "logo.svg", class:"header-top__logo"
       %form.header-top__search-box
         %input.header-top__search-box__input-box{type: "text", placeholder: "何かお探しですか？"}
         %i.fa.fa-search
@@ -45,7 +46,7 @@
           %ul.header-bottom__user-menu__todolist__content
             %li.header-bottom__user-menu__todolist__content__view  現在やることはありません
         %li.header-bottom__user-menu__mypage
-          .header-bottom__user-menu__mypage__icon
+          =link_to users_path, class:'header-bottom__user-menu__mypage__icon' do
             =image_tag "member_photo_noimage_thumb.png"
             %span マイページ
           .header-bottom__user-menu__mypage__box

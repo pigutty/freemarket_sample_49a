@@ -7,7 +7,7 @@ class CreateUserIdentifications < ActiveRecord::Migration[5.2]
       t.string :city
       t.string :block
       t.string :building
-      t.references :user, foreign_key: :true
+      t.references :user
       t.timestamps
     end
   end

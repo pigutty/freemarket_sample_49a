@@ -2,7 +2,7 @@
   = render 'top/header'
 .mypage__container
   = render "users/mypage-sidebar"
-  .mypage__main
+  .mypage__main{"data":@subject_active}
     .mypage__main__header 本人情報の登録
     = form_with model: @user_information, class:'mypage__info__registration__contents' do |f|
       %ul.mypage__info__registration__contents__textbox
