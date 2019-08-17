@@ -11,7 +11,7 @@ class AddressRegistration < ActiveRecord::Migration[5.2]
       t.string :block, null:false
       t.string :building
       t.integer :phone_number, null:false
-      t.references :user, foreign_key: :true
+      t.references :user
       t.timestamps
     end
   end
