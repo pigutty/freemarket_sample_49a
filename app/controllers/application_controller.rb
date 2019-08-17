@@ -37,7 +37,6 @@ class ApplicationController < ActionController::Base
   def registration_check
     # ユーザーがログインしている　かつ　登録の途中でない場合　かつ　データに欠損がある→　中途半端な登録データを削除しroot_pathに移動
     if user_signed_in?
-      binding.pry
       unless (registration_view_check)
         if (registration_data_check)
             current_user.destroy
