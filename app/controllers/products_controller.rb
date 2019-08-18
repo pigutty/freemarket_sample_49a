@@ -19,7 +19,7 @@ class ProductsController < TopController
   def buy
   end
 
-  def edit_product
+  def status
     @product = Product.find(params[:id])
   end
 

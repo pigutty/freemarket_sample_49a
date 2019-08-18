@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :products, only:[:show, :new, :edit, :create] do
     resources :purchases, only:[:new,:create]
     resources :comments, only: [:create]
+    get :status, on: :member
   end
   resources :registration_check, only: [:index]
 end
