@@ -50,6 +50,14 @@ ActiveRecord::Schema.define(version: 2019_08_13_055807) do
     t.index ["user_id"], name: "index_address_registrations_on_user_id"
   end
 
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "product_id", null: false
+    t.string "text", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "token_id", null: false
     t.bigint "user_id"
@@ -58,11 +66,13 @@ ActiveRecord::Schema.define(version: 2019_08_13_055807) do
     t.index ["user_id"], name: "index_credit_cards_on_user_id"
   end
 
-  create_table "product_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
     t.integer "product_id", null: false
-    t.string "image_url"
+    t.integer "like", null: false
+    t.integer "bad", null: false
   end
-  
+
   create_table "phone_number_authorizations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "telephone", null: false
     t.bigint "user_id"
@@ -77,13 +87,14 @@ ActiveRecord::Schema.define(version: 2019_08_13_055807) do
     t.integer "size_id", null: false
     t.string "brand"
     t.integer "status_id", null: false
-    t.boolean "shipping_fee_id", null: false
+    t.integer "shipping_method_id", null: false
+    t.integer "shipping_fee_id", null: false
     t.integer "shipping_date_id", null: false
     t.integer "price", null: false
     t.integer "category_id"
     t.integer "user_id"
     t.integer "prefecture_id", null: false
-    t.integer "purchase_status_id", null: false
+    t.integer "purchase_status_id"
   end
 
   create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -132,10 +143,5 @@ ActiveRecord::Schema.define(version: 2019_08_13_055807) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "address_registrations", "users"
-  add_foreign_key "credit_cards", "users"
-  add_foreign_key "phone_number_authorizations", "users"
   add_foreign_key "purchases", "products"
-  add_foreign_key "purchases", "users"
-  add_foreign_key "user_identifications", "users"
 end

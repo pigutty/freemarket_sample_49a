@@ -1,6 +1,6 @@
 .mypage__main{
   &__usericon{
-    background: url(/assets/mypage/user-background.jpeg);
+    background-image: image-url("mypage/user-background.jpeg");
     height: 200px;
     a{
       display: block;
@@ -101,7 +101,7 @@
         }
       }
       &__todo{
-        background: url(/assets/mypage/logo-gray-icon.svg?61790013);
+        background-image: image-url("mypage/logo-gray-icon.svg");
         background-size: 78px 85px;
         background-repeat: no-repeat;
         background-position: center 40px;
@@ -139,7 +139,7 @@
         &__now{
           &__list{
             display: none;
-            background: url(/assets/mypage/logo-gray-icon.svg?61790013);
+            background-image: image-url("mypage/logo-gray-icon.svg");
             background-size: 78px 85px;
             background-repeat: no-repeat;
             background-position: center 40px;
