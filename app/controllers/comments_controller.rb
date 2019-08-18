@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
   def create
-    # @user = User.find(1)
     @product = Product.find(params[:product_id])
     Comment.create(comment_params)
     redirect_to "/products/#{@product.id}"
