@@ -1,5 +1,5 @@
-.listing-edit
+= form_with model: @product, url: products_path, class: 'listing-edit', method: :post, local: true do |form|
   = render "shared/new-header"
-  = render "shared/new-listing-form"
+  = render "shared/new-listing-form", f:form
   = render "shared/edit-button"
   = render "shared/new-footer"

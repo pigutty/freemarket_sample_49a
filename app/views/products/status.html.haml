@@ -1,0 +1,123 @@
+= render './top/header'
+.wrapper--item-detail
+  .item-detail
+    %h1
+      = @product.name
+    .item-detail__image-text
+      .item-detail__image
+        %ul.item-detail__image__sliders
+          -if @product.images.attached?
+            -@product.images.each do |image|
+              %li.item-detail__image__slider
+                = image_tag image, alt: '', height: 'auto', width: '270px'
+        %ul.item-detail__image__thumbnails
+          -if @product.images.attached?
+            -@product.images.each do |image|
+              %li.item-detail__image__thumbnail
+                = image_tag image, alt: '', height: '60px', width: '60px'
+      .item-detail__table
+        %table
+          %tr
+            %th 出品者
+            %td
+              = link_to @product.user.nickname, '/'
+              .item-detail__table__assesments
+                .item-detail__table__assesment-good
+                  %i.fas.fa-grin
+                %span 33
+                .item-detail__table__assesment-ordinary
+                  %i.fas.fa-meh
+                %span 22
+                .item-detail__table__assesment-bad
+                  %i.fas.fa-frown
+                %span 11
+          %tr
+            %th カテゴリー
+            %td
+              .item-detail__table__category
+                = link_to @grand_child_category.name, '/'
+              .item-detail__table__category
+                %i.fas.fa-angle-right
+                = link_to @child_category.name, '/'
+              .item-detail__table__category
+                %i.fas.fa-angle-right
+                = link_to @product.category.name, '/'
+          %tr
+            %th ブランド
+            %td
+              = link_to @product.brand, '/'
+          %tr
+            %th 商品のサイズ
+            %td
+              = @product.size.name
+          %tr
+            %th 商品の状態
+            %td
+              = @product.status.name
+          %tr
+            %th 配送料の負担
+            %td
+              = @product.shipping_fee.name
+          %tr
+            %th 配送の方法
+            %td
+              = @product.shipping_method.name
+          %tr
+            %th 配送元地域
+            %td
+              = @product.prefecture.name
+          %tr
+            %th 発送日の目安
+            %td
+              = @product.shipping_date.name
+    .item-detail__price-tax-shipping_cost
+      .item-detail__price
+        %h2
+          = "¥#{@product.price.to_s(:delimited)}"
+      .item-detail__tax
+        (税込)
+      .item-detail__shipping_cost
+        送料込み
+    .item-detail__purchase-button
+      = link_to '購入画面に進む', "/"
+    .item-detail__comment
+      = @product.description
+    .item-detail__like-bad-other
+      .item-detail__like
+        %i.far.fa-heart
+        %span いいね！
+        %span
+        - if @product.like.present?
+          @product.like.like
+      .item-detail__bad
+        %i.far.fa-flag
+        %span 不適切な商品の報告
+        %span
+        - if @product.like.present?
+          @product.like.bad
+      .item-detail__other
+        %i.fas.fa-lock
+        = link_to 'あんしん・あんぜんへの取り組み','/'
+    .item-detail__comment
+      .item-detail__comment__box
+        - @comments.each do |comment|
+          %ul.item-detail__comment__box__content
+            %li.item-detail__comment__box__content__profile
+              .item-detail__comment__box__content__profile__image
+                = image_tag 'member_photo_noimage_thumb.png'
+              .item-detail__comment__box__content__profile__name
+                = comment.user.nickname
+            %li.item-detail__comment__box__content__body
+              .item-detail__comment__box__content__body__text
+                = comment.text
+              .item-detail__comment__box__content__body__icon
+                .item-detail__comment__box__content__body__icon__time
+                  %i.far.fa-clock
+                  = "#{time_ago_in_words(comment.created_at)}前"
+                .item-detail__comment__box__content__body__icon__flag
+                  %i.far.fa-flag
+        .item-detail__comment__caution
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        = form_with(model: [ @product, Comment.new ]) do |form|
+          = form.text_area :text, class: :'item-detail__comment__form'
+          = form.submit value: "コメントする", class: :'item-detail__comment__form__button'

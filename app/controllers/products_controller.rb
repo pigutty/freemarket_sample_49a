@@ -33,8 +33,14 @@ class ProductsController < TopController
 
   private
   def listing_params
-
     params.require(:product).permit(:name, :description, :category_id, :size_id, :status_id, :shipping_fee_id, :prefecture_id, :shipping_date_id, :price, images: []).merge(user_id: current_user.id, purchase_status_id:1)
+  end
+
+  def product_view_params
+    @product = Product.find(params[:id])
+    @comments = @product.comments.includes(:user)
+    @child_category = Category.find(@product.category.child_id)
+    @grand_child_category = Category.find(@child_category.parent_id)
   end
 
 end
