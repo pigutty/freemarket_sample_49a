@@ -58,26 +58,32 @@
             カテゴリー
           %span.listing__form__detail__box__form-group__require
             必須
-          = f.collection_select :category_id, Category.all.take(13), :id, :name, {prompt: "---"}, class: 'listing__form__detail__box__form-group__category-select', id: 'big-category'
+          = f.collection_select :category_id0, Category.all.take(13), :id, :name, {prompt: "---"}, class: 'listing__form__detail__box__form-group__category-select', id: 'big-category'
 
-
-
-        - (1...13).each do |e|
+        - (1...14).each do |e|
           .listing__form__detail__box__form-group.middle-category{style: 'display:none;'}
             %label
               カテゴリー
             %span.listing__form__detail__box__form-group__require
               必須
-            = f.collection_select Category.find(e).children , :id, :name, {prompt: "---"}, class: 'listing__form__detail__box__form-group__category-select'
+            = f.collection_select :category_id0,Category.find(e).children , :id, :name, {prompt: "---"}, class: 'listing__form__detail__box__form-group__category-select'
 
-        - (14...158).each do |g|
-          .listing__form__detail__box__form-group.small-category.small-category{style: 'display:none;'}
+        - (14...159).each do |g|
+          .listing__form__detail__box__form-group.small-category{style: 'display:none;'}
             %label
               カテゴリー
             %span.listing__form__detail__box__form-group__require
               必須
-            = f.collection_select :category_id, Category.find(g).grandchildren, :id, :name, {prompt: "---"}, {class: 'listing__form__detail__box__form-group__category-select'}
-            
+            = f.collection_select :category_id0, Category.find(g).grandchildren, :id, :name, {prompt: "---"}, {class: 'listing__form__detail__box__form-group__category-select'}
+
+        .listing__form__detail__box__form-group.lastchoice-category{style: 'display:none;'}
+          %label
+            カテゴリー
+          %span.listing__form__detail__box__form-group__require
+            必須
+          = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: 'listing__form__detail__box__form-group__category-select'}
+
+
         .listing__form__detail__box__form-group
           %label
             サイズ
