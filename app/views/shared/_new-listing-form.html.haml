@@ -68,7 +68,7 @@
               カテゴリー
             %span.listing__form__detail__box__form-group__require
               必須
-            = f.collection_select :category_id,Category.find(e).children , :id, :name, {prompt: "---"}, class: 'listing__form__detail__box__form-group__category-select'
+            = f.collection_select Category.find(e).children , :id, :name, {prompt: "---"}, class: 'listing__form__detail__box__form-group__category-select'
 
         - (14...158).each do |g|
           .listing__form__detail__box__form-group.small-category.small-category{style: 'display:none;'}
