@@ -1,6 +1,7 @@
 class UserIdentificationsController < UsersController
   def new
     @user_information = UserIdentification.new
+    @subject_active = @allsubjects.find_index{|e| e[:name]=='本人情報'}
   end
   def create
     UserIdentification.create(user_information_params)

@@ -93,7 +93,8 @@ body{
           color: black;
           background: #fffffe;
           margin-top: 16px;
-          background: #fff url("/assets/google.svg/") ;
+          background: #fff;
+          background-image: image-url("google.svg") ;
           background-repeat: no-repeat;
         }
       }

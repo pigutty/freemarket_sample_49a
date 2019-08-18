@@ -72,6 +72,10 @@ gem 'pry-rails'
 gem 'pry-byebug'
 gem 'rubocop'
 gem 'payjp'
+gem 'rails-i18n'
+gem "aws-sdk-s3", require: false
 gem 'rubocop'
 gem "omniauth-rails_csrf_protection"
 gem 'omniauth-facebook'
+gem 'capistrano-rails-console'
+

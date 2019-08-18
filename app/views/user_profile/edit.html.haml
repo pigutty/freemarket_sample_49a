@@ -2,7 +2,7 @@
   = render 'top/header'
 .mypage__container
   = render 'users/mypage-sidebar'
-  .mypage__main
+  .mypage__main{'data':@subject_active}
     .registration__container
       .registration__content
         .registration__content__box

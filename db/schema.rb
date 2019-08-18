@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_17_070844) do
+
 
   create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "token_id", null: false
@@ -20,18 +20,35 @@ ActiveRecord::Schema.define(version: 2019_08_17_070844) do
     t.index ["user_id"], name: "index_credit_cards_on_user_id"
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "product_id", null: false
+    t.integer "like", null: false
+    t.integer "bad", null: false
+  end
+
+  create_table "phone_number_authorizations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "telephone", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_phone_number_authorizations_on_user_id"
+  end
+
   create_table "products", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description"
     t.integer "size_id", null: false
     t.string "brand"
     t.integer "status_id", null: false
-    t.boolean "shipping_fee_id", null: false
+    t.integer "shipping_method_id", null: false
+    t.integer "shipping_fee_id", null: false
     t.integer "shipping_date_id", null: false
     t.integer "price", null: false
     t.integer "category_id"
     t.integer "user_id"
     t.integer "prefecture_id", null: false
+    t.integer "purchase_status_id"
   end
 
   create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -66,21 +83,11 @@ ActiveRecord::Schema.define(version: 2019_08_17_070844) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nickname"
-    t.string "family_name"
-    t.string "family_furigana"
-    t.string "first_furigana"
-    t.integer "birth_year"
-    t.integer "birth_month"
-    t.integer "birth_day"
-    t.string "uid"
-    t.string "provider"
+
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "credit_cards", "users"
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "purchases", "products"
-  add_foreign_key "purchases", "users"
-  add_foreign_key "user_identifications", "users"
 end

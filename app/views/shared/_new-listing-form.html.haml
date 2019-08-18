@@ -9,16 +9,34 @@
         出品画像
         %span.listing__form__upload__require
           必須
+      %p.listing__form__upload__comment 最大10枚までアップロードできます
 
-      %p.listing__form__upload__comment
-        最大10枚までアップロードできます
-      %label.listing__form__upload__box
-        .listing__form__upload__box__comment
-          %input.listing-upload-drop-file{multiple: "multiple", style: "display: none;", type: "file"}
-          %pre.visible-pc
-            ドラッグアンドドロップ
-            またはクリックしてファイルをアップロード
-  
+
+      .listing__form__upload__box
+        #preview
+        %label.listing__form__upload__box__preview
+          = f.file_field :images, class:'listing-upload-drop-file',multiple:true
+        %label.listing__form__upload__box__preview{style:"display:none;"}
+          = f.file_field :images, class:'listing-upload-drop-file', multiple:true
+        %label.listing__form__upload__box__preview{style:"display:none;"}
+          = f.file_field :images, class:'listing-upload-drop-file', multiple:true
+        %label.listing__form__upload__box__preview{style:"display:none;"}
+          = f.file_field :images, class:'listing-upload-drop-file', multiple:true
+        %label.listing__form__upload__box__preview{style:"display:none;"}
+          = f.file_field :images, class:'listing-upload-drop-file', multiple:true
+
+        #preview2
+        %label.listing__form__upload__box__preview2
+          = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
+        %label.listing__form__upload__box__preview2
+          = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
+        %label.listing__form__upload__box__preview2
+          = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
+        %label.listing__form__upload__box__preview2
+          = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
+        %label.listing__form__upload__box__preview2
+          = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
+
     .listing__form__product
       .listing__form__product__form-group
         商品名
@@ -40,8 +58,32 @@
             カテゴリー
           %span.listing__form__detail__box__form-group__require
             必須
-          = f.collection_select :category_id, Category.all.take(13), :id, :name, {prompt: "---"}, {class: 'listing__form__detail__box__form-group__category-select'}
-            
+          = f.collection_select :category_id0, Category.all.take(13), :id, :name, {prompt: "---"}, class: 'listing__form__detail__box__form-group__category-select', id: 'big-category'
+
+        - (1...14).each do |e|
+          .listing__form__detail__box__form-group.middle-category{style: 'display:none;'}
+            %label
+              カテゴリー
+            %span.listing__form__detail__box__form-group__require
+              必須
+            = f.collection_select :category_id0,Category.find(e).children , :id, :name, {prompt: "---"}, class: 'listing__form__detail__box__form-group__category-select'
+
+        - (14...159).each do |g|
+          .listing__form__detail__box__form-group.small-category{style: 'display:none;'}
+            %label
+              カテゴリー
+            %span.listing__form__detail__box__form-group__require
+              必須
+            = f.collection_select :category_id0, Category.find(g).grandchildren, :id, :name, {prompt: "---"}, {class: 'listing__form__detail__box__form-group__category-select'}
+
+        .listing__form__detail__box__form-group.lastchoice-category{style: 'display:none;'}
+          %label
+            カテゴリー
+          %span.listing__form__detail__box__form-group__require
+            必須
+          = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: 'listing__form__detail__box__form-group__category-select'}
+
+
         .listing__form__detail__box__form-group
           %label
             サイズ
@@ -99,8 +141,8 @@
 
         .listing__form__price__box__fee
           %p 販売手数料(10%)
-          %p -
+          %p#salesfee -
 
         .listing__form__price__box__profit
           %p 販売利益
-          %p -
+          %p#salesprofit -
