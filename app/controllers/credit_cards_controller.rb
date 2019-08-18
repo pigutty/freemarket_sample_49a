@@ -1,14 +1,23 @@
 class CreditCardsController < ApplicationController
   def new
+    if (user_signed_in? && current_user.phone_number_authorizations.length != 0 && current_user.address_registrations.length !=0 && current_user.credit_cards.length ==0)    
+      @member_information_title = nil
+      @member_information = "completed"
+      @phone_information = 'completed'
+      @address_information = 'completed'
+      @credit_information_title = "visited"
+      @credit_information = 'progressed'
+    else
+      redirect_to root_path
+    end
   end
 
   def create
-    # @user = User.find(params[id:current_user.id]) ユーザー登録後に追記する
-    @user = User.find(1)
     create_token(credit_card_params)
-    @user.customer_id = @customer.id
-    @user.save
-    CreditCard.create(token_id: @token_id, user_id: 1)
+    current_user.customer_id = @customer.id
+    current_user.save
+    CreditCard.create(token_id: @token_id, user_id: current_user.id)
+    redirect_to registration_check_index_path
   end
 
   private
@@ -29,7 +38,8 @@ class CreditCardsController < ApplicationController
     })
     @token_id = @token.id
     @customer = Payjp::Customer.create()
-    # @customer = Payjp::Customer.retrieve(@user.customer_id)
+    # @customer = Payjp::Customer.retrieve(current_user.customer_id)
+    # 顧客IDを事前に作成して、それを取得する場合はこちらのコードを使用する
     @customer.cards.create(card:@token_id)
   end
 

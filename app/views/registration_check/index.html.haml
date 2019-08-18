@@ -1,0 +1,12 @@
+= render 'signup/registration-header'
+.registration__container
+  .registration__title 会員登録完了
+  .registration__content
+    .registration__content__box
+      %h2 ありがとうございます。
+      %h2 会員登録が完了しました。
+      .input-form-box
+        .button-wrap
+          = link_to 'メルカリを始める', root_path, class:'btn-red'
+%footer.registration_login-footer.test
+  =render 'signup/registration_login_footer'

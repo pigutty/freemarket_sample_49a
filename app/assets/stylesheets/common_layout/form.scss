@@ -25,7 +25,6 @@
   width: 100%;
   cursor: pointer;
   font-size: 14px;
-  line-height: 48px;
   text-align: center;
 }
 
@@ -161,6 +160,10 @@
       width: 100%;
       padding-top: 8px;
     }
+    h2{
+      text-align: center;
+      font-size: 22px;
+    }
   }
 }
 
@@ -184,7 +187,6 @@
   @include form-default;
   .btn-red{
     @include button-red;
-    line-height: 50%;
   }
   .link-right{
     @include link-right;
@@ -198,6 +200,7 @@
       display: block;
       @include button-red;
       height: 48px;
+      line-height: 48px;
     }
     i{
       position: absolute;

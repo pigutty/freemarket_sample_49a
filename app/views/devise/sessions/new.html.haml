@@ -4,26 +4,23 @@
     .login__box
       .login__box--account-blue
         %p アカウントをお持ちでない方はこちら
-        = link_to "新規会員登録","https://www.mercari.com/jp/signup/"
+        = link_to "新規会員登録", new_user_registration_path
       .login__box--social
         %button#facebook-login.btn-default.btn-sns-facebook
           Facebookでログイン
           %i.fab.fa-facebook-square
         %button#google-login.btn-default.btn-sns-google Googleでログイン
-      %form{action: "https://www.mercari.com/jp/login/", method: "POST", novalidate: "novalidate"}
+      = form_with model: @user, local: true do |f|
         .login__box--form
           .form-email
-            %input.input-default.form-email-input{placeholder: "メールアドレス"}
+            = f.email_field :email, placeholder: "メールアドレス", class: "email_field input-default form-email-input"
           .form-password
-            %input.input-default{placeholder: "パスワード"}
+            = f.password_field :password, placeholder: "パスワード", class: "input-default"
           .form_captcha
             = image_tag "robot.png"
             -# captchaのジャムをインストールする。
             -# = recaptcha_tags
-          %button.login-switch.btn-default ログイン
-          %input{name: "login_callback", type: "hidden", value: "https://www.mercari.com/jp/"}/
-          %input{name: "__csrf_value", type: "hidden", value: "4ed23bd844f5d078462086cea192318dc57daeb6054cacb3ee5c89cc1f64b38217dd445c998060b178f649cc279d795100d7cced33072001b905bf552dc9f5b9a"}/
-          = link_to "パスワードをお忘れの方","https://www.mercari.com/jp/password/reset/start/"
-          -# %a{ href: "https://www.mercari.com/jp/password/reset/start/" } パスワードをお忘れの方
+          = f.submit "ログイン", class: 'btn login-switch btn-default'
+          = link_to "パスワードをお忘れの方","#"
   %footer.registration_login-footer
     = render "registration_login_footer"

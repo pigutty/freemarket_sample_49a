@@ -2,7 +2,7 @@
   = render 'top/header'
 .mypage__container
   = render 'users/mypage-sidebar'
-  .mypage__main
+  .mypage__main{"data":@subject_active}
     .registration__container
       .registration__title.mypage__title 支払い方法
       .registration__content
@@ -10,6 +10,8 @@
           .input-form-box
             %label クレジットカード 一覧
             .button-wrap
-              = link_to('クレジットカードを追加する', root_path, class:'btn-red')
+              = link_to('クレジットカードを追加する', new_mypage_card_path, class:'btn-red')
               %i.far.fa-credit-card
           = render 'render/link_right',text:'支払い方法について',address:root_path
+.footer
+  = render 'top/footer'
