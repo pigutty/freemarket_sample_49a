@@ -78,4 +78,4 @@ gem 'rubocop'
 gem "omniauth-rails_csrf_protection"
 gem 'omniauth-facebook'
 gem 'capistrano-rails-console'
-
+gem 'omniauth-google-oauth2'

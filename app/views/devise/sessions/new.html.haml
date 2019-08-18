@@ -10,7 +10,8 @@
           %button#facebook-login.btn-default.btn-sns-facebook
             Facebookでログイン
             %i.fab.fa-facebook-square
-        %button#google-login.btn-default.btn-sns-google Googleでログイン
+        = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
+          %button#google-login.btn-default.btn-sns-google Googleでログイン
       = form_with model: @user,url:user_session_path, local: true do |f|
         .login__box--form
           .form-email

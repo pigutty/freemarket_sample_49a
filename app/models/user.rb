@@ -18,7 +18,6 @@ class User < ApplicationRecord
         email:    auth.info.email,
         password: Devise.friendly_token[0, 20]
       )
-      user.save(:validate => false)
     end
  
     user
@@ -30,6 +29,6 @@ class User < ApplicationRecord
   has_many :phone_number_authorizations,dependent: :destroy
   has_many :address_registrations,dependent: :destroy
 
-  validates :nickname, :family_name, :first_name, :family_furigana, :first_furigana, :birth_year, :birth_month, :birth_day,presence: true
+  # validates :nickname, :family_name, :first_name, :family_furigana, :first_furigana, :birth_year, :birth_month, :birth_day,presence: true
   
 end
