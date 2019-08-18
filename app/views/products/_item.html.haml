@@ -1,0 +1,16 @@
+-# %li.mypage-nav-list-itemavtive
+-#   =link_to(mypagesidebar2,'/users',)
+-#   %i.fas.fa-chevron-right
+.contents__item__box
+  - 
+  .contents__item__box__image
+    = image_tag "#{product.product_images[0].image_url}"
+    -# = image_tag "#{product.product_images.first}"
+  .contents__item__box__item-name
+    = product.name
+  .contents__item__box__price-favorite
+    .contents__item__box__price
+      = "¥#{product.price.to_s(:delimited)}"
+    .contents__item__box__favorite
+      %i.far.fa-heart.gray
+      %span 6

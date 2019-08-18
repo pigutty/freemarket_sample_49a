@@ -8,20 +8,22 @@
     %h2.contents__all-items__head
       すべての商品
     .contents__items
-      -# ここから下はeach do で
-      - @products.each do |product|
-        .contents__item__box
-          .contents__item__box__image
-            = image_tag "#{product.product_images[0].image_url}"
-          .contents__item__box__item-name
-            = product.name
-          .contents__item__box__price-favorite
-            .contents__item__box__price
-              = "¥#{product.price.to_s(:delimited)}"
-            .contents__item__box__favorite
-              %i.far.fa-heart.gray
-              %span 6
+      = render partial: "products/item", collection: @products, as: :product
 
+      -# ここから下はeach do で
+      -# - @products.each do |product|
+      -#   .contents__item__box
+      -#     .contents__item__box__image
+      -#       = image_tag "#{product.product_images[0].image_url}"
+      -#     .contents__item__box__item-name
+      -#       = product.name
+      -#     .contents__item__box__price-favorite
+      -#       .contents__item__box__price
+      -#         = "¥#{product.price.to_s(:delimited)}"
+      -#       .contents__item__box__favorite
+      -#         %i.far.fa-heart.gray
+      -#         %span 6
+      
 
     .contents__item__box__all-items-view
       全ての商品を見る
