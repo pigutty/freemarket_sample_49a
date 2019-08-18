@@ -4,8 +4,10 @@
 .contents__item__box
   - 
   .contents__item__box__image
-    = image_tag "#{product.product_images[0].image_url}"
+    -if product.images.attached?
+      = image_tag product.images[0]
     -# = image_tag "#{product.product_images.first}"
+    
   .contents__item__box__item-name
     = product.name
   .contents__item__box__price-favorite
