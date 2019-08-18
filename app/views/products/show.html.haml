@@ -1,3 +1,4 @@
+= render './top/header'
 .wrapper--item-detail
   .item-detail
     %h1
@@ -6,16 +7,15 @@
       .item-detail__image
         %ul.item-detail__image__sliders
           -if @product.images.attached?
-            @product.images.each do |image|
-            %li.item-detail__image__slider
-              = image_tag image, alt: '', height: 'auto', width: '270px'
+            -@product.images.each do |image|
+              %li.item-detail__image__slider
+                = image_tag image, alt: '', height: 'auto', width: '270px'
         %ul.item-detail__image__thumbnails
           -if @product.images.attached?
-            @product.images.each do |image|
-            %li.item-detail__image__thumbnail
-              = image_tag image, alt: '', height: '60px', width: '60px'
+            -@product.images.each do |image|
+              %li.item-detail__image__thumbnail
+                = image_tag image, alt: '', height: '60px', width: '60px'
       .item-detail__table
-       
         %table
           %tr
             %th 出品者
@@ -126,7 +126,7 @@
         .item-detail__prev__arrow
         <
         .item-detail__prev__item-name
-        サイクルジャージ　ツインシックス　M
+        サンダルメリッサ アローズ ローズバッド ビームス
       .item-detail__next
         .item-detail__next__item-name
         新品未開封マキアージュ ドラマティックスキンセンサーベースUV
@@ -139,60 +139,36 @@
         %i.fab.fa-twitter-square
       .item-detail__social_icons__pinterest
         %i.fab.fa-pinterest-square
-    .item-detail__other_items
-      %h2 ◯◯さんのその他の出品
-      .contents__items.background-gray
-        .contents__item__box
-          .contents__item__box__image
-            = image_tag 'item1', alt: '', height: '213', width: '213', class: ''
-          .contents__item__box__item-name
-            ecco crepe tray スニーカーブーツ DANISH 23.5
-          .contents__item__box__price-favorite
-          .contents__item__box__price
-            ¥10,000
-        .contents__item__box
-          .contents__item__box__image
-            = image_tag 'item1', alt: '', height: '213', width: '213', class: ''
-          .contents__item__box__item-name
-            ecco crepe tray スニーカーブーツ DANISH 23.5
-          .contents__item__box__price-favorite
-          .contents__item__box__price
-            ¥10,000
-          .contents__item__box__favorite
-        .contents__item__box
-          .contents__item__box__image
-            = image_tag 'item1', alt: '', height: '213', width: '213', class: ''
-          .contents__item__box__item-name
-            ecco crepe tray スニーカーブーツ DANISH 23.5
-          .contents__item__box__price-favorite
-          .contents__item__box__price
-            ¥10,000
-    .item-detail__other_items.background-gray
-      %h2
-        = "#{@grand_child_category.name}のその他の商品"
-      .contents__items
-        .contents__item__box
-          .contents__item__box__image
-            = image_tag 'item1', alt: '', height: '213', width: '213', class: ''
-          .contents__item__box__item-name
-            ecco crepe tray スニーカーブーツ DANISH 23.5
-          .contents__item__box__price-favorite
-          .contents__item__box__price
-            ¥10,000
-        .contents__item__box
-          .contents__item__box__image
-            = image_tag 'item1', alt: '', height: '213', width: '213', class: ''
-          .contents__item__box__item-name
-            ecco crepe tray スニーカーブーツ DANISH 23.5
-          .contents__item__box__price-favorite
-          .contents__item__box__price
-            ¥10,000
-          .contents__item__box__favorite
-        .contents__item__box
-          .contents__item__box__image
-            = image_tag 'item1', alt: '', height: '213', width: '213', class: ''
-          .contents__item__box__item-name
-            ecco crepe tray スニーカーブーツ DANISH 23.5
-          .contents__item__box__price-favorite
-          .contents__item__box__price
-            ¥10,000
+    -if @user_products.present?
+      .item-detail__other_items
+        %h2
+          = "#{@product.user.nickname}さんのその他の商品"
+        .item-detail__other_items.background-gray
+          .contents__items
+            - @user_products.each do |user_product|
+              .contents__item__box
+                .contents__item__box__image
+                  -if user_product.images.attached?
+                    = image_tag user_product.images[0], height: '213', width: '213'
+                .contents__item__box__item-name
+                  = user_product.name
+                .contents__item__box__price-favorite
+                .contents__item__box__price
+                  = "¥#{user_product.price.to_s(:delimited)}"
+    - if @related_products.present?
+      .item-detail__other_items
+        %h2
+          = "#{@grand_child_category.name}のその他の商品"
+        .item-detail__other_items.background-gray
+          .contents__items
+            - @related_products.each do |related_product|
+              .contents__item__box
+                .contents__item__box__image
+                  - if related_product.images.attached?
+                    = image_tag related_product.images[0], height: '213', width: '213'
+                .contents__item__box__item-name
+                  = related_product.name
+                .contents__item__box__price-favorite
+                .contents__item__box__price
+                  = "¥#{related_product.price.to_s(:delimited)}"
+= render './top/footer'

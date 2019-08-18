@@ -1,9 +1,12 @@
-class ProductsController < ApplicationController
+class ProductsController < TopController
   def show
     @product = Product.find(params[:id])
     @comments = @product.comments.includes(:user)
     @child_category = Category.find(@product.category.child_id)
     @grand_child_category = Category.find(@child_category.parent_id)
+    @user_products = Product.where(user_id:@product.user_id).where.not(id:@product.id).limit(6).order('id DESC')
+    @related_products = Product.where(category_id:@product.category_id).where.not(id:@product.id).limit(6).order('id DESC')
+    # binding.pry
   end
 
   def new
@@ -11,7 +14,9 @@ class ProductsController < ApplicationController
   end
 
   def create
+    binding.pry
     @product = Product.create(listing_params)
+    binding.pry
   end
 
   def buy

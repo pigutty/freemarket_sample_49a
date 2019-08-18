@@ -13,7 +13,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.integer         :category_id
       t.integer         :user_id
       t.integer         :prefecture_id, null: false
-      t.integer         :purchase_status_id,derault: 1, null:false
+      t.integer         :purchase_status_id
     end
   end
 end

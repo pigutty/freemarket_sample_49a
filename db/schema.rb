@@ -94,12 +94,7 @@ ActiveRecord::Schema.define(version: 2019_08_13_055807) do
     t.integer "category_id"
     t.integer "user_id"
     t.integer "prefecture_id", null: false
-    t.integer "purchase_status_id", null: false
-  end
-
-  create_table "products_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "product_id", null: false
-    t.string "image_url"
+    t.integer "purchase_status_id"
   end
 
   create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
