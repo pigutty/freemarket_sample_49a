@@ -1,0 +1,138 @@
+.listing
+  .listing__title
+    %h1
+      商品の情報を入力
+
+  .listing__form
+    .listing__form__upload
+      .listing__form__upload__title
+        出品画像
+        %span.listing__form__upload__require
+          必須
+      %p.listing__form__upload__comment 最大10枚までアップロードできます
+
+
+      .listing__form__upload__box
+        #preview
+        %label.listing__form__upload__box__preview
+          = f.file_field :images, class:'listing-upload-drop-file',multiple:true
+        %label.listing__form__upload__box__preview{style:"display:none;"}
+          = f.file_field :images, class:'listing-upload-drop-file', multiple:true
+        %label.listing__form__upload__box__preview{style:"display:none;"}
+          = f.file_field :images, class:'listing-upload-drop-file', multiple:true
+        %label.listing__form__upload__box__preview{style:"display:none;"}
+          = f.file_field :images, class:'listing-upload-drop-file', multiple:true
+        %label.listing__form__upload__box__preview{style:"display:none;"}
+          = f.file_field :images, class:'listing-upload-drop-file', multiple:true
+
+        #preview2
+        %label.listing__form__upload__box__preview2
+          = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
+        %label.listing__form__upload__box__preview2
+          = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
+        %label.listing__form__upload__box__preview2
+          = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
+        %label.listing__form__upload__box__preview2
+          = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
+        %label.listing__form__upload__box__preview2
+          = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
+
+    .listing__form__product
+      .listing__form__product__form-group
+        商品名
+        %span.require
+          必須
+        = f.text_field :name, class:'listing-input', placeholder: "商品名（必須 40文字まで)"
+      .listing__form__product__form-group 
+        商品の説明
+        %span.require
+          必須
+        = f.text_area :description, class:'listing-textarea', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+    
+    .listing__form__detail
+      %label.listing__form__detail__title
+        商品の詳細
+      .listing__form__detail__box
+        .listing__form__detail__box__form-group
+          %label
+            カテゴリー
+          %span.listing__form__detail__box__form-group__require
+            必須
+          = f.collection_select :category_id0, Category.all, :id, :name, {prompt: "---"}, class: 'listing__form__detail__box__form-group__category-select', id: 'big-category'
+
+          .listing__form__detail__box__form-group.middle-category
+            %label
+              カテゴリー
+            %span.listing__form__detail__box__form-group__require
+              必須
+            = f.collection_select :category_id0,Category.all , :id, :name, {prompt: @lastcategory.parent_id}, class: 'listing__form__detail__box__form-group__category-select'
+
+          .listing__form__detail__box__form-group.small-category
+            %label
+              カテゴリー
+            %span.listing__form__detail__box__form-group__require
+              必須
+            = f.collection_select :category_id, Category.all, :id, :name, {prompt: @lastcategory}, {class: 'listing__form__detail__box__form-group__category-select'}
+
+        .listing__form__detail__box__form-group
+          %label
+            サイズ
+          %span.listing__form__detail__box__form-group__require
+            必須
+          = f.collection_select :size_id, Size.all, :id, :name, {prompt: "---"}, {class: 'listing__form__detail__box__form-group__category-select'}
+
+
+        .listing__form__detail__box__form-group
+          %label
+            商品の状態
+          %span.listing__form__detail__box__form-group__require
+            必須
+          = f.collection_select :status_id, Status.all, :id, :name, {prompt: "---"}, {class: 'listing__form__detail__box__form-group__category-select'}
+  
+    .listing__form__delivery
+      %label.listing__form__delivery__title
+        配送について
+      %a.form-question
+      .listing__form__delivery__box
+        .listing__form__delivery__box__form-group
+          %label.listing__form__delivery__box__form-group__product-name
+            配送料の負担
+          %span.listing__form__delivery__box__form-group__require
+            必須
+          = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {prompt: "---"}, {class: 'listing__form__delivery__box__form-group__category-select'}
+
+        .listing__form__delivery__box__form-group
+          %label.listing__form__delivery__box__form-group__product-name
+            発送元の地域
+          %span.listing__form__delivery__box__form-group__require
+            必須
+          
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, {class: 'listing__form__delivery__box__form-group__category-select'}
+
+        .listing__form__delivery__box__form-group
+          %label.listing__form__delivery__box__form-group__product-name
+            発送までの日数
+          %span.listing__form__delivery__box__form-group__require
+            必須
+          = f.collection_select :shipping_date_id, ShippingDate.all, :id, :name, {prompt: "---"}, {class: 'listing__form__delivery__box__form-group__category-select'}
+
+    .listing__form__price
+      %label.listing__form__price__title
+        販売価格(300〜9,999,999)
+      .listing__form__price__box
+        .listing__form__price__box__price
+          %label.listing__form__price__box__price__left
+            価格
+            %span.listing__form__price__box__price__left__require
+              必須
+          .listing__form__price__box__price__right
+            ¥
+            = f.text_field :price, class:'listing__form__price__box__price__right__default', placeholder: "例）300"
+
+        .listing__form__price__box__fee
+          %p 販売手数料(10%)
+          %p#salesfee -
+
+        .listing__form__price__box__profit
+          %p 販売利益
+          %p#salesprofit -

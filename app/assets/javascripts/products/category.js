@@ -7,6 +7,7 @@ $(document).on('turbolinks:load', function(){
     $('.middle-category').children('select').removeAttr("id");
     middlecategory.css('display','block');
     middlecategory.children('select').attr("id", "middle-category");
+
     middlecategory.change(function(){
       var middlevalue = document.getElementById('middle-category').value;
       var smallcategory = $('.small-category').eq(middlevalue-14);
@@ -14,6 +15,7 @@ $(document).on('turbolinks:load', function(){
       $('.small-category').children('select').removeAttr("id");
       smallcategory.css('display','block');
       smallcategory.children('select').attr("id", "small-category");
+      
       smallcategory.change(function(){
         var smallvalue = document.getElementById('small-category').value;
         $('.lastchoice-category').children('select').val(smallvalue);
