@@ -58,26 +58,26 @@
             カテゴリー
           %span.listing__form__detail__box__form-group__require
             必須
-          = f.collection_select :category_id0, Category.all.take(13), :id, :name, {prompt: "---", selected: @bigcategory}, class: 'listing__form__detail__box__form-group__category-select', id: 'big-category'
+          = f.collection_select :category_id0, Category.all.take(13), :id, :name, {prompt: "---", selected: @bigcategoryid}, class: 'listing__form__detail__box__form-group__category-select', id: 'big-category'
 
         - (1...14).each do |e|
-          -if e == @bigcategory
+          -if e == @bigcategoryid
             .listing__form__detail__box__form-group.middle-category
               %label
                 カテゴリー
               %span.listing__form__detail__box__form-group__require
                 必須
-              = f.collection_select :category_id0,Category.find(e).children, :id, :name, {prompt: "---", selected: @middlecategory}, class: 'listing__form__detail__box__form-group__category-select'
+              = f.collection_select :category_id0,Category.find(e).children, :id, :name, {prompt: "---", selected: @middlecategoryid}, class: 'listing__form__detail__box__form-group__category-select'
           -else 
             .listing__form__detail__box__form-group.middle-category{style: 'display:none;'}
               %label
                 カテゴリー
               %span.listing__form__detail__box__form-group__require
                 必須
-              = f.collection_select :category_id0,Category.find(e).children, :id, :name, {prompt: "---", selected: @middlecategory}, class: 'listing__form__detail__box__form-group__category-select'
+              = f.collection_select :category_id0,Category.find(e).children, :id, :name, {prompt: "---", selected: @middlecategoryid}, class: 'listing__form__detail__box__form-group__category-select'
         
         - (14...159).each do |g|
-          -if g == @middlecategory
+          -if g == @middlecategoryid
             .listing__form__detail__box__form-group.small-category
               %label
                 カテゴリー
