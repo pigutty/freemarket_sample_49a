@@ -13,29 +13,75 @@
 
 
       .listing__form__upload__box
-        #preview
-        %label.listing__form__upload__box__preview
-          = f.file_field :images, class:'listing-upload-drop-file',multiple:true
-        %label.listing__form__upload__box__preview{style:"display:none;"}
-          = f.file_field :images, class:'listing-upload-drop-file', multiple:true
-        %label.listing__form__upload__box__preview{style:"display:none;"}
-          = f.file_field :images, class:'listing-upload-drop-file', multiple:true
-        %label.listing__form__upload__box__preview{style:"display:none;"}
-          = f.file_field :images, class:'listing-upload-drop-file', multiple:true
-        %label.listing__form__upload__box__preview{style:"display:none;"}
-          = f.file_field :images, class:'listing-upload-drop-file', multiple:true
+        -if @product.images.attached?
+          #preview
+            %label.listing__form__upload__box__preview
+              = f.file_field :images, class:'listing-upload-drop-file',multiple:true
+              %ul.listing-image-container
+                %li.image-box
+                %img#preview-zone
+              .button
+                %a.edit 編集
+                %a.delete 削除
 
-        #preview2
-        %label.listing__form__upload__box__preview2
-          = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
-        %label.listing__form__upload__box__preview2
-          = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
-        %label.listing__form__upload__box__preview2
-          = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
-        %label.listing__form__upload__box__preview2
-          = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
-        %label.listing__form__upload__box__preview2
-          = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
+
+              = f.file_field :images, class:'listing-upload-drop-file',multiple:true
+              = f.file_field :images, class:'listing-upload-drop-file',multiple:true
+              = f.file_field :images, class:'listing-upload-drop-file',multiple:true
+              = f.file_field :images, class:'listing-upload-drop-file',multiple:true
+              = f.file_field :images, class:'listing-upload-drop-file',multiple:true
+              = f.file_field :images, class:'listing-upload-drop-file',multiple:true
+              = f.file_field :images, class:'listing-upload-drop-file',multiple:true
+              = f.file_field :images, class:'listing-upload-drop-file',multiple:true
+              = f.file_field :images, class:'listing-upload-drop-file',multiple:true
+              = f.file_field :images, class:'listing-upload-drop-file',multiple:true
+              = f.file_field :images, class:'listing-upload-drop-file',multiple:true
+            -# %label.listing__form__upload__box__preview
+            -#   = f.file_field :images, class:'listing-upload-drop-file', multiple:true
+            -# %label.listing__form__upload__box__preview
+            -#   = f.file_field :images, class:'listing-upload-drop-file', multiple:true
+            -# %label.listing__form__upload__box__preview
+            -#   = f.file_field :images, class:'listing-upload-drop-file', multiple:true
+            -# %label.listing__form__upload__box__preview
+            -#   = f.file_field :images, class:'listing-upload-drop-file', multiple:true
+
+          -# #preview2
+          -#   %label.listing__form__upload__box__preview2
+          -#     = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
+          -#   %label.listing__form__upload__box__preview2
+          -#     = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
+          -#   %label.listing__form__upload__box__preview2
+          -#     = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
+          -#   %label.listing__form__upload__box__preview2
+          -#     = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
+          -#   %label.listing__form__upload__box__preview2
+          -#     = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
+
+
+        -else
+          #preview
+            %label.listing__form__upload__box__preview
+              = f.file_field :images, class:'listing-upload-drop-file',multiple:true
+            %label.listing__form__upload__box__preview{style:"display:none;"}
+              = f.file_field :images, class:'listing-upload-drop-file', multiple:true
+            %label.listing__form__upload__box__preview{style:"display:none;"}
+              = f.file_field :images, class:'listing-upload-drop-file', multiple:true
+            %label.listing__form__upload__box__preview{style:"display:none;"}
+              = f.file_field :images, class:'listing-upload-drop-file', multiple:true
+            %label.listing__form__upload__box__preview{style:"display:none;"}
+              = f.file_field :images, class:'listing-upload-drop-file', multiple:true
+
+          #preview2
+            %label.listing__form__upload__box__preview2
+              = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
+            %label.listing__form__upload__box__preview2
+              = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
+            %label.listing__form__upload__box__preview2
+              = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
+            %label.listing__form__upload__box__preview2
+              = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
+            %label.listing__form__upload__box__preview2
+              = f.file_field :images, class:'listing-upload-drop-file2', multiple:true
 
     .listing__form__product
       .listing__form__product__form-group
