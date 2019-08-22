@@ -58,31 +58,39 @@
             カテゴリー
           %span.listing__form__detail__box__form-group__require
             必須
-          = f.collection_select :category_id0, Category.all.take(13), :id, :name, {prompt: "---"}, class: 'listing__form__detail__box__form-group__category-select', id: 'big-category'
+          = f.collection_select :category_id0, Category.all.take(13), :id, :name, {prompt: "---", selected: @bigcategoryid}, class: 'listing__form__detail__box__form-group__category-select', id: 'big-category'
 
         - (1...14).each do |e|
-          .listing__form__detail__box__form-group.middle-category{style: 'display:none;'}
-            %label
-              カテゴリー
-            %span.listing__form__detail__box__form-group__require
-              必須
-            = f.collection_select :category_id0,Category.find(e).children , :id, :name, {prompt: "---"}, class: 'listing__form__detail__box__form-group__category-select'
-
+          -if e == @bigcategoryid
+            .listing__form__detail__box__form-group.middle-category
+              %label
+                カテゴリー
+              %span.listing__form__detail__box__form-group__require
+                必須
+              = f.collection_select :category_id0,Category.find(e).children, :id, :name, {prompt: "---", selected: @middlecategoryid}, class: 'listing__form__detail__box__form-group__category-select'
+          -else 
+            .listing__form__detail__box__form-group.middle-category{style: 'display:none;'}
+              %label
+                カテゴリー
+              %span.listing__form__detail__box__form-group__require
+                必須
+              = f.collection_select :category_id0,Category.find(e).children, :id, :name, {prompt: "---", selected: @middlecategoryid}, class: 'listing__form__detail__box__form-group__category-select'
+        
         - (14...159).each do |g|
-          .listing__form__detail__box__form-group.small-category{style: 'display:none;'}
-            %label
-              カテゴリー
-            %span.listing__form__detail__box__form-group__require
-              必須
-            = f.collection_select :category_id0, Category.find(g).grandchildren, :id, :name, {prompt: "---"}, {class: 'listing__form__detail__box__form-group__category-select'}
-
-        .listing__form__detail__box__form-group.lastchoice-category{style: 'display:none;'}
-          %label
-            カテゴリー
-          %span.listing__form__detail__box__form-group__require
-            必須
-          = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: 'listing__form__detail__box__form-group__category-select'}
-
+          -if g == @middlecategoryid
+            .listing__form__detail__box__form-group.small-category
+              %label
+                カテゴリー
+              %span.listing__form__detail__box__form-group__require
+                必須
+              = f.collection_select :category_id, Category.find(g).grandchildren, :id, :name, {prompt: "---"}, class: 'listing__form__detail__box__form-group__category-select'
+          -else
+            .listing__form__detail__box__form-group.small-category{style: 'display:none;'}
+              %label
+                カテゴリー
+              %span.listing__form__detail__box__form-group__require
+                必須
+              = f.collection_select :category_id, Category.find(g).grandchildren, :id, :name, {prompt: "---"}, class: 'listing__form__detail__box__form-group__category-select'
 
         .listing__form__detail__box__form-group
           %label
@@ -90,7 +98,6 @@
           %span.listing__form__detail__box__form-group__require
             必須
           = f.collection_select :size_id, Size.all, :id, :name, {prompt: "---"}, {class: 'listing__form__detail__box__form-group__category-select'}
-
 
         .listing__form__detail__box__form-group
           %label

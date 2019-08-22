@@ -1,5 +1,7 @@
 class Category < ActiveHash::Base
   include ActiveHash::Associations
+  belongs_to :parent, class_name: 'Category', foreign_key: :child_id
+  belongs_to :grandparent, class_name: 'Category', foreign_key: :parent_id
   has_many :children, class_name: 'Category', foreign_key: :parent_id
   has_many :grandchildren, class_name: 'Category', foreign_key: :child_id
   self.data= [
