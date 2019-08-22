@@ -14,4 +14,8 @@ class TopController < ApplicationController
   def big_categories
     @bigcategories = Category.where(parent_id:nil, child_id:nil)
   end
+
+  def show
+    @product = Product.where(category_id:params[:id])
+  end
 end

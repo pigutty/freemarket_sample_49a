@@ -24,6 +24,7 @@ class ProductsController < TopController
     @middlecategoryid = @product.category.parent.id
     @bigcategoryid = @product.category.parent.grandparent.id
   end
+  
   def edit_product
     @product = Product.find(params[:id])
   end
