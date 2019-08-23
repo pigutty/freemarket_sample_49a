@@ -5,7 +5,7 @@
     .contents__wrapper-category
       .contents__all-items-category
         %h2.contents__all-items__head-caterory
-          すべての商品
+          =@category.name
         .contents__items-category
           = render partial: "products/item", collection: @products, as: :product
       %ul.pagenation
@@ -17,7 +17,7 @@
               %i.fas.fa-angle-left
         %li.pagenation__numbers
           %ul.pagenation__numbers__box
-            %li.pagenation__numbers__box__cell 1
+            %li.pagenation__numbers__box__cell.active 1
             %li.pagenation__numbers__box__cell 2
             %li.pagenation__numbers__box__cell 3
             %li.pagenation__numbers__box__cell 4
@@ -29,8 +29,9 @@
             %li.pagenation__rightarrows__box__cell
               %i.fas.fa-angle-double-right
       .category
-        .category__bar="レディース"
+        .category__bar
+          = @category.name
         %p.category__explanation
-          ="レディースの着ない服、いらない洋服を売るならメルカリへ。レディースの商品は100万点以上あります。人気のあるカテゴリーはサンダルと着物です。人気の商品は「【最終値下げしました】クロックス サンダル23㎝新品未使用」や「【3623】着物 袋帯 六通 ピンク×シルバー 420㎝」があります。レディースの買い取りやリサイクル処分、服の整理を検討中の方にお勧めです。"
+          = "レディースの着ない服、いらない洋服を売るならメルカリへ。レディースの商品は100万点以上あります。人気のあるカテゴリーはサンダルと着物です。人気の商品は「【最終値下げしました】クロックス サンダル23㎝新品未使用」や「【3623】着物 袋帯 六通 ピンク×シルバー 420㎝」があります。レディースの買い取りやリサイクル処分、服の整理を検討中の方にお勧めです。"
   .footer
     = render 'top/footer'

@@ -16,7 +16,19 @@ class TopController < ApplicationController
   end
 
   def show
-    @products = Product.all
+    id = params[:id].to_i
+    @category = Category.find(params[:id])
+    case id
+    when 1..13 then
+      @products = Product.where(category_grandparent_id:id)
+    when 14..158 then
+      @products = Product.where(category_parent_id:id)
+    when 159..1325 then
+      @products = Product.where(category_id:id)
+    else
+      redirect_to root_path
+    end
+    # @products = Product.all
     # @product = Product.where(category_id:params[:id])
   end
 end
