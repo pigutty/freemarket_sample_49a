@@ -45,6 +45,9 @@
         border: 1px solid #ccc;
         font-size: 14px;
         line-height: 42px;
+        a{
+          display: block;
+        }
       }
     }
   }
@@ -62,16 +65,22 @@
         border: 1px solid #ccc;
         font-size: 14px;
         line-height: 46px;
+        a{
+          display: block;
+        }
       }
       .now{
         background: #ea352d;
-        color: white;
+        a{
+          color: white;
+        }
       }
     }
   }
   &__leftarrows{
     position: absolute;
     left: 0;
+    top: 0;
     &__box{
       display: flex;
       &__cell{
@@ -85,6 +94,9 @@
         i{
           font-size: 24px;
           line-height: 46px;
+          a{
+            display: block;
+          }
         }
       }
     }
@@ -103,9 +115,12 @@
         border: 1px solid #ccc;
         font-size: 14px;
         line-height: 42px;
-        i{
-          font-size: 24px;
-          line-height: 46px;
+        a{
+          display: block;
+          i{
+            font-size: 24px;
+            line-height: 46px;
+          }
         }
       }
     }

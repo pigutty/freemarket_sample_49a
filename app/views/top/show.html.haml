@@ -5,30 +5,10 @@
     .contents__wrapper-category
       .contents__all-items-category
         %h2.contents__all-items__head-caterory
-          =@category.name
+          =@category.name + "の商品一覧(" + @page + "ページ目)"
         .contents__items-category
           = render partial: "products/item", collection: @products, as: :product
-      %ul.pagenation
-        %li.pagenation__leftarrows
-          %ul.pagenation__leftarrows__box
-            %li.pagenation__leftarrows__box__cell
-              %i.fas.fa-angle-double-left
-            %li.pagenation__leftarrows__box__cell
-              %i.fas.fa-angle-left
-        %li.pagenation__numbers
-          %ul.pagenation__numbers__box
-            %li.pagenation__numbers__box__cell.now 1
-            %li.pagenation__numbers__box__cell 2
-            %li.pagenation__numbers__box__cell 3
-            %li.pagenation__numbers__box__cell 4
-            %li.pagenation__numbers__box__cell 5
-        = paginate @products,window:2 
-        %li.pagenation__rightarrows
-          %ul.pagenation__rightarrows__box
-            %li.pagenation__rightarrows__box__cell
-              %i.fas.fa-angle-right
-            %li.pagenation__rightarrows__box__cell
-              %i.fas.fa-angle-double-right
+      = paginate @products, window:2
       .category
         .category__bar
           = @category.name
