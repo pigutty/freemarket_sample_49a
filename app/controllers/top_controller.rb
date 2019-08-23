@@ -20,7 +20,7 @@ class TopController < ApplicationController
     @category = Category.find(params[:id])
     case id
     when 1..13 then
-      @products = Product.where(category_grandparent_id:id)
+      @products = Product.where(category_grandparent_id:id).page(params[:page]).per(100)
     when 14..158 then
       @products = Product.where(category_parent_id:id)
     when 159..1325 then
