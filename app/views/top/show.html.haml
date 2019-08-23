@@ -3,6 +3,8 @@
     = render 'top/header'
   .content
     .contents__wrapper-category
+      %ul.category__navigation
+        = render partial:"category-list", collection: @categories, as: :category 
       .contents__all-items-category
         %h2.contents__all-items__head-caterory
           =@category.name + "の商品一覧(" + @page + "ページ目)"

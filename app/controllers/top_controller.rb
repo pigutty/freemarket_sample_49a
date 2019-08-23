@@ -22,16 +22,16 @@ class TopController < ApplicationController
     when 1..13 then
       @products = Product.where(category_grandparent_id:id).page(params[:page]).per(100)
       @page = params[:page]
+      @categories = @category.children.take(9)
     when 14..158 then
       @products = Product.where(category_parent_id:id).page(params[:page]).per(100)
       @page = params[:page]
+      @categories = @category.children.take(9)
     when 159..1325 then
       @products = Product.where(category_id:id).page(params[:page]).per(100)
       @page = params[:page]
     else
       redirect_to root_path
     end
-    # @products = Product.all
-    # @product = Product.where(category_id:params[:id])
   end
 end

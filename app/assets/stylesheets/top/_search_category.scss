@@ -1,3 +1,4 @@
+// 真ん中の商品一覧のレイアウト
 .contents{
   &__wrapper-category {
     margin: 40px auto;
@@ -30,6 +31,21 @@
     }
   }
 }
+
+// 上段の子供カテゴリーへのリンクのレイアウト
+.category__navigation{
+  display: flex;
+  .category__element{
+    font-size: 14px;
+    margin: 16px 0 0 20px;
+    a{
+      color: #0099e8;
+    }
+  }
+}
+
+
+//下段のページネーションのレイアウト
 .pagenation{
   margin: 40px 0 0;
   text-align: center;
@@ -126,6 +142,8 @@
     }
   }
 }
+
+// 下段のカテゴリーの説明部分のレイアウト
 .category{
   &__bar{
   @include button-red;
