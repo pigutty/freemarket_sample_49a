@@ -16,6 +16,7 @@ class TopController < ApplicationController
   end
 
   def show
-    @product = Product.where(category_id:params[:id])
+    @products = Product.all
+    # @product = Product.where(category_id:params[:id])
   end
 end

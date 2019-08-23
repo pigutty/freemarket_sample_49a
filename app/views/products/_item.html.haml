@@ -1,0 +1,12 @@
+.contents__item__box-category
+  .contents__item__box__image-category
+    -if product.images.attached?
+      = image_tag product.images[0], alt: '', height: 'auto', width: '184px'
+  .contents__item__box__item-name
+    = product.name
+  .contents__item__box__price-favorite
+    .contents__item__box__price
+      = "¥#{product.price.to_s(:delimited)}"
+    .contents__item__box__favorite
+      %i.far.fa-heart.gray
+      %span 6 

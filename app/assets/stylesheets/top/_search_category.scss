@@ -1,0 +1,126 @@
+.contents{
+  &__wrapper-category {
+    margin: 40px auto;
+    width: 1020px;
+  }
+  &__all-items-category {
+    h2{
+      font-size: 22px;
+      font-weight: bold;
+      padding: 0;
+      margin: 24px 0 8px 20px;
+    }
+  }
+  &__items-category {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    margin: 0 auto;
+  }
+  &__item__box-category {
+    width: 184px;
+    margin: 10px 10px;
+    background-color: #fff;
+    &__image-category {
+      width: 213px;
+      height: 213px;
+      img{
+        float: left;
+      }
+    }
+  }
+}
+.pagenation{
+  margin: 40px 0 0;
+  text-align: center;
+  position: relative;
+  &__leftarrows{
+    &__box{
+      &__cell{
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        border-radius: 4px;
+        background: #fff;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        line-height: 42px;
+      }
+    }
+  }
+  &__numbers{
+  max-width: 220px;
+  margin: 0 auto;
+    &__box{
+      display: flex;
+      &__cell{
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        border-radius: 4px;
+        background: #fff;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        line-height: 46px;
+      }
+    }
+  }
+  &__leftarrows{
+    position: absolute;
+    left: 0;
+    &__box{
+      display: flex;
+      &__cell{
+        width: 44px;
+        height: 44px;
+        border-radius: 4px;
+        background: #fff;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        line-height: 46px;
+        i{
+          font-size: 24px;
+          line-height: 46px;
+        }
+      }
+    }
+  }
+  &__rightarrows{
+    position: absolute;
+    top: 0;
+    right: 0;
+    &__box{
+      display: flex;
+      &__cell{
+        width: 44px;
+        height: 44px;
+        border-radius: 4px;
+        background: #fff;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        line-height: 42px;
+        i{
+          font-size: 24px;
+          line-height: 46px;
+        }
+      }
+    }
+  }
+}
+.category{
+  &__bar{
+  @include button-red;
+  border-radius: 4px;
+  margin-top: 30px;
+  height: 54px;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 56px;
+  cursor: default;
+  }
+  &__explanation{
+    background: #fff;
+    padding: 30px;
+    font-size: 14px;
+  }
+}
