@@ -145,3 +145,26 @@
     }
   }
 }
+.camera{
+  height: 160px;
+  width: 160px;
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  border-radius: 50%;
+  background-color: #ea352d;
+  text-align: center;
+  cursor: pointer;
+
+  &__text{
+    display: block;
+    color: #fff;
+    font-size: 22px;
+    margin: 28px 0 0;
+  }
+  &__icon{
+    display: block;
+    color: #fff;
+    font-size: 70px;
+  }
+}

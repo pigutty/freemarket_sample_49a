@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :top, only: :index, defaults: { format: 'json' }
   end
+  resources :top, only: :show
 
   resources :users, only: [:index,:edit] do
     resources :mypage_card, only:[:index,:new]
