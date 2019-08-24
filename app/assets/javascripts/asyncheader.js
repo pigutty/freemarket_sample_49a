@@ -1,7 +1,7 @@
-$(function() {
+$(document).on('turbolinks:load', function(){
   function buildmiddleHTML(data){
     var html = `<li class="middlecategory-element" data-id='${data.id}'>
-                  <a> ${data.name} </a>
+                  <a href="/top/${data.id}"> ${data.name} </a>
                 </li>`
       $('.middlecategory-list').append(html)
   }
@@ -10,7 +10,7 @@ $(function() {
 
   function buildsmallHTML(data){
     var html = `<li class="smallcategory-element" data-id='${data.id}'>
-                  <a> ${data.name} </a>
+                  <a href="/top/${data.id}"> ${data.name} </a>
                 </li>`
       $('.smallcategory-list').append(html)
   }
@@ -41,6 +41,8 @@ $(function() {
         buildmiddleHTML(data);
       })
       $(".middlecategory-element").hover(function(){
+        $(".smallcategory-list").css('width','224px');
+        $(".smallcategory-element").remove();
         $(this).css("background-color","#ccc")
         $(this).append(smallul);
         var sid = $(this).data('id');
@@ -65,6 +67,7 @@ $(function() {
         .fail(function(){
         })
       },function(){
+        $(".smallcategory-list").remove();
         $(this).css("background-color","#fff")
       })
     })

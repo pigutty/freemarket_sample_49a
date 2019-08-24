@@ -1,6 +1,7 @@
 $(document).on('turbolinks:load', function(){ 
   $('#big-category').change(function(){
     var bigvalue = document.getElementById('big-category').value;
+    $('#input_category_grandparent').attr('value',bigvalue);
     var middlecategory = $('.listing__form__detail__box__form-group.middle-category').eq(bigvalue-1);
     $('.middle-category').css('display', 'none');
     $('.small-category').css('display', 'none');
@@ -10,6 +11,7 @@ $(document).on('turbolinks:load', function(){
 
     middlecategory.change(function(){
       var middlevalue = document.getElementById('middle-category').value;
+      $('#input_category_parent').attr('value',middlevalue);
       var smallcategory = $('.small-category').eq(middlevalue-14);
       $('.small-category').css('display', 'none');
       $('.small-category').children('select').removeAttr("id");
@@ -18,7 +20,8 @@ $(document).on('turbolinks:load', function(){
       
       smallcategory.change(function(){
         var smallvalue = document.getElementById('small-category').value;
-        $('.lastchoice-category').children('select').val(smallvalue);
+        $('#input_category').attr("value",smallvalue);
+        // $('.lastchoice-category').children('select').val(smallvalue);
       });
     });
   });
