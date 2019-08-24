@@ -2,6 +2,6 @@
   .header
     = render 'header'
   .content
-    = render 'content'  
+    = render partial: 'content', local: {products: @products}  
   .footer
     = render 'footer'

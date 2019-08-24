@@ -81,6 +81,11 @@ ActiveRecord::Schema.define(version: 2019_08_13_055807) do
     t.index ["user_id"], name: "index_phone_number_authorizations_on_user_id"
   end
 
+  create_table "product_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.string "image_url"
+  end
+
   create_table "products", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description"

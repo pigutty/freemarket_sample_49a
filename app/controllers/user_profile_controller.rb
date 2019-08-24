@@ -1,5 +1,6 @@
 class UserProfileController < UsersController
   def new
+    
     if user_signed_in?
       @user_profile = current_user
       @subject_active = @allsubjects.find_index{|e| e[:name]=='プロフィール' }
@@ -24,5 +25,6 @@ class UserProfileController < UsersController
   private
   def profile_params
     params.require(:user).permit(:nickname,:profile)
+
   end
 end
