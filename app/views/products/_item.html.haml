@@ -1,12 +1,9 @@
--# %li.mypage-nav-list-itemavtive
--#   =link_to(mypagesidebar2,'/users',)
--#   %i.fas.fa-chevron-right
+
 .contents__item__box
   - 
   .contents__item__box__image
     -if product.images.attached?
       = image_tag product.images[0]
-    -# = image_tag "#{product.product_images.first}"
     
   .contents__item__box__item-name
     = product.name
