@@ -141,6 +141,15 @@
               %span.listing__form__detail__box__form-group__require
                 必須
               = f.collection_select :category_id, Category.find(g).grandchildren, :id, :name, {prompt: "---"}, class: 'listing__form__detail__box__form-group__category-select'
+        = f.hidden_field :category_grandparent_id, id:"input_category_grandparent"
+        = f.hidden_field :category_parent_id,id:"input_category_parent"
+        = f.hidden_field :category_id,id:"input_category"
+        -# .listing__form__detail__box__form-group.lastchoice-category{style: 'display:none;'}
+        -#   %label
+        -#     カテゴリー
+        -#   %span.listing__form__detail__box__form-group__require
+        -#     必須
+        -#   = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: 'listing__form__detail__box__form-group__category-select'}
 
         .listing__form__detail__box__form-group
           %label
