@@ -9,3 +9,9 @@ while num < 1000 do
   @test_product.images.attach(io: File.open('app/assets/images/custom-banner-icon.png'), filename: 'custom-banner-icon.png',content_type: "image/jpg")
   num += 1
 end
+# num = 0
+# while num < 1000 do
+#   @test_product=Product.create(name:'test',description:'test-description',size_id:1,brand:'brand',status_id:1,shipping_fee_id:1,shipping_date_id:1,shipping_method_id:1,purchase_status_id:1,price:1000,category_grandparent_id:1,category_parent_id:14,category_id:159,user_id:1,prefecture_id:1)
+#   @test_product.images.attach(io: File.open('app/assets/images/custom-banner-icon.png'), filename: 'custom-banner-icon.png',content_type: "image/jpg")
+#   num += 1
+# end
