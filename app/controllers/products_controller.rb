@@ -19,6 +19,12 @@ class ProductsController < TopController
   def status
     @product = Product.find(params[:id])
   end
+  
+  def edit
+    @product = Product.find(params[:id])
+    @middlecategoryid = @product.category.parent.id
+    @bigcategoryid = @product.category.parent.grandparent.id
+  end
 
   def destroy
     @product = Product.find(params[:id])
@@ -32,7 +38,7 @@ class ProductsController < TopController
 
   private
   def listing_params
-    params.require(:product).permit(:name, :description, :category_id, :size_id, :status_id, :shipping_fee_id, :prefecture_id, :shipping_date_id, :price, images: []).merge(user_id: current_user.id, purchase_status_id:1)
+    params.require(:product).permit(:name, :description,:category_grandparent_id, :category_parent_id,:category_id, :size_id, :status_id, :shipping_fee_id, :prefecture_id, :shipping_date_id, :price, images: []).merge(user_id: current_user.id, purchase_status_id:1)
   end
 
   def product_view_params

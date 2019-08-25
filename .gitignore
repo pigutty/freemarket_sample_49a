@@ -17,6 +17,10 @@
 .byebug_history
 config/secrets.yml
 
+# Ignore images.
+storage
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+/.env
