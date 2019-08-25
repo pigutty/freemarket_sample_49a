@@ -9,8 +9,8 @@ class UsersController < TopController
     end
   end
 
-  def edit
-
+  def show
+    @products = Product.order("id DESC").page(params[:page]).per(10)
   end
 
   def subjects

@@ -5,8 +5,7 @@ Rails.application.routes.draw do
     resources :top, only: :index, defaults: { format: 'json' }
   end
   resources :top, only: :show
-
-  resources :users, only: [:index,:edit] do
+  resources :users, only: [:index,:edit,:show] do
     resources :mypage_card, only:[:index,:new]
   end
   resources :user_identifications, only: [:new,:create]

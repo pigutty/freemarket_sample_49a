@@ -1,0 +1,105 @@
+.status-wrapper {
+  width: 700px;
+  height: auto;
+  background-color: white;
+  &__title{
+    padding: 0 16px;
+    background: #fafafa;
+    font-size: 16px;
+    line-height: 72px;
+    font-weight: bold;
+  }
+  &__tabs{
+    border: 0;
+    background: #eee;
+    justify-content: space-around;
+    display: flex;
+    line-height: 72px;
+    &__list{
+      display: block;
+      color: #333;
+      font-size: 16px;
+    }
+  }
+  &__contents{
+    &__list{
+      border-bottom: 1px solid #eee;
+      height:67px;
+      display: flex;
+      min-height: 80px;
+      padding: 16px;
+      color: #333;
+      &__icon{
+        position: relative;
+        overflow: hidden;
+      }
+      &__detail{
+        margin: 0 100px 0 68px;
+      }
+    }
+  }
+}
+.status-tag{
+  background: #0099e8;
+  display: inline-block;
+  margin: 8px 0 0 0;
+  padding: 5px 6px;
+  border-radius: 2px;
+  font-size: 12px;
+  color: #fff;
+}
+
+    // &__list{
+    //   width: 700px;
+    //   height: 75px;
+    //   list-style: none;
+    //   &__ele {
+    //     background: #fff;
+    //     width: 33.3%;
+    //     text-align: center;
+    //     line-height: 75px;
+    //     vertical-align: top;
+    //     height: 75px;
+    //     float: left;
+    //     &__link {
+    //       text-decoration: none;
+    //       color: black;
+    //     }
+    //   }
+    // }
+    // &__index {
+    //   width: 700px;
+    //   min-height: 85px;
+    //   background: #fff;
+    //   .exhibit-wrapper__tab {
+    //     &__list {
+    //       position: relative;
+    //       height: 84px;
+    //       padding: 16px;
+    //       &__icon {
+    //         position: absolute;
+    //         left: 80px;
+    //         bottom: 20px;
+    //         .fa-heart {
+    //           position: absolute;
+    //           bottom: 0;
+    //         }
+    //         .fa-comment-alt {
+    //           color: #ccc;
+    //           position: absolute;
+    //           left: 40px;
+    //         }
+    //         span {
+    //           margin-left: 90px;
+    //           background: #0099e8;
+    //           color: #fff;
+    //           font-family: monospace;
+    //         }
+    //       }
+    //     }
+    //       img {
+    //         height: 48px;
+    //         width: 48px;
+    //     }
+    //   }
+    // }
