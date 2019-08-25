@@ -19,7 +19,7 @@ class ProductsController < TopController
   def status
     @product = Product.find(params[:id])
   end
-  
+
   def edit
     @product = Product.find(params[:id])
     @middlecategoryid = @product.category.parent.id
@@ -31,7 +31,7 @@ class ProductsController < TopController
       if @product.user_id == current_user.id
         @product.images.purge
         @product.delete
-        redirect_to controller: 'users', action: 'index'
+        redirect_to users_path
       end
   end
 
