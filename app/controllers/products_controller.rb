@@ -27,7 +27,9 @@ class ProductsController < TopController
   def destroy
     @product = Product.find(params[:id])
       if @product.user_id == current_user.id
+        @product.images.purge
         @product.delete
+        redirect_to controller: 'users', action: 'index'
       end
   end
 
