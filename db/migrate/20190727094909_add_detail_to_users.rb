@@ -9,5 +9,7 @@ class AddDetailToUsers < ActiveRecord::Migration[5.0]
     add_column :users, :birth_month, :integer
     add_column :users, :birth_day, :integer
     add_column :users, :profile, :text
+    add_column :users, :uid, :string
+    add_column :users, :provider, :string
   end
 end
