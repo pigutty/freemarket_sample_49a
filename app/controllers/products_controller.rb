@@ -13,6 +13,7 @@ class ProductsController < TopController
   end
 
   def create
+    binding.pry
     @product = Product.create(listing_params)
   end
 
@@ -23,7 +24,14 @@ class ProductsController < TopController
     @product = Product.find(params[:id])
     @middlecategoryid = @product.category.parent.id
     @bigcategoryid = @product.category.parent.grandparent.id
+    if @product.images.length <= 5
+      @boxSize = @product.images.length
+    else
+      @boxSize = @product.images.length - 5
+    end
+    @input_length = 550 - @boxSize * 112
   end
+
   
   def edit_product
     @product = Product.find(params[:id])

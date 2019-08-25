@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'top#index' # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api do
     resources :top, only: :index, defaults: { format: 'json' }
+    resources :products, only: :edit, defaults: {format: 'json'}
   end
   resources :top, only: :show
 
