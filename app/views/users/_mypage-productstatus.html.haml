@@ -1,52 +1,49 @@
+
+
+
+
+
+
+
 .status-wrapper
   .status-wrapper__title 出品した商品
-  %ul.status-wrapper__tabs
-    %li.status-wrapper__tab__list 出品中
-    %li.status-wrapper__tab__list 取引中
-    %li.status-wrapper__tab__list 売却済み
-
-  %ul.status-wrapper__contents
-    - @products.each do | product |
-      .status-wrapper__contents__list
-        .status-wrapper__contents__list__icon
-          = image_tag '商品画像.jpg', size: "48x48"
-          //修正必要。
-          
-        .status-wrapper__contents__list__detail
-          .status-wrapper__contents__list__name
-            = product.name
-          .status-wrapper__contents__list__count
-            %i.far.fa-heart 0
-            %i.far.fa-comment-alt 0
-            %span.status-tag 出品中
-    = paginate @products, window:2
+  .status-wrapper__tab
+    %input#listing{checked: "checked", name: "tab_item", type: "radio"}
+    %label.tab_item{for: "listing"} 出品中
+    %input#trading{name: "tab_item", type: "radio"}
+    %label.tab_item{for: "trading"} 取引中
+    %input#completed{name: "tab_item", type: "radio"}
+    %label.tab_item{for: "completed"} 売却済み
 
 
-
-
-
-  -# %ul.status-wrapper__contents
-  -#   - @products.each do | product |
-  -#     %li.status-wrapper__contents__list
-  -#       = product.name
-  -#       .status-wrapper__tcontents__icon
-  -#         .list__item__count
-  -#           %i.far.fa-heart
-  -#         .list__item__count
-  -#           %i.far.fa-comment-alt
-  -#         %span.status-wrapper__tab__list__tag
-  -#           出品中
-  -#       - product.images.each do |image| 
-  -#         = image_tag image
+    .status-wrapper__tab__content#listing_content
+      - @products.each do | product |
+        .status-wrapper__tab__content__list
+          = image_tag '商品画像.jpg',class: 'status-wrapper__tab__content__list__icon', size: "48x48"
+          .status-wrapper__tab__content__list__detail
+            .status-wrapper__tab__content__list__detail__name
+              = product.name
+            .status-wrapper__tab__content__list__detai__count
+              %i.far.fa-heart 0
+              %i.far.fa-comment-alt 0
+              %span.status-tag 出品中
+      = paginate @products, window:2
 
 
 
 
-    -# - if @products.empty?
-    -#   %li.status-wrapper__tab__list
-    -#     .status-wrapper__main__image
-    -#     %h1.status-wrapper__main__text 出品中の商品はありません
-    -# - else
+    .status-wrapper__tab__content#trading_content
+      %li.status-wrapper__tab__list
+        .status-wrapper__main__image
+        %h1.status-wrapper__main__text 取引中の商品はありません
+
+    .status-wrapper__tab__content#completed_content
+      %li.status-wrapper__tab__list
+        .status-wrapper__main__image
+        %h1.status-wrapper__main__text 売却済みの商品はありません
+
+
+
 
 
 

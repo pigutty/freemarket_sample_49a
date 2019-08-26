@@ -1,6 +1,6 @@
 .status-wrapper {
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   width: 700px;
-  height: auto;
   background-color: white;
   &__title{
     padding: 0 16px;
@@ -9,32 +9,76 @@
     line-height: 72px;
     font-weight: bold;
   }
-  &__tabs{
-    border: 0;
-    background: #eee;
-    justify-content: space-around;
-    display: flex;
-    line-height: 72px;
-    &__list{
-      display: block;
-      color: #333;
+  &__tab{
+    margin-top: 50px;
+    padding-bottom: 40px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 700px;
+    margin: 0 auto;
+    
+    .tab_item{
+      width: calc(100%/3);
+      height: 50px;
+      background-color: #d9d9d9;
+      line-height: 50px;
       font-size: 16px;
+      text-align: center;
+      color: #565656;
+      display: block;
+      float: left;
+      text-align: center;
+      font-weight: bold;
+      transition: all 0.2s ease;
     }
-  }
-  &__contents{
-    &__list{
-      border-bottom: 1px solid #eee;
-      height:67px;
-      display: flex;
-      min-height: 80px;
-      padding: 16px;
-      color: #333;
-      &__icon{
-        position: relative;
-        overflow: hidden;
+    .tab_item:hover {
+      opacity: 0.75;
+    }
+    input[name="tab_item"]{
+      display: none;
+    }
+    #listing:checked ~ #listing_content,
+    #trading:checked ~ #trading_content,
+    #completed:checked ~ #completed_content {
+      display: block;
+    }
+    input:checked + .tab_item {
+      background-color: white;
+      border-top: 2px solid #ea352d;
+    }
+    &__content{
+      display: none;
+      clear: both;
+      &__list{
+        display: flex;
+        border-bottom: 1px solid #eee;
+        height: 51px;
+        padding: 16px;
+        color: #333;
+
+        &__detail{
+          margin: 0 40px 0 20px;
+          &__name{
+          }
+        }
       }
-      &__detail{
-        margin: 0 100px 0 68px;
+    }
+    &__list{
+      width: 700px;
+      height: 75px;
+      list-style: none;
+      &__ele {
+        background: #fff;
+        width: 33.3%;
+        text-align: center;
+        line-height: 75px;
+        vertical-align: top;
+        height: 75px;
+        float: left;
+        &__link {
+          text-decoration: none;
+          color: black;
+        }
       }
     }
   }
@@ -49,24 +93,6 @@
   color: #fff;
 }
 
-    // &__list{
-    //   width: 700px;
-    //   height: 75px;
-    //   list-style: none;
-    //   &__ele {
-    //     background: #fff;
-    //     width: 33.3%;
-    //     text-align: center;
-    //     line-height: 75px;
-    //     vertical-align: top;
-    //     height: 75px;
-    //     float: left;
-    //     &__link {
-    //       text-decoration: none;
-    //       color: black;
-    //     }
-    //   }
-    // }
     // &__index {
     //   width: 700px;
     //   min-height: 85px;
