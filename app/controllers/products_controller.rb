@@ -13,7 +13,6 @@ class ProductsController < TopController
   end
 
   def create
-    binding.pry
     @product = Product.create(listing_params)
   end
 
@@ -24,12 +23,6 @@ class ProductsController < TopController
     @product = Product.find(params[:id])
     @middlecategoryid = @product.category.parent.id
     @bigcategoryid = @product.category.parent.grandparent.id
-    if @product.images.length <= 5
-      @boxSize = @product.images.length
-    else
-      @boxSize = @product.images.length - 5
-    end
-    @input_length = 550 - @boxSize * 112
   end
 
   
@@ -44,10 +37,16 @@ class ProductsController < TopController
       end
   end
 
+  def update
+    product = Product.find(params[:id])
+    if product.user_id == current_user.id
+      product.update(listing_params)
+    end
+  end
+
 
   private
   def listing_params
-
     params.require(:product).permit(:name, :description,:category_grandparent_id, :category_parent_id,:category_id, :size_id, :status_id, :shipping_fee_id, :prefecture_id, :shipping_date_id, :price, images: []).merge(user_id: current_user.id, purchase_status_id:1)
   end
 
