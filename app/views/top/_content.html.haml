@@ -5,16 +5,12 @@
     .contents__banner
       = image_tag 'banner-top.png', width: '100%'
   .contents__all-items
-    %h2.contents__all-items__head
-      すべての商品
-    .contents__items
-      = render partial: "products/item", collection: @products, as: :product
-
-    .contents__item__box__all-items-view
-      全ての商品を見る
-
-
-
+    - @bigcategories.each_with_index do |category,i| 
+      = link_to category.name, "#",  class: "contents__all-items__head"
+      .contents__items
+        = render partial: "products/item", collection: @products[i], as: :product
+      .contents__item__box__all-items-view
+        全ての商品を見る
 
   = link_to new_product_path, class: 'camera' do
     .camera__text 出品

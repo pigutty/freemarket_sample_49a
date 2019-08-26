@@ -6,6 +6,9 @@
     }
     &__all-items {
       text-align: center;
+      &__head {
+        color: #0099e8;
+      }
       h2{
         font-size: 28px;
         padding: 40px 0;
@@ -58,6 +61,7 @@
 
         }
       }
+
       &__all-items-view {
         width:900px;
         text-align: right;
@@ -69,6 +73,8 @@
     }
     }
 }
+
+
 /*スライダー(slick)に関するstyle*/
 .slick-prev{
   width: 1%;
@@ -132,7 +138,7 @@
         opacity: 1;
     }
   }
-  
+
 .camera{
   height: 160px;
   width: 160px;
