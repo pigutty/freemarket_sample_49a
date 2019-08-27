@@ -1,6 +1,6 @@
-class Api::ProductsController < ApplicationController
+class Api::ProductsController < ProductsController
   def edit # 商品編集時の画像の削除を実行しています。
-    product = Product.find(params[:id])
+    set_product(params[:id])
     target_index = (params[:index].to_i)
     product.images[target_index].purge
   end
