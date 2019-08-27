@@ -57,7 +57,8 @@
           align-content: space-between;
           box-sizing: border-box;
           padding: 0 10px 10px 0;
-          width: 570px;
+          width: 620px;
+          position: relative;
         }
         &__preview{
           width: 620px;
@@ -85,19 +86,6 @@
           right: 60px;
           display: none;
         }
-        // #preview2{
-        //   display: flex;
-        //   flex-direction: row;
-        //   padding: 0 10px 10px 0;
-        // }
-        // &__preview2{
-        //   width: 590px;
-        //   height: 172px;
-        //   cursor: pointer;
-        //   background: #f5f5f5;
-        //   border: 1px dashed #ccc;
-        // }
-        
         .listing-image-container{
           list-style: none;
           width: 100px;
