@@ -67,8 +67,8 @@ $(document).on('turbolinks:load',function(){
   // ページの読み込み時に画像が何個あるか、を読み取ってレイアウト調整。
   imagesLength = $('.images-lists-box').children().length;
   layoutControl(imagesLength);
-  console.log('ページ読み込み時の画像の個数は');
-  console.log(imagesLength);
+  // console.log('ページ読み込み時の画像の個数は');
+  // console.log(imagesLength);
 
 
 
@@ -78,9 +78,9 @@ $(document).on('turbolinks:load',function(){
     // イベントの発火時に、現状把握。
     imagesLength = $('.images-lists-box').children().length;//画像は何個あるのか。
     index = ($(this).parents('label').index()-1);//何番目のイメージフィールドが変更されたのか。
-    console.log(index+1);
-    console.log('番目のイメージフィールドがアップロードされました。その時の画像の個数は');
-    console.log(imagesLength);
+    // console.log(index+1);
+    // console.log('番目のイメージフィールドがアップロードされました。その時の画像の個数は');
+    // console.log(imagesLength);
 
 
     // 画像が追加される時は、画像の個数 <= 変化しているイメージフィールドのindex、となっている。
@@ -102,17 +102,17 @@ $(document).on('turbolinks:load',function(){
       // 画像の追加が終わったあとは、imagesLengthを１増やしてレイアウト調整。
       imagesLength += 1
       layoutControl(imagesLength);
-      console.log('画像の追加が終わりました。現在の画像の個数は');
-      console.log(imagesLength);
+      // console.log('画像の追加が終わりました。現在の画像の個数は');
+      // console.log(imagesLength);
     }
     
 
     // 画像の編集時は、変化しているイメージフィールドのindex < 画像の個数、となっている。
     // 商品編集時の処理を、以下に記述。
     else{
-      console.log("商品の編集の始まりです。");
-      console.log(index);
-      console.log('番目の画像が編集されようとしています。');
+      // console.log("商品の編集の始まりです。");
+      // console.log(index);
+      // console.log('番目の画像が編集されようとしています。');
 
       
       // 変更された画像の情報等を、ajaxで送るためにデータ作成。
@@ -150,7 +150,7 @@ $(document).on('turbolinks:load',function(){
       .fail(function(){
         // 編集しようとした画像が、まだデータベースに保存されていなかった場合はこちらの処理が実行される。
         // ファイルフィールドに画像が入っているので、それに対応して、プレビューを変えるだけで良い。
-        console.log('編集しようとした画像は、まだデータベースに保存されていませんでした。プレビューのみ変更します。');
+        // console.log('編集しようとした画像は、まだデータベースに保存されていませんでした。プレビューのみ変更します。');
 
         var reader = new FileReader();
         reader.onload = function(){
@@ -167,8 +167,8 @@ $(document).on('turbolinks:load',function(){
   $(document).on('click',".images-lists-box .listing-image-container .button .delete",function(){
     // どの画像が削除されたのか、という情報のみが必要。
     index = $(this).parents("ul").index();
-    console.log(index);
-    console.log('番目の画像が削除されようとしています。');
+    // console.log(index);
+    // console.log('番目の画像が削除されようとしています。');
 
 
     // コントローラーで削除を実行します。api/products　のedit actionに進んでください。
@@ -186,22 +186,22 @@ $(document).on('turbolinks:load',function(){
       // imagesLengthを１減らしてレイアウト調整。
       imagesLength -= 1;
       layoutControl(imagesLength);
-      console.log(index);
-      console.log('番目の画像が無事削除されました。現在の画像の個数は');
-      console.log(imagesLength);
+      // console.log(index);
+      // console.log('番目の画像が無事削除されました。現在の画像の個数は');
+      // console.log(imagesLength);
     })
     .fail(function(){
       // 画像がデータベースになかったら、こちらの処理に来る。
       // プレビューを削除するだけで良い。
-      console.log('この画像はまだデータベースに保存されていなので、プレビューだけ削除します。');
+      // console.log('この画像はまだデータベースに保存されていなので、プレビューだけ削除します。');
       $('.listing-image-container').eq(index).remove();
 
       // imagesLengthを１減らしてレイアウト調整。
       imagesLength -= 1;
       layoutControl(imagesLength);
-      console.log(index);
-      console.log('番目の画像が無事削除されました。現在の画像の個数は');
-      console.log(imagesLength);
+      // console.log(index);
+      // console.log('番目の画像が無事削除されました。現在の画像の個数は');
+      // console.log(imagesLength);
     })
   })
 

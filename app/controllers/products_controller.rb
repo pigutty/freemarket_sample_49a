@@ -20,7 +20,7 @@ class ProductsController < TopController
   end
 
   def edit
-    set_product(params[:id])
+    @product = Product.find(params[:id])
     @middlecategoryid = @product.category.parent.id
     @bigcategoryid = @product.category.parent.grandparent.id
   end
@@ -44,9 +44,6 @@ class ProductsController < TopController
     end
   end
 
-  def set_product(id)
-    @product = Product.find(id)
-  end
 
   private
   def listing_params
