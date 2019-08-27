@@ -6,7 +6,7 @@
       = search_form_for @q, url:search_path, class:'header-top__search-box' do |f|
         = f.text_field :name_cont, class:'header-top__search-box__input-box',placeholder: "何かお探しですか？"
         %i.fa.fa-search
-          = f.submit class:'search-button'
+        = f.submit class:'search-button'
     .header-bottom
       %ul.header-bottom__search-menu
         %li.header-bottom__search-menu__category
