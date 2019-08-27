@@ -1,12 +1,17 @@
 class TopController < ApplicationController
   before_action :big_categories
+  before_action :ransack_model
   def index
-    
     @bigcategories = Category.where(parent_id:nil, child_id:nil)
     @products = @bigcategories.map do |category|
       Product.where(category_grandparent_id: category.id).slice(0,4)
     end  
+  end
 
+  def ransack_model
+      # ransackを導入して検索。
+      @q = Product.ransack(params[:q])
+      @product = @q.result(distinct: true)
   end
 
   def big_categories

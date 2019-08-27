@@ -5,9 +5,6 @@ class ProductsController < TopController
     @products = @bigcategories.map do |category|
       Product.where(category_grandparent_id: category.id).slice(0,4)
     end
-    # ransackを導入して検索。
-    @q = Product.ransack(params[:q])
-    @product = @q.result(distinct: true)
   end
 
   def search
