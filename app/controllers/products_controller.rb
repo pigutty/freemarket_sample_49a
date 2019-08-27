@@ -1,4 +1,21 @@
 class ProductsController < TopController
+
+  def index
+    @bigcategories = Category.where(parent_id:nil, child_id:nil)
+    @products = @bigcategories.map do |category|
+      Product.where(category_grandparent_id: category.id).slice(0,4)
+    end
+    # ransackを導入して検索。
+    @q = Product.ransack(params[:q])
+    @product = @q.result(distinct: true)
+  end
+
+  def search
+    @keyword =  search_params[:name_cont]
+    @q = Product.search(search_params)
+    @products = @q.result(distinct: true).page(params[:page]).per(100)
+  end
+
   def show
     @product = Product.find(params[:id])
     @comments = @product.comments.includes(:user)
@@ -39,8 +56,10 @@ class ProductsController < TopController
 
   private
   def listing_params
-
     params.require(:product).permit(:name, :description,:category_grandparent_id, :category_parent_id,:category_id, :size_id, :status_id, :shipping_fee_id, :prefecture_id, :shipping_date_id, :price, images: []).merge(user_id: current_user.id, purchase_status_id:1)
   end
-
+  
+  def search_params
+    params.require(:q).permit(:name_cont)
+  end
 end

@@ -1,0 +1,18 @@
+.wrapper
+  .header
+    = render 'top/header'
+  .content
+    .contents__wrapper-category
+      %ul.category__navigation
+        = render partial:"category-list", collection: @categories, as: :category 
+      .contents__all-items-category
+        %h2.contents__all-items__head-caterory
+          - if @page == nil
+            =@keyword + "の検索結果"
+          - else
+            =@keyword + "の検索結果(" + @page + "ページ目)"
+        .contents__items-category
+          = render partial: "products/item", collection: @products, as: :product
+      = paginate @products, window:2
+  .footer
+    = render 'top/footer'
