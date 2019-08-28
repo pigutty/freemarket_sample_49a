@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 .status-wrapper
   .status-wrapper__title 出品した商品
   .status-wrapper__tab
@@ -18,8 +11,9 @@
 
     .status-wrapper__tab__content#listing_content
       - @products.each do | product |
-        .status-wrapper__tab__content__list
-          = image_tag '商品画像.jpg',class: 'status-wrapper__tab__content__list__icon', size: "48x48"
+        = link_to product_path(product), class: 'status-wrapper__tab__content__list' do
+          -if product.images.attached?
+            = image_tag product.images[0],class: 'status-wrapper__tab__content__list__icon', size: "48x48"
           .status-wrapper__tab__content__list__detail
             .status-wrapper__tab__content__list__detail__name
               = product.name
@@ -27,6 +21,7 @@
               %i.far.fa-heart 0
               %i.far.fa-comment-alt 0
               %span.status-tag 出品中
+          %i.fa.fa-chevron-right.status-wrapper__tab__content__list__click
       = paginate @products, window:2
 
 
