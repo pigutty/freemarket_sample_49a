@@ -10,7 +10,7 @@ class ProductsController < TopController
   def search
     @keyword =  search_params[:name_cont]
     @q = Product.search(search_params)
-    @products = @q.result(distinct: true).page(params[:page]).per(100)
+    @products = @q.result.page(params[:page]).per(100)
   end
 
   def show
@@ -53,10 +53,10 @@ class ProductsController < TopController
 
   private
   def listing_params
-    params.require(:product).permit(:name, :description,:category_grandparent_id, :category_parent_id,:category_id, :size_id, :status_id, :shipping_fee_id, :prefecture_id, :shipping_date_id, :price, images: []).merge(user_id: current_user.id, purchase_status_id:1)
+    params.require(:product).permit(:name, :description,:category_grandparent_id, :category_parent_id,:category_id, :size_id, :status_id, :shipping_fee_id, :prefecture_id, :shipping_date_id, :price,images: []).merge(user_id: current_user.id, purchase_status_id:1)
   end
   
   def search_params
-    params.require(:q).permit(:name_cont)
+    params.require(:q).permit(:name_cont,:brand_cont,:size_id_eq,:status_id_eq,:shipping_fee_id_eq,:purchase_status_id_eq,:category_grandparent_id_eq,:category_parent_id_eq,:category_id_eq,:price_lteq,:price_gteq)
   end
 end
