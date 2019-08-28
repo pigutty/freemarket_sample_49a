@@ -24,18 +24,17 @@
           %i.fa.fa-chevron-right.status-wrapper__tab__content__list__click
       = paginate @products, window:2
 
-
-
-
     .status-wrapper__tab__content#trading_content
-      %li.status-wrapper__tab__list
-        .status-wrapper__main__image
-        %h1.status-wrapper__main__text 取引中の商品はありません
+      .status-wrapper__tab__content__trading
+        .status-wrapper__tab__content__list__trading__image
+        = image_tag 'logo-gray.svg', size: "100x100"
+        %h1.status-wrapper__tab__content__list__trading__text 取引中の商品はありません
 
     .status-wrapper__tab__content#completed_content
-      %li.status-wrapper__tab__list
-        .status-wrapper__main__image
-        %h1.status-wrapper__main__text 売却済みの商品はありません
+      .status-wrapper__tab__content__trading
+        .status-wrapper__tab__content__list__trading__image
+        = image_tag 'logo-gray.svg', size: "100x100"
+        %h1.status-wrapper__tab__content__list__trading__text 売却済みの商品はありません
 
 
 
