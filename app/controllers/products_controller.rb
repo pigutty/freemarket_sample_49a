@@ -1,6 +1,7 @@
 class ProductsController < TopController
+  before_action :set_product, only: [:show,:edit,:update] # 対象となる商品を設定
+
   def show
-    @product = Product.find(params[:id])
     @comments = @product.comments.includes(:user)
     @child_category = Category.find(@product.category.child_id)
     @grand_child_category = Category.find(@child_category.parent_id)
@@ -20,13 +21,8 @@ class ProductsController < TopController
   end
 
   def edit
-    @product = Product.find(params[:id])
     @middlecategoryid = @product.category.parent.id
     @bigcategoryid = @product.category.parent.grandparent.id
-  end
-  
-  def edit_product
-    @product = Product.find(params[:id])
   end
 
   def destroy
@@ -36,10 +32,18 @@ class ProductsController < TopController
       end
   end
 
+  def update
+    if @product.user_id == current_user.id
+      @product.update(listing_params)
+    end
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
   private
   def listing_params
-
     params.require(:product).permit(:name, :description,:category_grandparent_id, :category_parent_id,:category_id, :size_id, :status_id, :shipping_fee_id, :prefecture_id, :shipping_date_id, :price, images: []).merge(user_id: current_user.id, purchase_status_id:1)
   end
 

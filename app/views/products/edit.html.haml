@@ -1,4 +1,4 @@
-= form_with model: @product, url: products_path, class: '.listing-edit', method: :post, local: true do |form|
+= form_with model: @product, url: product_path, class: '.listing-edit', method: :patch, local: true do |form|
   = render "shared/new-header"
   = render "shared/listing-form", f: form
   = render "shared/edit-button", f: form

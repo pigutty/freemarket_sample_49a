@@ -1,14 +1,12 @@
 class TopController < ApplicationController
   before_action :big_categories
   def index
-    category = Category.new
-    parent_id = params[:parent_id].to_i
-    @middlecategories = Category.where(parent_id: parent_id).take(14)
-    respond_to do |format|
-      format.html
-      format.json
-    @products = Product.all.order("id ASC")
-    end
+    
+    @bigcategories = Category.where(parent_id:nil, child_id:nil)
+    @products = @bigcategories.map do |category|
+    Product.where(category_grandparent_id: category.id).slice(0,4)
+    end  
+
   end
 
   def big_categories
