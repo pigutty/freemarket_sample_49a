@@ -1,0 +1,74 @@
+.search__container{
+  display: flex;
+  width: 1020px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.search__sidebar{
+  width: 280px;
+  margin: 40px 40px 40px 0;
+  .order-select{
+    @include category-select;
+    background: #fff;
+    margin: 0;
+  }
+  .search__form{
+    background: #fff;
+    padding: 16px;
+    margin: 40px 0 0;
+    &__title{
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .listing__form__detail__box__form-group-search{
+      @include listing-sub-title;
+    }
+    .spacer{
+      display: inline-block;
+      text-align: center;
+      width: 6.5%;
+    }
+    .input__form__group__input-small{
+      width: 45%;
+    }
+    .input-form-box-search{
+      @include listing-btn;
+      display: flex;
+      justify-content: space-between;
+      .btn-gray{
+        margin: auto;
+      }
+      .btn-red{
+        width: 45%;
+      }
+    }
+  }
+}
+.contents{
+  &__wrapper-search{
+    width: 700px;
+    margin: 40px auto;
+  }
+  &__items-search {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    margin: 0 auto;
+    .contents__item__box{
+      width: 155px;
+      margin: 10px 10px;
+      background-color: #fff;
+      height: auto;
+      &__image {
+        width: 155px;
+        height: 155px;
+        img{
+          width: 155px;
+          height: 155px;
+          float: left;
+        }
+      }
+    }
+  }
+}

@@ -1,18 +1,63 @@
 .wrapper
   .header
     = render 'top/header'
-  .content
-    .contents__wrapper-category
-      %ul.category__navigation
-        = render partial:"category-list", collection: @categories, as: :category 
-      .contents__all-items-category
-        %h2.contents__all-items__head-caterory
-          - if @page == nil
-            =@keyword + "の検索結果"
-          - else
-            =@keyword + "の検索結果(" + @page + "ページ目)"
-        .contents__items-category
-          = render partial: "products/item", collection: @products, as: :product
-      = paginate @products, window:2
+  .search__container
+    .search__sidebar
+      = collection_select :search, :search_order, SearchOrder.all, :id, :name, {prompt: "---"},class:'order-select'
+      = search_form_for @q,url:search_path, class:"search__form" do |f|
+        %h3.search__form__title 詳細検索
+        .input-form-box
+          %label キーワードを追加する
+          = f.text_field  :name,class:'input__form__group__input', value:@keyword
+        .input-form-box
+          %label カテゴリーを選択する
+          = f.collection_select :category_id, Category.all.take(13), :id, :name, {prompt: "すべて"},class:'listing__form__detail__box__form-group__category-select',id: 'big-category'
+        - (1...14).each do |e|
+          .listing__form__detail__box__form-group-search.middle-category{style: 'display:none;'}
+            = f.collection_select :category_id0,Category.find(e).children, :id, :name, {prompt: "---", selected: @middlecategoryid}, class: 'listing__form__detail__box__form-group__category-select'
+        - (14...159).each do |g|
+          .listing__form__detail__box__form-group-search.small-category{style: 'display:none;'}
+            = f.collection_select :category_id, Category.find(g).grandchildren, :id, :name, {prompt: "---"}, class: 'listing__form__detail__box__form-group__category-select'
+          = f.hidden_field :category_grandparent_id, id:"input_category_grandparent"
+          = f.hidden_field :category_parent_id,id:"input_category_parent"
+          = f.hidden_field :category_id,id:"input_category"
+        .input-form-box
+          %label ブランド名から探す
+          = f.text_field  :name,class:'input__form__group__input', placeholder:'例)シャネル'
+        .input-form-box
+          %label サイズを指定する
+          = f.collection_select :size_id, Size.all, :id, :name, {prompt: "すべて"},class:'listing__form__detail__box__form-group__category-select'
+        .input-form-box
+          %label 価格を指定する
+          = f.collection_select :price, Price.all, :id, :name, {prompt: "---"},class:'listing__form__detail__box__form-group__category-select'
+          = f.text_field :price,class:'input__form__group__input-small'
+          %span.spacer ~
+          = f.text_field :price,class:'input__form__group__input-small'
+        .input-form-box
+          %label 商品の状態を指定する
+          = f.collection_select :status_id, Status.all, :id, :name, {prompt: "すべて"},class:'listing__form__detail__box__form-group__category-select'
+        .input-form-box
+          %label 配送料の負担
+          = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {prompt: "すべて"},class:'listing__form__detail__box__form-group__category-select'
+        .input-form-box
+          %label 販売状況
+          = f.collection_select :purchase_status_id, PurchaseStatus.all, :id, :name, {prompt: "すべて"},class:'listing__form__detail__box__form-group__category-select'          
+        .input-form-box-search
+          %button.btn-default.btn-gray クリア
+          =f.submit "完了", class: 'btn-default btn-red'
+    .mypage__main
+      .contents__wrapper-search
+        %ul.category__navigation
+          = render partial:"category-list", collection: @categories, as: :category 
+        .contents__all-items-category
+          %h2.contents__all-items__head-caterory
+            - unless @keyword == nil
+              - if @page == nil
+                =@keyword + "の検索結果"
+              - else
+                =@keyword + "の検索結果(" + @page + "ページ目)"
+          .contents__items-search
+            = render partial: "products/item", collection: @products, as: :product
+        = paginate @products, window:2
   .footer
     = render 'top/footer'
