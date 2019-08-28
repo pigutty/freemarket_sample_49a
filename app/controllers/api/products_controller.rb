@@ -1,5 +1,6 @@
 class Api::ProductsController < ProductsController
-  before_action :set_product # 対象となる商品を設定
+  before_action :set_product, only: [:edit,:create] # 対象となる商品を設定
+
   def edit # 商品編集時の画像の削除を実行しています。
     target_index = (params[:index].to_i)
     @product.images[target_index].purge
@@ -19,8 +20,5 @@ class Api::ProductsController < ProductsController
     @product.images.last.update(id:target_id)
   end
 
-  private
-  def set_product
-    @product = Product.find(params[:id])
-  end
+
 end
