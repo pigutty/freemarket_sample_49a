@@ -1,5 +1,4 @@
 .status-wrapper {
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   width: 700px;
   background-color: white;
   &__title{
@@ -95,40 +94,3 @@
   font-size: 12px;
   color: #fff;
 }
-
-    // &__index {
-    //   width: 700px;
-    //   min-height: 85px;
-    //   background: #fff;
-    //   .exhibit-wrapper__tab {
-    //     &__list {
-    //       position: relative;
-    //       height: 84px;
-    //       padding: 16px;
-    //       &__icon {
-    //         position: absolute;
-    //         left: 80px;
-    //         bottom: 20px;
-    //         .fa-heart {
-    //           position: absolute;
-    //           bottom: 0;
-    //         }
-    //         .fa-comment-alt {
-    //           color: #ccc;
-    //           position: absolute;
-    //           left: 40px;
-    //         }
-    //         span {
-    //           margin-left: 90px;
-    //           background: #0099e8;
-    //           color: #fff;
-    //           font-family: monospace;
-    //         }
-    //       }
-    //     }
-    //       img {
-    //         height: 48px;
-    //         width: 48px;
-    //     }
-    //   }
-    // }
