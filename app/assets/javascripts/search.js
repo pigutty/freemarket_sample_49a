@@ -7,7 +7,6 @@ $(document).on('turbolinks:load', function(){
   // 価格のセレクトボックスで価格が入力される
   $(document).on('change', '#price_select', function () {
     var value = $(this).val();
-    console.log(value);
     if(value == 1){
       $('#q_price_gteq').val(300);
       $('#q_price_lteq').val(1000);
