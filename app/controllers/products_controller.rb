@@ -1,11 +1,18 @@
 class ProductsController < TopController
   before_action :set_product, only: [:show,:edit,:update] # 対象となる商品を設定
 
-
   def search
-    @keyword =  search_params[:name_cont]
     @q = Product.search(search_params)
+    @keyword =  search_params[:name_cont]
+    if params[:search] != nil
+      @order_id = params[:search][:search_order].to_i
+      order_name = SearchOrder.find(@order_id).name
+      order_name != nil ? @q.sorts = order_name : @q.sorts =[]
+    end
     @products = @q.result(distinct: true).page(params[:page]).per(100)
+    @bigcategoryid =params[:q][:category_grandparent_id_eq].to_i
+    @middlecategoryid= params[:q][:category_parent_id_eq].to_i
+    @smallcategoryid = params[:q][:category_id_eq].to_i
   end
 
   def show
@@ -51,10 +58,11 @@ class ProductsController < TopController
 
   private
   def listing_params
-    params.require(:product).permit(:name, :description,:category_grandparent_id, :category_parent_id,:category_id, :size_id, :status_id, :shipping_fee_id, :prefecture_id, :shipping_date_id, :price, images: []).merge(user_id: current_user.id, purchase_status_id:1)
+    params.require(:product).permit(:name, :description,:category_grandparent_id, :category_parent_id,:category_id, :size_id, :status_id, :shipping_fee_id, :prefecture_id, :shipping_date_id, :price,images: []).merge(user_id: current_user.id, purchase_status_id:1)
   end
   
   def search_params
-    params.require(:q).permit(:name_cont)
+    params.require(:q).permit(:search_order,:name_cont,:brand_cont,:size_id_eq,:status_id_eq,:shipping_fee_id_eq,:purchase_status_id_eq,:category_grandparent_id_eq,:category_parent_id_eq,:category_id_eq,:price_lteq,:price_gteq)
   end
+
 end

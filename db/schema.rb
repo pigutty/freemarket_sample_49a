@@ -102,6 +102,8 @@ ActiveRecord::Schema.define(version: 2019_08_13_055807) do
     t.integer "user_id"
     t.integer "prefecture_id", null: false
     t.integer "purchase_status_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
