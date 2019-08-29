@@ -1,16 +1,9 @@
 class ProductsController < TopController
-
-  def index
-    @bigcategories = Category.where(parent_id:nil, child_id:nil)
-    @products = @bigcategories.map do |category|
-      Product.where(category_grandparent_id: category.id).slice(0,4)
-    end
-  end
+  before_action :set_product, only: [:show,:edit,:update] # 対象となる商品を設定
 
   def search
     @q = Product.search(search_params)
     @keyword =  search_params[:name_cont]
-    # binding.pry
     if params[:search] != nil
       @order_id = params[:search][:search_order].to_i
       order_name = SearchOrder.find(@order_id).name
@@ -23,7 +16,6 @@ class ProductsController < TopController
   end
 
   def show
-    @product = Product.find(params[:id])
     @comments = @product.comments.includes(:user)
     @child_category = Category.find(@product.category.child_id)
     @grand_child_category = Category.find(@child_category.parent_id)
@@ -43,13 +35,8 @@ class ProductsController < TopController
   end
 
   def edit
-    @product = Product.find(params[:id])
     @middlecategoryid = @product.category.parent.id
     @bigcategoryid = @product.category.parent.grandparent.id
-  end
-  
-  def edit_product
-    @product = Product.find(params[:id])
   end
 
   def destroy
@@ -59,6 +46,15 @@ class ProductsController < TopController
       end
   end
 
+  def update
+    if @product.user_id == current_user.id
+      @product.update(listing_params)
+    end
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
   private
   def listing_params
