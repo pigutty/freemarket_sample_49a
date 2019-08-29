@@ -12,13 +12,21 @@
             = f.text_field  :name_cont,class:'input__form__group__input', value:@keyword
           .input-form-box
             %label カテゴリーを選択する
-            = f.collection_select :category_id, Category.all.take(13), :id, :name, {prompt: "すべて"},class:'listing__form__detail__box__form-group__category-select',id: 'big-category'
+            = f.collection_select :category_id, Category.all.take(13), :id, :name, {prompt: "すべて",selected: @bigcategoryid},class:'listing__form__detail__box__form-group__category-select',id: 'big-category'
           - (1...14).each do |e|
-            .listing__form__detail__box__form-group-search.middle-category{style: 'display:none;'}
-              = f.collection_select :category_id,Category.find(e).children, :id, :name, {prompt: "---", selected: @middlecategoryid}, class: 'listing__form__detail__box__form-group__category-select'
+            -if e == @bigcategoryid
+              .listing__form__detail__box__form-group-search.middle-category{style: 'display:block;'}
+                = f.collection_select :category_id,Category.find(e).children, :id, :name, {prompt: "---", selected: @middlecategoryid}, class: 'listing__form__detail__box__form-group__category-select'
+            -else
+              .listing__form__detail__box__form-group-search.middle-category{style: 'display:none;'}
+                = f.collection_select :category_id,Category.find(e).children, :id, :name, {prompt: "---", selected: @middlecategoryid}, class: 'listing__form__detail__box__form-group__category-select'
           - (14...159).each do |g|
-            .listing__form__detail__box__form-group-search.small-category{style: 'display:none;'}
-              = f.collection_select :category_id, Category.find(g).grandchildren, :id, :name, {prompt: "---"}, class: 'listing__form__detail__box__form-group__category-select'
+            -if g == @middlecategoryid
+              .listing__form__detail__box__form-group-search.small-category{style: 'display:block;'}
+                = f.collection_select :category_id, Category.find(g).grandchildren, :id, :name, {prompt: "---",selected:@smallcategoryid}, class: 'listing__form__detail__box__form-group__category-select'
+            -else
+              .listing__form__detail__box__form-group-search.small-category{style: 'display:none;'}
+                = f.collection_select :category_id, Category.find(g).grandchildren, :id, :name, {prompt: "---",selected:@smallcategoryid}, class: 'listing__form__detail__box__form-group__category-select'
           = f.hidden_field :category_grandparent_id_eq, id:"input_category_grandparent"
           = f.hidden_field :category_parent_id_eq,id:"input_category_parent"
           = f.hidden_field :category_id_eq,id:"input_category"

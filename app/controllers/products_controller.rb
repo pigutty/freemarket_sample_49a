@@ -17,6 +17,9 @@ class ProductsController < TopController
       order_name != nil ? @q.sorts = order_name : @q.sorts =[]
     end
     @products = @q.result(distinct: true).page(params[:page]).per(100)
+    @bigcategoryid =params[:q][:category_grandparent_id_eq].to_i
+    @middlecategoryid= params[:q][:category_parent_id_eq].to_i
+    @smallcategoryid = params[:q][:category_id_eq].to_i
   end
 
   def show
