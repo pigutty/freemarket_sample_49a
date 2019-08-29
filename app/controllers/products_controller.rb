@@ -27,6 +27,7 @@ class ProductsController < TopController
 
   def create
     @product = Product.create(listing_params)
+    redirect_to root_path
   end
 
   def buy
@@ -37,6 +38,9 @@ class ProductsController < TopController
   end
 
   def edit
+    @product = Product.find(params[:id])
+    @bigcategory_id = @product.category.parent.grandparent.id
+    @middlecategory_id = @product.category.parent.id
   end
 
 
@@ -52,6 +56,7 @@ class ProductsController < TopController
     if @product.user_id == current_user.id
       @product.update(listing_params)
     end
+    redirect_to root_path
   end
 
   def set_product
