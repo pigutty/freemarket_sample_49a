@@ -8,9 +8,15 @@ class ProductsController < TopController
   end
 
   def search
-    @keyword =  search_params[:name_cont]
     @q = Product.search(search_params)
-    @products = @q.result.page(params[:page]).per(100)
+    @keyword =  search_params[:name_cont]
+    # binding.pry
+    if params[:search] != nil
+      @order_id = params[:search][:search_order].to_i
+      order_name = SearchOrder.find(@order_id).name
+      order_name != nil ? @q.sorts = order_name : @q.sorts =[]
+    end
+    @products = @q.result(distinct: true).page(params[:page]).per(100)
   end
 
   def show
@@ -57,6 +63,7 @@ class ProductsController < TopController
   end
   
   def search_params
-    params.require(:q).permit(:name_cont,:brand_cont,:size_id_eq,:status_id_eq,:shipping_fee_id_eq,:purchase_status_id_eq,:category_grandparent_id_eq,:category_parent_id_eq,:category_id_eq,:price_lteq,:price_gteq)
+    params.require(:q).permit(:search_order,:name_cont,:brand_cont,:size_id_eq,:status_id_eq,:shipping_fee_id_eq,:purchase_status_id_eq,:category_grandparent_id_eq,:category_parent_id_eq,:category_id_eq,:price_lteq,:price_gteq)
   end
+
 end

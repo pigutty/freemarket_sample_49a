@@ -16,6 +16,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.integer         :user_id
       t.integer         :prefecture_id, null: false
       t.integer         :purchase_status_id
+      t.timestamps null: false
     end
   end
 end
