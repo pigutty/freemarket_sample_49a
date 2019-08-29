@@ -1,7 +1,6 @@
 class Product < ApplicationRecord
   has_one :purchase
   has_one :like
-  has_many :products_images
   has_many :comments
   belongs_to :user
   has_many_attached :images
