@@ -16,13 +16,13 @@ Rails.application.routes.draw do
   resources :credit_cards, only:[:new,:create]
   resources :mypage_card, only:[:index,:new]
   resources :user_profile, only:[:new,:edit,:update]
-  resources :products, only:[:show, :new, :edit, :create,:update] do
+  resources :products, only:[:show, :new, :edit, :create, :update, :destroy] do
     resources :purchases, only:[:new,:create]
     resources :comments, only: [:create]
+    get :status, on: :member
     collection do
       get 'search'
     end
   end
   resources :registration_check, only: [:index]
 end
-

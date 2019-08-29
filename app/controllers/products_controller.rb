@@ -1,5 +1,5 @@
 class ProductsController < TopController
-  before_action :set_product, only: [:show,:edit,:update] # 対象となる商品を設定
+  before_action :set_product, only: [:show,:edit,:update,:status,:destroy] # 対象となる商品を設定
 
   def search
     @q = Product.search(search_params)
@@ -17,8 +17,6 @@ class ProductsController < TopController
 
   def show
     @comments = @product.comments.includes(:user)
-    @child_category = Category.find(@product.category.child_id)
-    @grand_child_category = Category.find(@child_category.parent_id)
     @user_products = Product.where(user_id:@product.user_id).where.not(id:@product.id).limit(6).order('id DESC')
     @related_products = Product.where(category_id:@product.category_id).where.not(id:@product.id).limit(6).order('id DESC')
   end
@@ -33,16 +31,20 @@ class ProductsController < TopController
 
   def buy
   end
-
-  def edit
-    @middlecategoryid = @product.category.parent.id
-    @bigcategoryid = @product.category.parent.grandparent.id
+  
+  def status
+    @comments = @product.comments.includes(:user)
   end
 
+  def edit
+  end
+
+
   def destroy
-    @product = Product.find(params[:id])
       if @product.user_id == current_user.id
+        @product.images.purge
         @product.delete
+        redirect_to users_path
       end
   end
 
@@ -58,11 +60,10 @@ class ProductsController < TopController
 
   private
   def listing_params
-    params.require(:product).permit(:name, :description,:category_grandparent_id, :category_parent_id,:category_id, :size_id, :status_id, :shipping_fee_id, :prefecture_id, :shipping_date_id, :price,images: []).merge(user_id: current_user.id, purchase_status_id:1)
+    params.require(:product).permit(:name, :description,:category_grandparent_id, :category_parent_id,:category_id, :size_id, :status_id, :shipping_fee_id, :prefecture_id, :shipping_date_id, :price, images: []).merge(user_id: current_user.id, purchase_status_id:1)
   end
   
   def search_params
     params.require(:q).permit(:search_order,:name_cont,:brand_cont,:size_id_eq,:status_id_eq,:shipping_fee_id_eq,:purchase_status_id_eq,:category_grandparent_id_eq,:category_parent_id_eq,:category_id_eq,:price_lteq,:price_gteq)
   end
-
 end
