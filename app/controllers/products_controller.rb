@@ -37,7 +37,6 @@ class ProductsController < TopController
   end
 
   def edit
-    current_user != @product.user
   end
 
 
@@ -54,6 +53,8 @@ class ProductsController < TopController
   def update
     if @product.user_id == current_user.id
       @product.update(listing_params)
+    else
+      redirect_to root_path
     end
   end
 
