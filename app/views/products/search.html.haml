@@ -3,7 +3,7 @@
     = render 'top/header'
   .search__container
     .search__sidebar
-      = search_form_for @q,url:search_path, class:"search__form" do |f|
+      = search_form_for @q,url:search_products_path, class:"search__form" do |f|
         = collection_select :search,:search_order, SearchOrder.all, :id, :label, {prompt: "---",selected:@order_id},class:'order-select'
         .search-box
           %h3.search__form__title 詳細検索
