@@ -6,7 +6,6 @@ Rails.application.routes.draw do
     resources :products, only: [:edit,:show,:create], defaults: {format: 'json'}
   end
   resources :top, only: [:show]
-
   resources :users, only: [:index,:edit] do
     resources :mypage_card, only:[:index,:new]
   end
