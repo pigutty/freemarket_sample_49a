@@ -12,14 +12,18 @@ class PurchasesController < ApplicationController
 
   def create
     @product = Product.find(params[:product_id])
-    charge = Payjp::Charge.create(
-      amount: @product.price,
-      customer: current_user.customer_id,
-      currency: 'jpy',
-    )
-    Purchase.create(purchase_id:charge.id,product_id: params[:product_id],user_id:current_user.id)
-    @product.update(purchase_status_id: 2)
-    redirect_to root_path
+    if current_user != @product.user
+      charge = Payjp::Charge.create(
+        amount: @product.price,
+        customer: current_user.customer_id,
+        currency: 'jpy',
+      )
+      Purchase.create(purchase_id:charge.id,product_id: params[:product_id],user_id:current_user.id)
+      @product.update(purchase_status_id: 2)
+      redirect_to root_path
+    else
+      redirect_to  new_product_purchase_path(@product.id)
+    end
   end
 
   private
