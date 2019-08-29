@@ -4,7 +4,7 @@ class TopController < ApplicationController
   def index
     @bigcategories = Category.where(parent_id:nil, child_id:nil)
     @products = @bigcategories.map do |category|
-    Product.where(category_grandparent_id: category.id).slice(0,4)
+      Product.where(category_grandparent_id: category.id).slice(0,4)
     end  
   end
 

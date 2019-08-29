@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  root 'products#index' # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'top#index' # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api do
     resources :top, only: :index, defaults: { format: 'json' }
     resources :products, only: [:edit,:show,:create], defaults: {format: 'json'}
   end
   resources :top, only: [:show]
-  get 'search', to: 'products#search'
-
+  
   resources :users, only: [:index,:edit] do
     resources :mypage_card, only:[:index,:new]
   end
@@ -21,6 +20,9 @@ Rails.application.routes.draw do
   resources :products, only:[:index,:show, :new, :edit, :create,:update] do
     resources :purchases, only:[:new,:create]
     resources :comments, only: [:create]
+    collection do
+      get 'search'
+    end
   end
   resources :registration_check, only: [:index]
 end
