@@ -15,18 +15,17 @@ class UsersController < TopController
 
   def subjects
     if user_signed_in?
-      @user = User.find(current_user.id)
       @subjects2= 
         [{name:"マイページ",link:users_path},
         {name:"お知らせ",link:users_path}, 
         {name:"やることリスト",link:users_path}, 
         {name:"いいね！一覧",link:users_path}, 
         {name:"出品する",link:users_path},
-        {name:"出品した商品 - 出品中",link:user_path(@user)}, 
-        {name:"出品した商品 - 取引中",link:user_path(@user)}, 
-        {name:"出品した商品 - 売却済み",link:user_path(@user)}, 
-        {name:"購入した商品 - 取引中",link:user_path(@user)}, 
-        {name:"購入した商品 - 過去の取引",link:user_path(@user)}, 
+        {name:"出品した商品 - 出品中",link:user_path(current_user.id)}, 
+        {name:"出品した商品 - 取引中",link:user_path(current_user.id)}, 
+        {name:"出品した商品 - 売却済み",link:user_path(current_user.id)}, 
+        {name:"購入した商品 - 取引中",link:user_path(current_user.id)}, 
+        {name:"購入した商品 - 過去の取引",link:user_path(current_user.id)}, 
         {name:"ニュース一覧",link:users_path},
         {name:"評価一覧",link:users_path},
         {name:"ガイド",link:users_path},
