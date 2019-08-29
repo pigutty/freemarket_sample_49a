@@ -37,14 +37,17 @@ class ProductsController < TopController
   end
 
   def edit
+    current_user != @product.user
   end
 
 
   def destroy
-      if @product.user_id == current_user.id
+      if current_user == @product.user
         @product.images.purge
         @product.delete
         redirect_to users_path
+      else
+        redirect_to root_path
       end
   end
 
