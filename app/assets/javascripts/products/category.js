@@ -23,7 +23,6 @@ $(document).on('turbolinks:load', function(){
       smallcategory.change(function(){
         var smallvalue = document.getElementById('small-category').value;
         $('#input_category').attr("value",smallvalue);
-        // $('.lastchoice-category').children('select').val(smallvalue);
       });
     });
   });
