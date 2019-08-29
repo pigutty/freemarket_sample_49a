@@ -7,7 +7,7 @@
       .item-detail__image
         %ul.item-detail__image__sliders
           -if @product.images.attached?
-            -@product.images.each do |image|
+            -@product.images.all.order(id: "ASC").each do |image|
               %li.item-detail__image__slider
                 = image_tag image, alt: '', height: 'auto', width: '270px'
         %ul.item-detail__image__thumbnails

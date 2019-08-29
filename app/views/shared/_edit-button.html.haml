@@ -1,7 +1,6 @@
 .listing__edit
   .listing-edit__box
     .listing-edit__box__button
-      %button.btn-default.btn-red
-        変更する
-      %button.btn-default.btn-gray
-        キャンセル
+      =f.submit "変更する", class:'btn-default btn-red'
+      %button.btn-default.btn-gray{type:"button"}
+        =link_to 'キャンセル', root_path
