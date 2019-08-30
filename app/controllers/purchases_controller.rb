@@ -16,7 +16,7 @@ class PurchasesController < ApplicationController
 
   def create
     @product = Product.find(params[:product_id])
-    if current_user != @product.user
+    if current_user != @product.user && @product.purchase_status_id == 1
       charge = Payjp::Charge.create(
         amount: @product.price,
         customer: current_user.customer_id,
