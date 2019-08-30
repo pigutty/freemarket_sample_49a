@@ -1,13 +1,17 @@
 class PurchasesController < ApplicationController
   def new
     @product = Product.find(params[:product_id])
-    @customer = Payjp::Customer.retrieve(current_user.customer_id)
-    card = @customer.cards.data[0]
-    # カードが複数ある場合にどのカードを選ぶのかは問題だが、とりあえず一番目
-    @brand = card.brand
-    @last4 = card.last4
-    @month = card.exp_month
-    @year = card.exp_year
+    if current_user.id != @product.user.id
+      @customer = Payjp::Customer.retrieve(current_user.customer_id)
+      card = @customer.cards.data[0]
+      # カードが複数ある場合にどのカードを選ぶのかは問題だが、とりあえず一番目
+      @brand = card.brand
+      @last4 = card.last4
+      @month = card.exp_month
+      @year = card.exp_year
+    else
+      redirect_to root_path
+    end
   end
 
   def create
