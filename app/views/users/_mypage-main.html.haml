@@ -3,7 +3,7 @@
     = link_to("/users") do
       =image_tag "member_photo_noimage_thumb.png"
       %h2.mypage__username
-        = "username"
+        = current_user.nickname
       %ul.usericon__evaluation
         %li.usericon__evaluation__value
           %h3 評価 :0
