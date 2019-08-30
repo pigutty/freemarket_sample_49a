@@ -28,7 +28,7 @@ $(document).on('turbolinks:load', function(){
     $(this).children().css("color","#fff")
     $(this).append(middleul);
     var id = $(this).data('id');
-    var url = '/';
+    var url = '/api/top';
     $.ajax({
       type: "GET",
       url: url,
