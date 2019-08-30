@@ -16,9 +16,13 @@ class ProductsController < TopController
   end
 
   def show
-    @comments = @product.comments.includes(:user)
-    @user_products = Product.where(user_id:@product.user_id).where.not(id:@product.id).limit(6).order('id DESC')
-    @related_products = Product.where(category_id:@product.category_id).where.not(id:@product.id).limit(6).order('id DESC')
+    if current_user.id != @product.user.id
+      @comments = @product.comments.includes(:user)
+      @user_products = Product.where(user_id:@product.user_id).where.not(id:@product.id).limit(6).order('id DESC')
+      @related_products = Product.where(category_id:@product.category_id).where.not(id:@product.id).limit(6).order('id DESC')
+    else
+      redirect_to status_product_path(@product.id)
+    end
   end
 
   def new
