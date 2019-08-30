@@ -6,6 +6,9 @@
     }
     &__all-items {
       text-align: center;
+      &__head {
+        color: #0099e8;
+      }
       h2{
         font-size: 28px;
         padding: 40px 0;
@@ -14,8 +17,8 @@
     &__items {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       margin: 0 auto;
+      width: 940px;
     }
     &__item__box {
       width: 212px;
@@ -23,8 +26,10 @@
       margin: 10px 10px;
       background-color: #fff;
       &__image {
-        width: 213px;
-        height: 213px;
+        img {
+          width: 213px;
+          height: 213px;
+        }
       }
       &__item-name {
         position: relative;
@@ -56,6 +61,7 @@
 
         }
       }
+
       &__all-items-view {
         width:900px;
         text-align: right;
@@ -63,10 +69,12 @@
         margin: 0 auto;
       }
     .gray {
-       color: #ccc;
+      color: #ccc;
     }
     }
 }
+
+
 /*スライダー(slick)に関するstyle*/
 .slick-prev{
   width: 1%;
@@ -123,20 +131,6 @@
           opacity: 1;
         }
       }
-      &:before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        content:"";
-        width: 20px;
-        height: 20px;
-        font-size: 6px;
-        line-height: 20px;
-        text-align: center;
-        color: white;
-        opacity: 0.25;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
       }
     }
     &.slick-active button:before {
@@ -144,7 +138,7 @@
         opacity: 1;
     }
   }
-}
+
 .camera{
   height: 160px;
   width: 160px;

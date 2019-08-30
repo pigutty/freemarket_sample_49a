@@ -7,7 +7,7 @@
       .item-detail__image
         %ul.item-detail__image__sliders
           -if @product.images.attached?
-            -@product.images.each do |image|
+            -@product.images.all.order(id: "ASC").each do |image|
               %li.item-detail__image__slider
                 = image_tag image, alt: '', height: 'auto', width: '270px'
         %ul.item-detail__image__thumbnails
@@ -35,10 +35,10 @@
             %th カテゴリー
             %td
               .item-detail__table__category
-                = link_to @grand_child_category.name, '/'
+                = link_to @product.category.parent.grandparent.name, '/'
               .item-detail__table__category
                 %i.fas.fa-angle-right
-                = link_to @child_category.name, '/'
+                = link_to @product.category.parent.name, '/'
               .item-detail__table__category
                 %i.fas.fa-angle-right
                 = link_to @product.category.name, '/'
