@@ -158,7 +158,7 @@
     - if @related_products.present?
       .item-detail__other_items
         %h2
-          = "#{@grand_child_category.name}のその他の商品"
+          = "#{@product.category.name}のその他の商品"
         .item-detail__other_items.background-gray
           .contents__items
             - @related_products.each do |related_product|
