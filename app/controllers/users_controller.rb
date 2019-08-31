@@ -10,7 +10,7 @@ class UsersController < TopController
   end
 
   def show
-    @products = Product.order("id DESC").page(params[:page]).per(10)
+    @products = Product.where(user_id: current_user.id).order("id DESC").page(params[:page]).per(10) 
   end
 
   def subjects
