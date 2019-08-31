@@ -53,12 +53,16 @@ class ProductsController < TopController
         @product.images.purge
         @product.delete
         redirect_to users_path
+      else
+        redirect_to root_path
       end
   end
 
   def update
     if @product.user == current_user
       @product.update(listing_params)
+    else
+      redirect_to root_path
     end
     redirect_to root_path
   end

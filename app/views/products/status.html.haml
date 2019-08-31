@@ -80,15 +80,16 @@
         送料込み
     .item-detail__comment
       = @product.description
-    .item-detail__status
-      .item-detail__status__edit-button.red
-        = link_to '商品の編集', edit_product_path
-      .item-detail__status__other
-        or
-      .item-detail__status__edit-button.gray
-        = link_to '出品を一旦停止する', "/"
-      .item-detail__status__edit-button.gray
-        = link_to 'この商品を削除する', product_path, method: :delete
+    - if user_signed_in? && @product.user_id == current_user.id
+      .item-detail__status
+        .item-detail__status__edit-button.red
+          = link_to '商品の編集', edit_product_path
+        .item-detail__status__other
+          or
+        .item-detail__status__edit-button.gray
+          = link_to '出品を一旦停止する', "/"
+        .item-detail__status__edit-button.gray
+          = link_to 'この商品を削除する', product_path, method: :delete
     .item-detail__comment
       .item-detail__comment__box
         - @comments.each do |comment|
