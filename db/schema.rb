@@ -107,10 +107,10 @@ ActiveRecord::Schema.define(version: 2019_08_13_055807) do
   end
 
   create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "purchase_id"
+    t.string "purchase_id", null: false
     t.integer "evaluation"
-    t.integer "product_id"
-    t.bigint "user_id"
+    t.integer "product_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "fk_rails_0d630f0bc7"
