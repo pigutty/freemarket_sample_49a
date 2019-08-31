@@ -43,20 +43,24 @@ class ProductsController < TopController
   end
 
   def edit
-    @product = Product.find(params[:id])
-    @bigcategory_id = @product.category.parent.grandparent.id
-    @middlecategory_id = @product.category.parent.id
+    if @product.user == current_user
+      @product = Product.find(params[:id])
+      @bigcategory_id = @product.category.parent.grandparent.id
+      @middlecategory_id = @product.category.parent.id
+    else
+      redirect_to root_path
+    end
   end
 
 
   def destroy
-      if @product.user == current_user
-        @product.images.purge
-        @product.delete
-        redirect_to users_path
-      else
-        redirect_to root_path
-      end
+    if @product.user == current_user
+      @product.images.purge
+      @product.delete
+      redirect_to users_path
+    else
+      redirect_to root_path
+    end
   end
 
   def update
