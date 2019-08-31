@@ -1,5 +1,4 @@
-.contents__item__box
-  - 
+= link_to product_path(product.id), class:"contents__item__box" do
   .contents__item__box__image
     -if product.images.attached?
       = image_tag product.images[0]
