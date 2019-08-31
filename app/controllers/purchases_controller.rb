@@ -1,7 +1,7 @@
 class PurchasesController < ApplicationController
+  before_action :target_product 
   def new
-    @product = Product.find(params[:product_id])
-    if current_user.id != @product.user.id
+    if current_user != @product.user
       @customer = Payjp::Customer.retrieve(current_user.customer_id)
       card = @customer.cards.data[0]
       # カードが複数ある場合にどのカードを選ぶのかは問題だが、とりあえず一番目
@@ -34,5 +34,9 @@ class PurchasesController < ApplicationController
 
   def purchase_params
     params.permit(:product_id).merge(current_user.id,current_user.customer_id)
+  end
+
+  def target_product
+    @product = Product.find(params[:product_id])
   end
 end
