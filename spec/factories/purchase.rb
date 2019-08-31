@@ -1,5 +1,5 @@
 require 'payjp'
-Payjp.api_key=
+Payjp.api_key=Rails.application.credentials.payjp_secret_key
 token = Payjp::Token.create({
   :card => {
     :number => '4242424242424242',
