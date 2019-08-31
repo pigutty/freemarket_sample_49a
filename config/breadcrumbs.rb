@@ -7,11 +7,10 @@ crumb :mypage do
   parent :root
 end
 
-crumb :category do
-  link 'カテゴリー一覧', xxx_path
-  parent :root
-end
-
+# crumb :category do
+#   link 'カテゴリー一覧', xxx_path
+#   parent :root
+# end
 
 # crumb :user_show do
 #   link "#{current_user.name}"
