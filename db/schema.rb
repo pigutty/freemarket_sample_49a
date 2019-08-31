@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 2019_08_13_055807) do
   end
 
   create_table "address_registrations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "family_name", null: false
-    t.string "first_name", null: false
-    t.string "family_furigana", null: false
-    t.string "first_furigana", null: false
+    t.string "family_name"
+    t.string "first_name"
+    t.string "family_furigana"
+    t.string "first_furigana"
     t.integer "postal_code", null: false
     t.integer "prefecture_id", null: false
     t.string "city", null: false
@@ -107,10 +107,10 @@ ActiveRecord::Schema.define(version: 2019_08_13_055807) do
   end
 
   create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "purchase_id"
+    t.string "purchase_id", null: false
     t.integer "evaluation"
-    t.integer "product_id"
-    t.bigint "user_id"
+    t.integer "product_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "fk_rails_0d630f0bc7"
@@ -138,15 +138,17 @@ ActiveRecord::Schema.define(version: 2019_08_13_055807) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nickname", null: false
-    t.string "family_name", null: false
-    t.string "first_name", null: false
-    t.string "family_furigana", null: false
-    t.string "first_furigana", null: false
-    t.integer "birth_year", null: false
-    t.integer "birth_month", null: false
-    t.integer "birth_day", null: false
+    t.string "nickname"
+    t.string "family_name"
+    t.string "first_name"
+    t.string "family_furigana"
+    t.string "first_furigana"
+    t.integer "birth_year"
+    t.integer "birth_month"
+    t.integer "birth_day"
     t.text "profile"
+    t.string "uid"
+    t.string "provider"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
