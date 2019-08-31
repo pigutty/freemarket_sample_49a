@@ -11,7 +11,10 @@ FactoryBot.define do
     category_grandparent_id {1}
     category_parent_id      {20}
     category_id             {229}
+    association             :user
     prefecture_id           {1}
     purchase_status_id      {1}
+    created_at              { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
+    updated_at              { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
   end
 end
