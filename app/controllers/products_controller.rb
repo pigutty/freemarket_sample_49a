@@ -1,4 +1,5 @@
 class ProductsController < TopController
+  skip_before_action :authenticate_user!, only: [:search]
   before_action :set_product, only: [:show,:edit,:update,:status,:destroy] # 対象となる商品を設定
 
   def search
