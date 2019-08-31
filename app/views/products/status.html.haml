@@ -7,14 +7,14 @@
       .item-detail__image
         %ul.item-detail__image__sliders
           -if @product.images.attached?
-            -@product.images.all.order(id: "ASC").each do |image|
+            -@product.images.each do |image|
               %li.item-detail__image__slider
-                = image_tag image, alt: '', height: 'auto', width: '270px'
+                = image_tag image, height: 'auto', width: '270px'
         %ul.item-detail__image__thumbnails
           -if @product.images.attached?
             -@product.images.each do |image|
               %li.item-detail__image__thumbnail
-                = image_tag image, alt: '', height: '60px', width: '60px'
+                = image_tag image, height: '60px', width: '60px'
       .item-detail__table
         %table
           %tr
@@ -78,26 +78,17 @@
         (税込)
       .item-detail__shipping_cost
         送料込み
-    .item-detail__purchase-button
-      = link_to '購入画面に進む',  new_product_purchase_path(@product.id)
     .item-detail__comment
       = @product.description
-    .item-detail__like-bad-other
-      .item-detail__like
-        %i.far.fa-heart
-        %span いいね！
-        %span
-        - if @product.like.present?
-          @product.like.like
-      .item-detail__bad
-        %i.far.fa-flag
-        %span 不適切な商品の報告
-        %span
-        - if @product.like.present?
-          @product.like.bad
-      .item-detail__other
-        %i.fas.fa-lock
-        = link_to 'あんしん・あんぜんへの取り組み','/'
+    .item-detail__status
+      .item-detail__status__edit-button.red
+        = link_to '商品の編集', edit_product_path
+      .item-detail__status__other
+        or
+      .item-detail__status__edit-button.gray
+        = link_to '出品を一旦停止する', "/"
+      .item-detail__status__edit-button.gray
+        = link_to 'この商品を削除する', product_path, method: :delete
     .item-detail__comment
       .item-detail__comment__box
         - @comments.each do |comment|
@@ -121,54 +112,4 @@
         = form_with(model: [ @product, Comment.new ]) do |form|
           = form.text_area :text, class: :'item-detail__comment__form'
           = form.submit value: "コメントする", class: :'item-detail__comment__form__button'
-    .item-detail__prev-next
-      .item-detail__prev
-        .item-detail__prev__arrow
-        <
-        .item-detail__prev__item-name
-        サンダルメリッサ アローズ ローズバッド ビームス
-      .item-detail__next
-        .item-detail__next__item-name
-        新品未開封マキアージュ ドラマティックスキンセンサーベースUV
-        .item-detail__next__arrow
-          >
-    .item-detail__social_icons
-      .item-detail__social_icons__facebook
-        %i.fab.fa-facebook-square
-      .item-detail__social_icons__twitter
-        %i.fab.fa-twitter-square
-      .item-detail__social_icons__pinterest
-        %i.fab.fa-pinterest-square
-    -if @user_products.present?
-      .item-detail__other_items
-        %h2
-          = "#{@product.user.nickname}さんのその他の商品"
-        .item-detail__other_items.background-gray
-          .contents__items
-            - @user_products.each do |user_product|
-              .contents__item__box
-                .contents__item__box__image
-                  -if user_product.images.attached?
-                    = image_tag user_product.images[0], height: '213', width: '213'
-                .contents__item__box__item-name
-                  = user_product.name
-                .contents__item__box__price-favorite
-                .contents__item__box__price
-                  = "¥#{user_product.price.to_s(:delimited)}"
-    - if @related_products.present?
-      .item-detail__other_items
-        %h2
-          = "#{@grand_child_category.name}のその他の商品"
-        .item-detail__other_items.background-gray
-          .contents__items
-            - @related_products.each do |related_product|
-              .contents__item__box
-                .contents__item__box__image
-                  - if related_product.images.attached?
-                    = image_tag related_product.images[0], height: '213', width: '213'
-                .contents__item__box__item-name
-                  = related_product.name
-                .contents__item__box__price-favorite
-                .contents__item__box__price
-                  = "¥#{related_product.price.to_s(:delimited)}"
 = render './top/footer'

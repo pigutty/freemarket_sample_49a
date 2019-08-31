@@ -1,0 +1,44 @@
+.status-wrapper
+  .status-wrapper__title 出品した商品
+  .status-wrapper__tab
+    %input#listing{checked: "checked", name: "tab_item", type: "radio"}
+    %label.tab_item{for: "listing"} 出品中
+    %input#trading{name: "tab_item", type: "radio"}
+    %label.tab_item{for: "trading"} 取引中
+    %input#completed{name: "tab_item", type: "radio"}
+    %label.tab_item{for: "completed"} 売却済み
+
+
+    .status-wrapper__tab__content#listing_content
+      - @products.each do | product |
+        = link_to product_path(product), class: 'status-wrapper__tab__content__list' do
+          -if product.images.attached?
+            = image_tag product.images[0],class: 'status-wrapper__tab__content__list__icon', size: "48x48"
+          .status-wrapper__tab__content__list__detail
+            .status-wrapper__tab__content__list__detail__name
+              = product.name
+            .status-wrapper__tab__content__list__detai__count
+              %i.far.fa-heart 0
+              %i.far.fa-comment-alt 0
+              %span.status-tag 出品中
+          %i.fa.fa-chevron-right.status-wrapper__tab__content__list__click
+      = paginate @products, window:2
+
+    .status-wrapper__tab__content#trading_content
+      .status-wrapper__tab__content__trading
+        .status-wrapper__tab__content__list__trading__image
+        = image_tag 'logo-gray.svg', size: "100x100"
+        %h1.status-wrapper__tab__content__list__trading__text 取引中の商品はありません
+
+    .status-wrapper__tab__content#completed_content
+      .status-wrapper__tab__content__trading
+        .status-wrapper__tab__content__list__trading__image
+        = image_tag 'logo-gray.svg', size: "100x100"
+        %h1.status-wrapper__tab__content__list__trading__text 売却済みの商品はありません
+
+
+
+
+
+
+

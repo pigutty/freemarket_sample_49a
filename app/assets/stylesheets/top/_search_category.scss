@@ -74,6 +74,7 @@
   margin: 0 auto;
     &__box{
       display: flex;
+      justify-content: center;
       &__cell{
         display: inline-block;
         width: 44px;
