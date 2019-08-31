@@ -17,16 +17,18 @@
     flex-wrap: wrap;
     align-content: flex-start;
     margin: 0 auto;
-  }
-  &__item__box-category {
-    width: 184px;
-    margin: 10px 10px;
-    background-color: #fff;
-    &__image-category {
-      width: 213px;
-      height: 213px;
-      img{
-        float: left;
+    .contents__item__box{
+      width: 184px;
+      margin: 10px 10px;
+      background-color: #fff;
+      &__image {
+        width: 184px;
+        height: 184px;
+        img{
+          width: 184px;
+          height: 184px;
+          float: left;
+        }
       }
     }
   }
@@ -72,6 +74,7 @@
   margin: 0 auto;
     &__box{
       display: flex;
+      justify-content: center;
       &__cell{
         display: inline-block;
         width: 44px;

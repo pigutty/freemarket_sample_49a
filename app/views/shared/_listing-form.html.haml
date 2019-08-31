@@ -52,26 +52,26 @@
             カテゴリー
           %span.listing__form__detail__box__form-group__require
             必須
-          = f.collection_select :category_id0, Category.all.take(13), :id, :name, {prompt: "---", selected: @bigcategoryid}, class: 'listing__form__detail__box__form-group__category-select', id: 'big-category'
+          = f.collection_select :category_id0, Category.all.take(13), :id, :name, {prompt: "---", selected: @bigcategory_id}, class: 'listing__form__detail__box__form-group__category-select', id: 'big-category'
 
         - (1...14).each do |e|
-          -if e == @bigcategoryid
+          -if e == @bigcategory_id
             .listing__form__detail__box__form-group.middle-category
               %label
                 カテゴリー
               %span.listing__form__detail__box__form-group__require
                 必須
-              = f.collection_select :category_id0,Category.find(e).children, :id, :name, {prompt: "---", selected: @middlecategoryid}, class: 'listing__form__detail__box__form-group__category-select'
+              = f.collection_select :category_id0,Category.find(e).children, :id, :name, {prompt: "---", selected: @middlecategory_id}, class: 'listing__form__detail__box__form-group__category-select'
           -else 
             .listing__form__detail__box__form-group.middle-category{style: 'display:none;'}
               %label
                 カテゴリー
               %span.listing__form__detail__box__form-group__require
                 必須
-              = f.collection_select :category_id0,Category.find(e).children, :id, :name, {prompt: "---", selected: @middlecategoryid}, class: 'listing__form__detail__box__form-group__category-select'
+              = f.collection_select :category_id0,Category.find(e).children, :id, :name, {prompt: "---", selected: @middlecategory_id}, class: 'listing__form__detail__box__form-group__category-select'
         
         - (14...159).each do |g|
-          -if g == @middlecategoryid
+          -if g == @middlecategory_id
             .listing__form__detail__box__form-group.small-category
               %label
                 カテゴリー
@@ -120,6 +120,14 @@
           %span.listing__form__delivery__box__form-group__require
             必須
           = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {prompt: "---"}, {class: 'listing__form__delivery__box__form-group__category-select'}
+
+
+        .listing__form__delivery__box__form-group
+          %label.listing__form__delivery__box__form-group__product-name
+            配送の方法
+          %span.listing__form__delivery__box__form-group__require
+            必須
+          = f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, {prompt: "---"}, {class: 'listing__form__delivery__box__form-group__category-select'}
 
         .listing__form__delivery__box__form-group
           %label.listing__form__delivery__box__form-group__product-name

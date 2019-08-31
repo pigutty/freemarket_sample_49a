@@ -11,6 +11,8 @@ FactoryBot.define do
     birth_year            {1990}
     birth_month           {1}
     birth_day             {1}
+    created_at            { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
+    updated_at            { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
   end
 end
 
