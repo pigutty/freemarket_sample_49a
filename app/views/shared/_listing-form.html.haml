@@ -121,6 +121,14 @@
             必須
           = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {prompt: "---"}, {class: 'listing__form__delivery__box__form-group__category-select'}
 
+
+        .listing__form__delivery__box__form-group
+          %label.listing__form__delivery__box__form-group__product-name
+            配送の方法
+          %span.listing__form__delivery__box__form-group__require
+            必須
+          = f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, {prompt: "---"}, {class: 'listing__form__delivery__box__form-group__category-select'}
+
         .listing__form__delivery__box__form-group
           %label.listing__form__delivery__box__form-group__product-name
             発送元の地域
