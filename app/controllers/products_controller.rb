@@ -16,9 +16,13 @@ class ProductsController < TopController
   end
 
   def show
-    @comments = @product.comments.includes(:user)
-    @user_products = Product.where(user_id:@product.user_id).where.not(id:@product.id).limit(6).order('id DESC')
-    @related_products = Product.where(category_id:@product.category_id).where.not(id:@product.id).limit(6).order('id DESC')
+    if current_user != @product.user
+      @comments = @product.comments.includes(:user)
+      @user_products = Product.where(user_id:@product.user_id).where.not(id:@product.id).limit(6).order('id DESC')
+      @related_products = Product.where(category_id:@product.category_id).where.not(id:@product.id).limit(6).order('id DESC')
+    else
+      redirect_to status_product_path(@product.id)
+    end
   end
 
   def new
@@ -45,7 +49,7 @@ class ProductsController < TopController
 
 
   def destroy
-      if @product.user_id == current_user.id
+      if @product.user == current_user
         @product.images.purge
         @product.delete
         redirect_to users_path
@@ -53,7 +57,7 @@ class ProductsController < TopController
   end
 
   def update
-    if @product.user_id == current_user.id
+    if @product.user == current_user
       @product.update(listing_params)
     end
     redirect_to root_path
