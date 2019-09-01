@@ -13,35 +13,17 @@ class CreditCardsController < ApplicationController
   end
 
   def create
-    create_token(credit_card_params)
+    @customer = Payjp::Customer.create()
+    # @customer = Payjp::Customer.retrieve(current_user.customer_id)
+    # 顧客IDを事前に作成して、それを取得する場合はこちらのコードを使用する
     current_user.customer_id = @customer.id
     current_user.save
-    CreditCard.create(token_id: @token_id, user_id: current_user.id)
-    redirect_to registration_check_index_path
+    CreditCard.create(token_id: params[:token], user_id: current_user.id)
   end
 
   private
   def credit_card_params
     params.permit(:number,:cvc,:user_id).merge(params.require(:select).permit(:exp_month,:exp_year))
   end
-
-  def create_token(credit_card_params)
-    @token = Payjp::Token.create({
-      :card => {
-      :number => credit_card_params[:number],
-      :cvc => credit_card_params[:cvc],
-      :exp_month => credit_card_params["exp_month(2i)"],
-      :exp_year => credit_card_params["exp_year(1i)"]
-    }},
-    {
-      'X-Payjp-Direct-Token-Generate': 'true'
-    })
-    @token_id = @token.id
-    @customer = Payjp::Customer.create()
-    # @customer = Payjp::Customer.retrieve(current_user.customer_id)
-    # 顧客IDを事前に作成して、それを取得する場合はこちらのコードを使用する
-    @customer.cards.create(card:@token_id)
-  end
-
 
 end

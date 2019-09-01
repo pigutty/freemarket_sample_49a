@@ -1,7 +1,7 @@
 = render 'signup/registration-header'
 .registration__container
   .registration__title 支払い方法
-  = form_with  url:credit_cards_path,class:'registration__content',id:'new_credit_card' do |f|
+  = form_with url:credit_cards_path,class:'registration__content',id:"new_credit_card",remote:true do |f|
     .registration__content__box
       = render 'render/input-form-required',label:'カード番号',example:'半角数字のみ',form: f, name: :number
       = image_tag 'credit_card.jpg'
