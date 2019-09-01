@@ -173,6 +173,7 @@ $(document).on('turbolinks:load',function(){
 
     // コントローラーで削除を実行します。api/products　のedit actionに進んでください。
     var url = window.location.pathname.replace(/products/,'api/products');
+    // console.log(url);
     $.ajax({
       type: "GET",
       url: url,
