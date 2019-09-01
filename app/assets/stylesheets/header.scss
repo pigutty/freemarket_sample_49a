@@ -423,6 +423,41 @@
             }
           }
         }
+        .header-bottom__user-menu-logout{
+          position: absolute;
+          right: 0;
+          width: 200px;
+          height: 32px;
+          .header-bottom__user-menu__mypage__box-logout{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            li{
+              line-height: 32px;
+              padding: 0 10px;
+              text-align: center;
+              border-radius: 4px;
+              a{
+                font-size: 14px;
+                display: block;
+              }
+            }
+            .header-bottom__registration-button{
+              background: #ea352d;
+              a{
+                color: white;
+              }
+            }
+            .header-bottom__login-button{
+              background: white;
+              border-radius: 4px;
+              border: 1px solid rgb(0, 149, 238);
+              a{
+                color: rgb(0, 149, 238);
+              }
+            }
+          }
+        }
       }
     }
   }
