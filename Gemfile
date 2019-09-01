@@ -84,4 +84,6 @@ gem 'omniauth-facebook'
 gem 'capistrano-rails-console'
 gem 'omniauth-google-oauth2'
 gem 'kaminari'
+gem 'gretel'
 gem 'ransack'
+
