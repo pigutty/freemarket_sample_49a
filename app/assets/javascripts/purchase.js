@@ -22,7 +22,7 @@ $(document).on('turbolinks:load', function() {
         dataType: 'json',
       })
       .done(function(){
-        window.location = "/";
+        window.location = "/registration_check";
       })
       .fail(function(){
         return false;
