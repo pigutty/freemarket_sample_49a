@@ -28,25 +28,25 @@
             = render partial:'top/header_brand_item', locals:{brand:'アディダス'}
             = render partial:'top/header_brand_item', locals:{brand:'ブランド一覧'}
       %ul.header-bottom__user-menu
-        %li.header-bottom__user-menu__good
-          .header-bottom__user-menu__good__icon
-            %i.far.fa-heart
-            %span いいね！一覧
-        %li.header-bottom__user-menu__notification
-          .header-bottom__user-menu__notification__icon
-            %i.fas.fa-bell
-            %span お知らせ
-            .header-bottom__user-menu__notification__icon__count 10
-          %ul.header-bottom__user-menu__notification__wrapper
-            = render partial:'top/header_notification', locals:{header_notification:"安心でかんたんに出品する方法をCHECKしてみよう！",notification_time:"11時間前"}
-            = render partial:'top/header_notification', locals:{header_notification:"安心でかんたんに出品する方法をCHECKしてみよう！",notification_time:"11時間前"}
-        %li.header-bottom__user-menu__todolist
-          .header-bottom__user-menu__todolist__icon
-            %i.fa.fa-check
-            %span やることリスト
-          %ul.header-bottom__user-menu__todolist__content
-            %li.header-bottom__user-menu__todolist__content__view  現在やることはありません
         - if user_signed_in?
+          %li.header-bottom__user-menu__good
+            .header-bottom__user-menu__good__icon
+              %i.far.fa-heart
+              %span いいね！一覧
+          %li.header-bottom__user-menu__notification
+            .header-bottom__user-menu__notification__icon
+              %i.fas.fa-bell
+              %span お知らせ
+              .header-bottom__user-menu__notification__icon__count 10
+            %ul.header-bottom__user-menu__notification__wrapper
+              = render partial:'top/header_notification', locals:{header_notification:"安心でかんたんに出品する方法をCHECKしてみよう！",notification_time:"11時間前"}
+              = render partial:'top/header_notification', locals:{header_notification:"安心でかんたんに出品する方法をCHECKしてみよう！",notification_time:"11時間前"}
+          %li.header-bottom__user-menu__todolist
+            .header-bottom__user-menu__todolist__icon
+              %i.fa.fa-check
+              %span やることリスト
+            %ul.header-bottom__user-menu__todolist__content
+              %li.header-bottom__user-menu__todolist__content__view  現在やることはありません
           %li.header-bottom__user-menu__mypage
             =link_to users_path, class:'header-bottom__user-menu__mypage__icon' do
               =image_tag "member_photo_noimage_thumb.png"
@@ -82,3 +82,10 @@
                 = render partial:'top/header_usermenu_card', locals:{card:"出品した商品-売却済"}
                 = render partial:'top/header_usermenu_card', locals:{card:"購入した商品-取引中"}
                 = render partial:'top/header_usermenu_card', locals:{card:"出品した商品-過去の取引"}
+        - else
+          %li.header-bottom__user-menu-logout
+            %ul.header-bottom__user-menu__mypage__box-logout
+              %li.header-bottom__registration-button
+                = link_to "新規会員登録", signup_index_path, class:"btn-red"
+              %li.header-bottom__login-button
+                = link_to 'ログイン', new_user_session_path, class:"blue-btn"

@@ -2,13 +2,17 @@ class PurchasesController < ApplicationController
   before_action :target_product 
   def new
     if current_user != @product.user
-      @customer = Payjp::Customer.retrieve(current_user.customer_id)
-      card = @customer.cards.data[0]
-      # カードが複数ある場合にどのカードを選ぶのかは問題だが、とりあえず一番目
-      @brand = card.brand
-      @last4 = card.last4
-      @month = card.exp_month
-      @year = card.exp_year
+      if current_user.credit_cards.length != 0
+        @customer = Payjp::Customer.retrieve(current_user.customer_id)
+        card = @customer.cards.data[0]
+        # カードが複数ある場合にどのカードを選ぶのかは問題だが、とりあえず一番目
+        @brand = card.brand
+        @last4 = card.last4
+        @month = card.exp_month
+        @year = card.exp_year
+      else
+        redirect_to mypage_card_index_path
+      end
     else
       redirect_to root_path
     end
