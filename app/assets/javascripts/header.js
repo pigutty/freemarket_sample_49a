@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   $(".header-bottom__search-menu__brand").hover(function(){
     $(".header-bottom__search-menu__brand__wrapper__1").css('display','block');
     $(".header-bottom__search-menu__brand__icon").css('color','#0099e8');

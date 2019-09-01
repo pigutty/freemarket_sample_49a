@@ -11,4 +11,3 @@ crumb :top do
   link Category.find(params[:id]).name, top_path(params[:id])
   parent :root
 end
-
