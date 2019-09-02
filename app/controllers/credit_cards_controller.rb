@@ -18,6 +18,7 @@ class CreditCardsController < ApplicationController
     # 顧客IDを事前に作成して、それを取得する場合はこちらのコードを使用する
     current_user.customer_id = @customer.id
     current_user.save
+    @customer.cards.create(card: params[:token])
     CreditCard.create(token_id: params[:token], user_id: current_user.id)
   end
 
