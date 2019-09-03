@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function() {
-  $(".registration__content mypage__content").submit(function(e){
+  $("#new_credit_card, .registration__content mypage__content").submit(function(e){
     e.preventDefault();
     Payjp.setPublicKey('pk_test_d7948e7275630f3552910c45');
     var card = {
