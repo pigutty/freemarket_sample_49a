@@ -109,6 +109,16 @@
         color: #fff;
       }
   }
+  &__sold-out__button {
+    background-color: #aaa;
+    width: 85%;
+    height: 60px;
+    margin: 0 auto;
+    font-size: 25px;
+    color: #fff;
+    text-align: center;
+    line-height: 60px;
+  }
     &__comment {
       margin: 30px;
       font-size: 18px;
