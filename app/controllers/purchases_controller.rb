@@ -1,5 +1,6 @@
 class PurchasesController < ApplicationController
-  before_action :target_product 
+  before_action :target_product
+  before_action :purchase_status_check 
   def new
     if current_user != @product.user
       if current_user.credit_cards.length != 0
@@ -19,19 +20,19 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    @product = Product.find(params[:product_id])
-    if current_user != @product.user && @product.purchase_status_id == 1
+    unless @product.purchase_status_id == 1
+      redirect_to root_path
+    end
+    if current_user != @product.user 
       charge = Payjp::Charge.create(
         amount: @product.price,
         customer: current_user.customer_id,
         currency: 'jpy',
-      )
+        )
       Purchase.create(purchase_id:charge.id,product_id: params[:product_id],user_id:current_user.id)
       @product.update(purchase_status_id: 2)
-      redirect_to root_path
-    else
-      redirect_to  new_product_purchase_path(@product.id)
     end
+    redirect_to  root_path
   end
 
   private
@@ -42,5 +43,11 @@ class PurchasesController < ApplicationController
 
   def target_product
     @product = Product.find(params[:product_id])
+  end
+
+  def purchase_status_check 
+    unless @product.purchase_status_id == 1
+      redirect_to root_path
+    end
   end
 end
