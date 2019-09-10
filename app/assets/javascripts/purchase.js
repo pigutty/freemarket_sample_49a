@@ -26,7 +26,7 @@ $(document).on('turbolinks:load', function() {
         window.location = "/registration_check";
       })
       .fail(function(){
-        return false;
+        window.location = "/";
       })
     });
   })
