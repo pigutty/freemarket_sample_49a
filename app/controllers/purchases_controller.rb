@@ -1,9 +1,7 @@
 class PurchasesController < ApplicationController
-  before_action :target_product 
+  before_action :target_product
+  before_action :purchase_status_check 
   def new
-    unless @product.purchase_status_id == 1
-      redirect_to root_path
-    end
     if current_user != @product.user
       if current_user.credit_cards.length != 0
         @customer = Payjp::Customer.retrieve(current_user.customer_id)
@@ -45,5 +43,11 @@ class PurchasesController < ApplicationController
 
   def target_product
     @product = Product.find(params[:product_id])
+  end
+
+  def purchase_status_check 
+    unless @product.purchase_status_id == 1
+      redirect_to root_path
+    end
   end
 end
