@@ -78,8 +78,12 @@
         (税込)
       .item-detail__shipping_cost
         送料込み
-    .item-detail__purchase-button
-      = link_to '購入画面に進む',  new_product_purchase_path(@product.id)
+    - if @product.purchase_status_id == 1
+      .item-detail__purchase-button
+        = link_to '購入画面に進む',  new_product_purchase_path(@product.id)
+    - else
+      .item-detail__sold-out__button
+        売り切れました
     .item-detail__comment
       = @product.description
     .item-detail__like-bad-other
