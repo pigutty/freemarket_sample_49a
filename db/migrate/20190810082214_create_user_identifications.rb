@@ -2,7 +2,7 @@ class CreateUserIdentifications < ActiveRecord::Migration[5.2]
   def change
     create_table :user_identifications do |t|
 
-      t.integer :post_number, null:false
+      t.string :post_number
       t.integer :prefecture_id
       t.string :city
       t.string :block

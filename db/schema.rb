@@ -38,12 +38,12 @@ ActiveRecord::Schema.define(version: 2019_08_13_055807) do
     t.string "first_name"
     t.string "family_furigana"
     t.string "first_furigana"
-    t.integer "postal_code", null: false
+    t.string "postal_code"
     t.integer "prefecture_id", null: false
     t.string "city", null: false
     t.string "block", null: false
     t.string "building"
-    t.integer "phone_number", null: false
+    t.string "phone_number"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -74,16 +74,11 @@ ActiveRecord::Schema.define(version: 2019_08_13_055807) do
   end
 
   create_table "phone_number_authorizations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "telephone", null: false
+    t.string "telephone"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_phone_number_authorizations_on_user_id"
-  end
-
-  create_table "product_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "product_id", null: false
-    t.string "image_url"
   end
 
   create_table "products", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -118,7 +113,7 @@ ActiveRecord::Schema.define(version: 2019_08_13_055807) do
   end
 
   create_table "user_identifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "post_number", null: false
+    t.string "post_number"
     t.integer "prefecture_id"
     t.string "city"
     t.string "block"
