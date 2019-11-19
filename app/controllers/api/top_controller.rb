@@ -1,4 +1,4 @@
-class Api::TopController < ApplicationController
+class Api::TopController < TopController
   def index
     if params[:parent_id] != nil
       parent_id = params[:parent_id].to_i
