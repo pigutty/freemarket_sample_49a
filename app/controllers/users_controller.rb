@@ -20,7 +20,7 @@ class UsersController < TopController
         {name:"お知らせ",link:users_path}, 
         {name:"やることリスト",link:users_path}, 
         {name:"いいね！一覧",link:users_path}, 
-        {name:"出品する",link:users_path},
+        {name:"出品する",link:new_product_path},
         {name:"出品した商品 - 出品中",link:user_path(current_user.id)}, 
         {name:"出品した商品 - 取引中",link:user_path(current_user.id)}, 
         {name:"出品した商品 - 売却済み",link:user_path(current_user.id)}, 

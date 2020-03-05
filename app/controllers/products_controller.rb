@@ -32,8 +32,13 @@ class ProductsController < TopController
   end
 
   def create
-    @product = Product.create(listing_params)
-    redirect_to root_path
+    @product = Product.new(listing_params)
+    unless @product.images.attached?
+      redirect_to new_product_path 
+    else
+      @product.save
+      redirect_to root_path
+    end
   end
 
   def buy
@@ -56,8 +61,12 @@ class ProductsController < TopController
   end
 
   def update
-    @product.update(listing_params)
-    redirect_to users_path
+    unless @product.images.attached? || listing_params[:images].length != 0
+      redirect_to edit_product_path(@product.id) 
+    else
+      @product.update(listing_params)
+      redirect_to users_path
+    end
   end
 
   def set_product
@@ -78,4 +87,5 @@ class ProductsController < TopController
       redirect_to root_path
     end
   end
+
 end
