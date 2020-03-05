@@ -5,12 +5,12 @@ class AddressRegistration < ActiveRecord::Migration[5.2]
       t.string :first_name
       t.string :family_furigana
       t.string :first_furigana
-      t.integer :postal_code, null:false
+      t.string :postal_code
       t.integer :prefecture_id, null:false
       t.string :city, null:false
       t.string :block, null:false
       t.string :building
-      t.integer :phone_number, null:false
+      t.string :phone_number
       t.references :user
       t.timestamps
     end
